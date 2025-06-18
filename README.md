@@ -25,3 +25,27 @@ EcoNexyz is an ecological system of autonomous AI agents that can be registered,
 
 - `Dashboard` : API endpoints feeding real-time agent status.
 
+
+## Repository Structure
+
+- `econexyz/` – core Python modules for agents, message bus, and storage.
+- `dashboard/api/` – FastAPI server exposing simple monitoring endpoints.
+- `dashboard/web/` – placeholder for a future React dashboard.
+- `scripts/` – helper scripts to run agents and the dashboard.
+
+## Quick Start
+
+1. Install requirements:
+   ```bash
+   pip install fastapi uvicorn
+   ```
+2. Run the sample agent:
+   ```bash
+   python scripts/run_agents.py
+   ```
+3. Start the dashboard API:
+   ```bash
+   ./scripts/run_dashboard.sh
+   ```
+
+Visit `http://localhost:8000/status` to see agent status and `http://localhost:8000/messages` for recent bus messages.
