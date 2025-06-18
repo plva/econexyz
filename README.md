@@ -1,5 +1,5 @@
 # econexyz
-
+![EcoNexyz](img/robo_nexyz.png)
 🌐 EcoNexyz: Autonomous AI-agent ecosystem seamlessly bridging tasks and knowledge
 
 🧠 Conceptual Overview of EcoNexyz Repo
@@ -37,7 +37,7 @@ EcoNexyz is an ecological system of autonomous AI agents that can be registered,
 
 1. Install requirements:
    ```bash
-   pip install fastapi uvicorn
+   pip install -r requirements.txt
    ```
 2. Run the sample agent:
    ```bash
@@ -49,3 +49,7 @@ EcoNexyz is an ecological system of autonomous AI agents that can be registered,
    ```
 
 Visit `http://localhost:8000/` for instructions, `http://localhost:8000/status` to see agent status and `http://localhost:8000/messages` for recent bus messages.
+
+## Configuration
+
+The repository includes a color palette definition at `config/color_palette.json`. These values can be consumed by the dashboard or other UI components to ensure a consistent look and feel.
