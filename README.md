@@ -49,3 +49,7 @@ EcoNexyz is an ecological system of autonomous AI agents that can be registered,
    ```
 
 Visit `http://localhost:8000/status` to see agent status and `http://localhost:8000/messages` for recent bus messages.
+
+## Configuration
+
+The repository includes a color palette definition at `config/color_palette.json`. These values can be consumed by the dashboard or other UI components to ensure a consistent look and feel.
