@@ -14,6 +14,17 @@ class SQLiteKnowledgeStore(KnowledgeStore):
         self.conn = sqlite3.connect(path)
         self._create_table()
 
+    def close(self) -> None:
+        """Close the underlying database connection."""
+        self.conn.close()
+
+    # Support use as a context manager
+    def __enter__(self) -> "SQLiteKnowledgeStore":
+        return self
+
+    def __exit__(self, exc_type, exc, tb) -> None:
+        self.close()
+
     def _create_table(self) -> None:
         cur = self.conn.cursor()
         cur.execute(

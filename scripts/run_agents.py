@@ -16,23 +16,23 @@ from dashboard.api import state
 
 def main() -> None:
     bus = InMemoryMessageBus()
-    store = SQLiteKnowledgeStore()
-    agent = SampleAgent("sample-agent", bus, store)
+    with SQLiteKnowledgeStore() as store:
+        agent = SampleAgent("sample-agent", bus, store)
 
-    # expose state to dashboard
-    state.message_bus = bus
-    state.agents.append(agent)
+        # expose state to dashboard
+        state.message_bus = bus
+        state.agents.append(agent)
 
-    agent.setup()
-    thread = threading.Thread(target=agent.run, daemon=True)
-    thread.start()
+        agent.setup()
+        thread = threading.Thread(target=agent.run, daemon=True)
+        thread.start()
 
-    try:
-        while thread.is_alive():
-            time.sleep(0.5)
-    except KeyboardInterrupt:
-        agent.shutdown()
-        thread.join()
+        try:
+            while thread.is_alive():
+                time.sleep(0.5)
+        except KeyboardInterrupt:
+            agent.shutdown()
+            thread.join()
 
 
 if __name__ == "__main__":
