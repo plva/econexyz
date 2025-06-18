@@ -37,7 +37,7 @@ EcoNexyz is an ecological system of autonomous AI agents that can be registered,
 
 1. Install requirements:
    ```bash
-   pip install fastapi uvicorn
+   pip install -r requirements.txt
    ```
 2. Run the sample agent:
    ```bash
