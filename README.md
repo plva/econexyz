@@ -48,7 +48,7 @@ EcoNexyz is an ecological system of autonomous AI agents that can be registered,
    ./scripts/run_dashboard.sh
    ```
 
-Visit `http://localhost:8000/status` to see agent status and `http://localhost:8000/messages` for recent bus messages.
+Visit `http://localhost:8000/` for instructions, `http://localhost:8000/status` to see agent status and `http://localhost:8000/messages` for recent bus messages.
 
 ## Configuration
 
