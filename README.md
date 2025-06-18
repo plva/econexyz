@@ -1,5 +1,5 @@
 # econexyz
-
+![EcoNexyz](img/robo_nexyz.png)
 🌐 EcoNexyz: Autonomous AI-agent ecosystem seamlessly bridging tasks and knowledge
 
 🧠 Conceptual Overview of EcoNexyz Repo
