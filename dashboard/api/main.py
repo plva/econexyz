@@ -7,6 +7,12 @@ from . import state
 app = FastAPI(title="EcoNexyz Dashboard")
 
 
+@app.get("/")
+def index():
+    """Return instructions for available endpoints."""
+    return {"message": "See /status for agent status and /messages for bus messages"}
+
+
 @app.get("/status")
 def get_status():
     """Return running status of agents."""
