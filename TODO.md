@@ -33,3 +33,8 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [workflow/remove_completed_sprint_todos_on_archive](issues/open/workflow/remove_completed_sprint_todos_on_archive.md) - Remove completed sprint TODOs from top level when archiving.
 - [x] [workflow/view_workflow_diagrams](issues/closed/workflow/view_workflow_diagrams.md) - Provide docs and a script for viewing diagrams.
 - [x] [workflow/workflow_diagrams](issues/closed/workflow/workflow_diagrams.md) - Document sprint, issue, and meta-sprint workflows.
+- [ ] [workflow/document_development_process](issues/open/workflow/document_development_process.md) - Document the typical development process for contributors.
+- [ ] [workflow/document_sprint_and_meta_sprint_process](issues/open/workflow/document_sprint_and_meta_sprint_process.md) - Document the sprint and meta-sprint process.
+- [ ] [workflow/onboarding_for_agents_and_collaborators](issues/open/workflow/onboarding_for_agents_and_collaborators.md) - Create onboarding documentation for agents and collaborators.
+- [ ] [workflow/improve_sprint_issue_scripts](issues/open/workflow/improve_sprint_issue_scripts.md) - Write or improve scripts for sprint and issue management.
+- [ ] [workflow/add_contribution_templates](issues/open/workflow/add_contribution_templates.md) - Add templates for issues, PRs, and sprints.
