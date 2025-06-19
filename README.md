@@ -112,4 +112,10 @@ If something goes wrong, run `./scripts/git_transaction.sh rollback`
 to restore the previous state. The helper stashes any pre-existing
 changes, uses a temporary branch for your edits and squashes the
 result into a single commit. See `scripts/transaction_example.py` for
-a Python example. Untracked files are stashed automatically; 
+a Python example. Untracked files are stashed automatically;
+
+## Documentation
+
+Additional diagrams illustrating repository workflows live in
+`docs/workflows/`. They include mermaid charts for the sprint cycle,
+handling individual issues, and meta-sprint planning.

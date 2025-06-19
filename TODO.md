@@ -29,3 +29,4 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [workflow/view_sprint_and_backlog](issues/open/workflow/view_sprint_and_backlog.md) - View the current sprint and unassigned tasks.
 - [ ] [workflow/json_tasks_projection](issues/open/workflow/json_tasks_projection.md) - Provide a JSON projection of tasks.
 - [ ] [workflow/remove_completed_sprint_todos_on_archive](issues/open/workflow/remove_completed_sprint_todos_on_archive.md) - Remove completed sprint TODOs from top level when archiving.
+- [x] [workflow/workflow_diagrams](issues/closed/workflow/workflow_diagrams.md) - Document sprint, issue, and meta-sprint workflows.
