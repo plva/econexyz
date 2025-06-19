@@ -59,26 +59,24 @@ def insert_line(path: Path, heading: str, line: str) -> None:
 
 
 def render_content(category: str, name: str, tags: List[str], priority: str, today: str) -> str:
-    template = textwrap.dedent(
-        """
-        ---
-        status: open
-        category: {{ category }}
-        tags:
-        {% for tag in tags %}
-          - {{ tag }}
-        {% endfor %}
-        created: {{ today }}
-        last-updated: {{ today }}
-        priority: {{ priority }}
-        assigned: unassigned
-        ------------------------
+    template = textwrap.dedent("""\
+---
+status: open
+category: {{ category }}
+tags:
+{% for tag in tags %}
+- {{ tag }}
+{% endfor %}
+created: {{ today }}
+last-updated: {{ today }}
+priority: {{ priority }}
+assigned: unassigned
+------------------------
 
-        # {{ category }}/{{ name }}
+# {{ category }}/{{ name }}
 
-        TBD
-        """
-    )
+TBD
+""")
 
     if HAS_JINJA:
         tmpl = Template(template)
@@ -86,25 +84,23 @@ def render_content(category: str, name: str, tags: List[str], priority: str, tod
             category=category, name=name, tags=tags, priority=priority, today=today
         )
     else:
-        tag_lines = "\n".join(f"  - {t}" for t in tags)
-        return textwrap.dedent(
-            f"""
-            ---
-            status: open
-            category: {category}
-            tags:
-            {tag_lines}
-            created: {today}
-            last-updated: {today}
-            priority: {priority}
-            assigned: unassigned
-            ------------------------
+        tag_lines = "\n".join(f"- {t}" for t in tags)
+        return textwrap.dedent(f"""\
+---
+status: open
+category: {category}
+tags:
+{tag_lines}
+created: {today}
+last-updated: {today}
+priority: {priority}
+assigned: unassigned
+------------------------
 
-            # {category}/{name}
+# {category}/{name}
 
-            TBD
-            """
-        )
+TBD
+""")
 
 
 def create_issue(category: str, name: str, tags: Optional[List[str]] = None, priority: str = "medium") -> None:
