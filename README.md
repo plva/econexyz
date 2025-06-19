@@ -77,16 +77,20 @@ Ongoing development tasks are tracked in [/TODO.md](/TODO.md). Contributions and
 You can create new issue files and update TODO lists automatically using:
 
 ```bash
-python scripts/create_issue.py <category> <issue-name>
+python scripts/create_issue.py <category> <issue-name> [--tags tag1,tag2] [--priority level]
 ```
 
 - `<category>`: The issue category (e.g., dashboard, agents, workflow, etc.)
 - `<issue-name>`: The name of the issue file (without `.md`)
+ - `--tags`: Optional comma-separated tags to include
+ - `--priority`: Issue priority (default: medium)
 
 This will:
 - Create a new issue markdown file in `/issues/open/<category>/<issue-name>.md`
 - Add a TODO entry to `/TODO.md`
 - Add a reference to the current sprint's `sprint-meta.md` (if applicable)
+- Categories and default tags are loaded from `config/issue_categories.yml` and
+  new categories can be added interactively.
 
 ## Sprint Workflow
 

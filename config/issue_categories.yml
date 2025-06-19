@@ -1,0 +1,7 @@
+{
+  "dashboard": {"tags": ["dashboard", "ui"]},
+  "agents": {"tags": ["agents"]},
+  "bus": {"tags": ["bus", "devops"]},
+  "cross": {"tags": ["cross", "devops"]},
+  "workflow": {"tags": ["workflow", "meta", "devops"]}
+}
