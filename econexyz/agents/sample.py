@@ -2,6 +2,7 @@
 
 import time
 from threading import Event
+import logging
 
 from .base import Agent
 
@@ -20,6 +21,7 @@ class SampleAgent(Agent):
         while self.running and not self._stop_event.is_set():
             message = {"agent": self.name, "counter": counter}
             self.bus.publish("sample", message)
+            logging.info("%s published %s", self.name, message)
             counter += 1
             time.sleep(self.interval)
 

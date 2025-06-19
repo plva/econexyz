@@ -4,6 +4,8 @@ import threading
 import time
 from pathlib import Path
 import sys
+import os
+import logging
 
 # Allow running without installation
 sys.path.append(str(Path(__file__).resolve().parents[1]))
@@ -15,6 +17,14 @@ from dashboard.api import state
 
 
 def main() -> None:
+    log_dir = os.path.expanduser("~/tmp")
+    os.makedirs(log_dir, exist_ok=True)
+    logging.basicConfig(
+        filename=os.path.join(log_dir, "econexyz.log"),
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+    )
+
     bus = InMemoryMessageBus()
     with SQLiteKnowledgeStore() as store:
         agent = SampleAgent("sample-agent", bus, store)
