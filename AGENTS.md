@@ -143,6 +143,12 @@ python scripts/ai_helper.py
 
 This outputs the current sprint plan as JSON.
 
+You can also normalize sprint files with:
+
+```bash
+python scripts/ai_helper.py --fix
+```
+
 
 ---
 

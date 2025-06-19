@@ -3,5 +3,5 @@
 Add validation and warnings for sprint markdown files to improve JSON output.
 
 ## Tasks
-- Warn on unrecognized issue lines
-- Optional: provide command to fix formatting
+- [x] Warn on unrecognized issue lines
+- [x] Optional: provide command to fix formatting
