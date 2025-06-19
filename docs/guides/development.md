@@ -6,4 +6,7 @@ This document describes the typical development process for EcoNexyz contributor
 - Running agents and the dashboard
 - Adding new features or agents
 - Using scripts for workflow
-- Testing and validation 
+- Testing and validation
+
+See [sprint_process.md](sprint_process.md#cycle-stand-up) for how to
+perform a cycle stand-up and update planning files.
