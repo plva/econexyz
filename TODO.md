@@ -38,3 +38,4 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [workflow/onboarding_for_agents_and_collaborators](issues/open/workflow/onboarding_for_agents_and_collaborators.md) - Create onboarding documentation for agents and collaborators.
 - [ ] [workflow/improve_sprint_issue_scripts](issues/open/workflow/improve_sprint_issue_scripts.md) - Write or improve scripts for sprint and issue management.
 - [ ] [workflow/add_contribution_templates](issues/open/workflow/add_contribution_templates.md) - Add templates for issues, PRs, and sprints.
+- [ ] [workflow/manually-update-issue-metadata](issues/open/workflow/manually-update-issue-metadata.md) - Ensure all issues have up-to-date metadata headers.
