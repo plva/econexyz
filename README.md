@@ -81,3 +81,9 @@ Active sprints are defined in `sprints/current/` as markdown files listing the i
 ```
 
 The script moves the sprint file to `sprints/archive/` for future reference.
+
+To view the sprint plan in JSON form for AI tools, run:
+
+```bash
+python scripts/ai_helper.py
+```
