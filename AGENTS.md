@@ -112,6 +112,19 @@ For practical references, review [`agents/sample.py`](econexyz/agents/sample.py)
 
 ---
 
+## 📌 Completing Tasks
+
+When you finish a task, move its issue file from `issues/open/[category]/[issue-name].md` to `issues/closed/[category]/` using:
+
+```bash
+./scripts/close_issue.sh [category] [issue-name]
+```
+
+Then update `TODO.md` to mark it complete.
+
+---
+
+
 ## 📌 Troubleshooting Common Issues
 
 - **Message not arriving?** Verify subscriptions and topic names.
