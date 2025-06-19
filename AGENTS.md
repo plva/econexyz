@@ -135,6 +135,14 @@ archive its file with:
 
 The script moves the sprint file to `sprints/archive/`.
 
+For AI tools that need structured sprint data, run:
+
+```bash
+python scripts/ai_helper.py
+```
+
+This outputs the current sprint plan as JSON.
+
 
 ---
 
