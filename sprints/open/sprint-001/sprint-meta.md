@@ -1,3 +1,0 @@
-# Sprint 001 - TBD
-
-This sprint currently has no planned issues.

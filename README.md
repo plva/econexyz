@@ -74,7 +74,10 @@ Ongoing development tasks are tracked in [TODO.md](TODO.md). Contributions and i
 
 ## Sprint Workflow
 
-Active sprints are defined in `sprints/open/` as directories containing `sprint-meta.md`. When a sprint concludes, archive its directory with:
+Active sprints live in `sprints/open/` as directories containing `sprint-meta.md`.
+Upcoming sprints can be staged in `sprints/upcoming/` and the current sprint
+number is recorded in `state/sprint.json`.
+When a sprint concludes, archive its directory with:
 
 ```bash
 ./scripts/archive_sprint.sh <sprint-name>
