@@ -13,15 +13,19 @@ ROOT = Path(__file__).resolve().parents[1]
 TEMPLATES_DIR = ROOT / "docs" / "templates" / "commit_messages"
 
 COMMIT_TYPES = {
-    "bugfix": "Fixes a bug",
+    "fix": "Fixes a bug",
     "feature": "Adds a new feature", 
-    "workflow": "Changes to workflow, scripts, or documentation",
+    "workflow": "Changes to AI-agent workflows, agent instructions, or documentation that directly affect agent behaviors.",
+    "issue": "Adds a new issue file to the repo",
+    "refactor": "Pure code cleanup without behavior change",
+    "perf": "Performance enhancements",
+    "deps": "Dependency updates",
     "agents": "Changes to agent system",
     "dashboard": "Changes to dashboard or UI",
     "bus": "Changes to message bus system",
     "cross": "Cross-cutting changes (tests, CI, etc.)",
     "standup": "Cycle stand-up updates (TODO.md, sprint meta)",
-    "sprint-planning": "Sprint planning activities",
+    "sprint": "Sprint planning activities",
     "temp": "Temporary commits for testing"
 }
 
