@@ -28,3 +28,5 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [x] [issues/update-agents-instructions](issues/open/issues/update-agents-instructions.md) - Document completion workflow.
 - [x] [issues/migrate-existing-issues](issues/open/issues/migrate-existing-issues.md) - Move current issues into new structure.
 - [ ] [workflow/implement-integrated-sprint-and-issue-workflow](issues/open/workflow/implement-integrated-sprint-and-issue-workflow.md) - Implement integrated sprint and issue workflow with archival structure.
+  - [x] Update Documentation & Agent Instructions (PR #3)
+  - [ ] Optional - AI Integration Helper (PR #4)
