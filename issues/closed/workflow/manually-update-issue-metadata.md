@@ -1,6 +1,6 @@
 ---
-status: open
-category: issues 
+status: closed
+category: workflow
 tags:
   - devops 
   - meta

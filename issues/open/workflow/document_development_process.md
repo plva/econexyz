@@ -1,3 +1,16 @@
+---
+status: open
+category: workflow
+tags:
+  - devops
+  - meta
+  - workflow
+created: 2025-06-18
+last-updated: 2025-06-19
+priority: medium
+assigned: "plva + codex"
+------------------------
+
 # workflow/document_development_process
 
 Document the typical development process for contributors, including:
