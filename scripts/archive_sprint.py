@@ -59,14 +59,14 @@ def archive_sprint(name: str, new: str | None = None) -> None:
     # copy TODO snapshot
     shutil.copy2(ROOT / "TODO.md", dest_dir / "TODO.md")
 
-    # remove sprint issues from top level TODO
+    # remove completed sprint issues from top level TODO
     todo_path = ROOT / "TODO.md"
     todo_lines = []
     for line in todo_path.read_text().splitlines():
         m = ISSUE_RE.search(line)
         if m:
             rel = Path(m.group(1))
-            if rel in issue_paths:
+            if rel in issue_paths and re.match(r"^\s*- \[[xX]\]", line):
                 continue
         todo_lines.append(line)
     todo_path.write_text("\n".join(todo_lines) + "\n")
