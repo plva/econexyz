@@ -20,3 +20,6 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [bus/queue_polling](issues/bus/queue_polling.md) - Provide a queue with polling and removal semantics.
 - [ ] [bus/prod_backend](issues/bus/prod_backend.md) - Support a production-ready backend such as Redis or NATS.
 - [ ] [bus/inject_bus_impl](issues/bus/inject_bus_impl.md) - Inject the chosen bus implementation into the agent runner and dashboard.
+
+## Meta/Workflow
+- [ ] [issues/implement-issue-tracking-workflow](issues/issues/implement-issue-tracking-workflow.md) - Implement issue tracking workflow and automation script.

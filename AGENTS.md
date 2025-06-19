@@ -97,6 +97,13 @@ agent.run()
 - Clearly document message schemas your agent publishes and subscribes to.
 - Write unit tests covering critical agent behaviors (`tests/`).
 
+### git
+- Limit the commit header to 50 characters or fewer
+- Follow the header with a blank line before the commit body (if any).
+
+- Wrap the commit body at 72 characters per line for readability.
+
+
 ---
 
 ## 📌 Example Agent
