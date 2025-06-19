@@ -72,6 +72,22 @@ Runtime logs are written to `~/tmp/econexyz.log` and are ignored by git. Agents 
 
 Ongoing development tasks are tracked in [/TODO.md](/TODO.md). Contributions and ideas are welcome!
 
+## Creating Issues via Script
+
+You can create new issue files and update TODO lists automatically using:
+
+```bash
+python scripts/create_issue.py <category> <issue-name>
+```
+
+- `<category>`: The issue category (e.g., dashboard, agents, workflow, etc.)
+- `<issue-name>`: The name of the issue file (without `.md`)
+
+This will:
+- Create a new issue markdown file in `/issues/open/<category>/<issue-name>.md`
+- Add a TODO entry to `/TODO.md`
+- Add a reference to the current sprint's `sprint-meta.md` (if applicable)
+
 ## Sprint Workflow
 
 Active sprints live in `sprints/open/` as directories containing `sprint-meta.md`.

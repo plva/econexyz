@@ -168,3 +168,13 @@ python scripts/ai_helper.py --fix
 Follow this guide, keep your implementations clean, and have fun building intelligent, autonomous behavior into the **EcoNexyz** ecosystem!
 
 Additional project-wide tasks are tracked in [/TODO.md](/TODO.md).
+
+## Creating Issues
+
+To create a new issue and update the TODO lists, use:
+
+```bash
+python scripts/create_issue.py <category> <issue-name>
+```
+
+This automates issue file creation and ensures all tracking files are updated.
