@@ -48,5 +48,6 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [workflow/Add new feature](issues/open/workflow/Add new feature.md) - TBD
 - [ ] [workflow/create-lock-file](issues/open/workflow/create-lock-file.md) - TBD
 
+- [ ] [workflow/auto_update_issue_dates](/issues/open/workflow/auto_update_issue_dates.md) - TBD
 ## Bugs
 - [x] [bugs/update_sprint_state_in_archive](/issues/closed/bugs/update_sprint_state_in_archive.md) - TBD
