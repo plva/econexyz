@@ -5,6 +5,7 @@ This repository tracks work items in the `issues/` directory. Each task below li
 ## Dashboard
 - [ ] [dashboard/frontend_react](issues/open/dashboard/frontend_react.md) - Implement a React-based dashboard frontend.
 - [ ] [dashboard/color_palette](issues/open/dashboard/color_palette.md) - Apply the shared color palette to dashboard styling.
+- [ ] [dashboard/view_tasks_and_sprint](issues/open/dashboard/view_tasks_and_sprint.md) - Show tasks and sprint in the dashboard.
 
 ## Agents
 - [ ] [agents/enhance_sample_agent](issues/open/agents/enhance_sample_agent.md) - Improve the sample agent and create new agents (e.g., weather).
@@ -32,3 +33,10 @@ This repository tracks work items in the `issues/` directory. Each task below li
   - [x] Optional - AI Integration Helper (PR #4)
 - [x] [workflow/sprint-file-validation](issues/closed/workflow/sprint-file-validation.md) - Validate sprint files and warn on formatting errors.
 - [x] [workflow/implement-git-transactions](issues/closed/workflow/implement-git-transactions.md) - Implement transactional Git workflow scripts and documentation
+- [ ] [workflow/run_sprint_planning](issues/open/workflow/run_sprint_planning.md) - Run a sprint planning workflow.
+- [ ] [workflow/run_backlog_grooming](issues/open/workflow/run_backlog_grooming.md) - Run a backlog grooming workflow.
+- [ ] [workflow/run_sprint_retro](issues/open/workflow/run_sprint_retro.md) - Run a sprint retrospective.
+- [ ] [workflow/manage_unassigned_backlog_tasks](issues/open/workflow/manage_unassigned_backlog_tasks.md) - Manage tasks not assigned to a sprint.
+- [ ] [workflow/view_sprint_and_backlog](issues/open/workflow/view_sprint_and_backlog.md) - View the current sprint and unassigned tasks.
+- [ ] [workflow/json_tasks_projection](issues/open/workflow/json_tasks_projection.md) - Provide a JSON projection of tasks.
+- [ ] [workflow/remove_completed_sprint_todos_on_archive](issues/open/workflow/remove_completed_sprint_todos_on_archive.md) - Remove completed sprint TODOs from top level when archiving.
