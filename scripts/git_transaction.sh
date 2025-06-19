@@ -71,6 +71,7 @@ case "$cmd" in
     ;;
   rollback)
     # Discard the transaction branch and restore any stashed changes
+
     if [ ! -e "$state_file" ]; then
       echo "No transaction state found" >&2
       exit 1

@@ -108,5 +108,4 @@ If something goes wrong, run `./scripts/git_transaction.sh rollback`
 to restore the previous state. The helper stashes any pre-existing
 changes, uses a temporary branch for your edits and squashes the
 result into a single commit. See `scripts/transaction_example.py` for
-a Python example. Untracked files are stashed automatically; use
-`--all` with `git stash push` if you need to include ignored files.
+a Python example. Untracked files are stashed automatically; 
