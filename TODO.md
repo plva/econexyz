@@ -22,4 +22,8 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [bus/inject_bus_impl](issues/bus/inject_bus_impl.md) - Inject the chosen bus implementation into the agent runner and dashboard.
 
 ## Meta/Workflow
-- [ ] [issues/implement-issue-tracking-workflow](issues/issues/implement-issue-tracking-workflow.md) - Implement issue tracking workflow and automation script.
+- [x] [issues/implement-issue-tracking-workflow](issues/issues/implement-issue-tracking-workflow.md) - Break down overall workflow issue into smaller tasks.
+- [ ] [issues/create-directory-structure](issues/issues/create-directory-structure.md) - Set up open and closed directories.
+- [ ] [issues/add-close-script](issues/issues/add-close-script.md) - Provide script to move issues to closed.
+- [ ] [issues/update-agents-instructions](issues/issues/update-agents-instructions.md) - Document completion workflow.
+- [ ] [issues/migrate-existing-issues](issues/issues/migrate-existing-issues.md) - Move current issues into new structure.
