@@ -178,3 +178,27 @@ python scripts/create_issue.py <category> <issue-name>
 ```
 
 This automates issue file creation and ensures all tracking files are updated.
+
+## Agent Logs and PR Documentation
+
+When preparing a pull request, agents should document each step of their process in a file named `agent.<datetime string>.log.md` in the `/agent-logs` directory. For each step:
+
+- Record what was done in the log file as the work progresses.
+- After completing the steps, add a high-level overview of the work (avoid repeating details that can be inferred from the PR itself).
+
+This practice ensures transparency and provides a clear audit trail of agent-driven contributions.
+
+Example log file:
+
+```markdown
+# Agent Log 2025-06-19
+
+## Overview
+
+Expanded the content of all open workflow issues to provide clearer guidance for future automation. Each issue now includes detailed bullets or design notes suitable for an AI or developer to implement. No issues were closed.
+
+### Updated Issues
+- `run_sprint_planning.md`
+- `run_backlog_grooming.md`
+...
+```
