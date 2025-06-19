@@ -43,4 +43,4 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [workflow/issue_category_tag_list](issues/open/workflow/issue_category_tag_list.md) - TBD
 - [ ] [workflow/agent_autofill_issue_details](issues/open/workflow/agent_autofill_issue_details.md) - TBD
 - [ ] [workflow/agent_smart_issue_creator](issues/open/workflow/agent_smart_issue_creator.md) - TBD
-- [ ] [workflow/current-sprint-should-not-have-todo-in-sprints-dir](issues/open/workflow/current-sprint-should-not-have-todo-in-sprints-dir.md) - TBD
+- [x] [workflow/current-sprint-should-not-have-todo-in-sprints-dir](issues/closed/workflow/current-sprint-should-not-have-todo-in-sprints-dir.md)

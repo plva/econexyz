@@ -117,10 +117,6 @@ def archive_sprint(name: str, new: str | None = None) -> None:
     if new:
         new_dir = SPRINT_OPEN / new
         new_dir.mkdir(parents=True, exist_ok=True)
-        todo_text = (ROOT / "TODO.md").read_text().replace(
-            "issues/", "../../issues/"
-        )
-        (new_dir / "TODO.md").write_text(todo_text)
         (new_dir / "sprint-meta.md").write_text(
             f"# {new.replace('-', ' ').title()} - TBD\n\n"
             "This sprint currently has no planned issues.\n"

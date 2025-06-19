@@ -63,10 +63,12 @@ TBD
 
     state = json.loads(STATE_PATH.read_text())
     sprint_dir = ROOT / "sprints" / "open" / f"sprint-{state['current']}"
-    sprint_todo = sprint_dir / "TODO.md"
     sprint_meta = sprint_dir / "sprint-meta.md"
-    insert_line(sprint_todo, heading, line.replace("issues/open/", "../../issues/open/"))
-    insert_line(sprint_meta, "## Issues", line.replace("issues/open/", "../../issues/open/"))
+    insert_line(
+        sprint_meta,
+        "## Issues",
+        line.replace("issues/open/", "../../issues/open/"),
+    )
 
 
 if __name__ == "__main__":
