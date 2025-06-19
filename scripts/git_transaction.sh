@@ -21,22 +21,19 @@ case "$cmd" in
     commit_msg=$1
     orig_branch=$(git rev-parse --abbrev-ref HEAD)
     transaction_branch="transaction-$(date +%Y%m%d%H%M%S)"
-    temp_save_branch="save-$(date +%Y%m%d%H%M%S)"
+    stash_saved=false
+    stash_ref=""
     if [[ -n $(git status --porcelain) ]]; then
-      echo "Uncommitted changes detected. Saving them temporarily."
-      git checkout -b "$temp_save_branch"
-      git add -A
-      git commit -m "Temporary save before transaction ($temp_save_branch)"
-      git checkout "$orig_branch"
-      temp_created=true
-    else
-      temp_created=false
+      echo "Uncommitted changes detected. Stashing them temporarily."
+      git stash push -u -m "transaction-$transaction_branch" >/dev/null
+      stash_saved=true
+      stash_ref=$(git stash list | head -n1 | cut -d: -f1)
     fi
     git checkout -b "$transaction_branch"
     printf 'orig_branch=%s\n' "$orig_branch" >"$state_file"
     printf 'transaction_branch=%s\n' "$transaction_branch" >>"$state_file"
-    printf 'temp_save_branch=%s\n' "$temp_save_branch" >>"$state_file"
-    printf 'temp_created=%s\n' "$temp_created" >>"$state_file"
+    printf 'stash_saved=%s\n' "$stash_saved" >>"$state_file"
+    printf 'stash_ref=%s\n' "$stash_ref" >>"$state_file"
     printf 'commit_msg=%q\n' "$commit_msg" >>"$state_file"
     echo "Transaction started on branch $transaction_branch"
     ;;
@@ -57,8 +54,8 @@ case "$cmd" in
     git merge --squash "$transaction_branch"
     git commit -m "$commit_msg"
     git branch -D "$transaction_branch"
-    if [ "$temp_created" = true ]; then
-      git branch -D "$temp_save_branch"
+    if [ "$stash_saved" = true ]; then
+      git stash pop --index --quiet "$stash_ref"
     fi
     rm "$state_file"
     echo "Transaction successfully completed and merged."
@@ -71,12 +68,11 @@ case "$cmd" in
     source "$state_file"
     git checkout "$orig_branch"
     git branch -D "$transaction_branch"
-    if [ "$temp_created" = true ]; then
-      git merge "$temp_save_branch" --ff-only
-      git branch -D "$temp_save_branch"
-    fi
     git reset --hard HEAD
     git clean -fd
+    if [ "$stash_saved" = true ]; then
+      git stash pop --index --quiet "$stash_ref"
+    fi
     rm "$state_file"
     echo "Transaction rolled back."
     ;;
