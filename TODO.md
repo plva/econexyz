@@ -39,8 +39,8 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [workflow/improve_sprint_issue_scripts](issues/open/workflow/improve_sprint_issue_scripts.md) - Write or improve scripts for sprint and issue management.
 - [ ] [workflow/add_contribution_templates](issues/open/workflow/add_contribution_templates.md) - Add templates for issues, PRs, and sprints.
 - [x] [workflow/manually-update-issue-metadata](issues/closed/workflow/manually-update-issue-metadata.md) - Ensure all issues have up-to-date metadata headers.
-- [ ] [workflow/basic_issue_creator_script](issues/open/workflow/basic_issue_creator_script.md) - TBD
-- [ ] [workflow/issue_category_tag_list](issues/open/workflow/issue_category_tag_list.md) - TBD
-- [ ] [workflow/agent_autofill_issue_details](issues/open/workflow/agent_autofill_issue_details.md) - TBD
-- [ ] [workflow/agent_smart_issue_creator](issues/open/workflow/agent_smart_issue_creator.md) - TBD
+ - [ ] [workflow/basic_issue_creator_script](issues/open/workflow/basic_issue_creator_script.md) - Automate issue file creation and planning updates.
+ - [ ] [workflow/issue_category_tag_list](issues/open/workflow/issue_category_tag_list.md) - Provide reusable categories and tags.
+ - [ ] [workflow/agent_autofill_issue_details](issues/open/workflow/agent_autofill_issue_details.md) - Agent expands stub issues with detail.
+ - [ ] [workflow/agent_smart_issue_creator](issues/open/workflow/agent_smart_issue_creator.md) - Agent creates issues from brief task descriptions.
 - [x] [workflow/current-sprint-should-not-have-todo-in-sprints-dir](issues/closed/workflow/current-sprint-should-not-have-todo-in-sprints-dir.md)
