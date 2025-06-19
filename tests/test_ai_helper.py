@@ -23,3 +23,14 @@ def test_parse_and_fix(tmp_path):
     assert lines[3] == _format_issue(False, "cat/foo", "../issues/open/cat/foo.md")
     assert lines[4] == _format_issue(True, "cat/bar", "../issues/closed/cat/bar.md")
 
+
+def test_bug_summary(tmp_path):
+    sprint = tmp_path / "sprint.md"
+    sprint.write_text(
+        "# Sprint\n\n## Issues\n- [ ] [cat/foo](../issues/open/cat/foo.md)\n\n## Bug Summary\nCritical: 1\nHigh: 2\nRegressions: 1\n"
+    )
+    plan = parse_sprint(sprint)
+    assert plan["bugs"]["critical"] == 1
+    assert plan["bugs"]["high"] == 2
+    assert plan["bugs"]["regressions"] == 1
+

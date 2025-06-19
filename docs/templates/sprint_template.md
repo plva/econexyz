@@ -10,4 +10,11 @@
 
 ## Retrospective Notes
 
-(What went well? What could be improved?) 
+(What went well? What could be improved?)
+
+## Bug Summary
+Critical: 0
+High: 0
+Medium: 0
+Low: 0
+Regressions: 0
