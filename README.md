@@ -71,3 +71,13 @@ Runtime logs are written to `~/tmp/econexyz.log` and are ignored by git. Agents 
 ## Project TODOs
 
 Ongoing development tasks are tracked in [TODO.md](TODO.md). Contributions and ideas are welcome!
+
+## Sprint Workflow
+
+Active sprints are defined in `sprints/current/` as markdown files listing the issues being tackled. When a sprint concludes, archive its file with:
+
+```bash
+./scripts/archive_sprint.sh <sprint-name>
+```
+
+The script moves the sprint file to `sprints/archive/` for future reference.
