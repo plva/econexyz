@@ -6,7 +6,7 @@ tags:
   - meta
   - workflow
 created: 2025-06-19
-last-updated: 2025-06-19
+last-updated: 2025-06-20
 priority: medium
 assigned: unassigned
 ------------------------
@@ -28,7 +28,7 @@ This agent streamlines the process of fleshing out minimal issue drafts.
 ## Implementation Plan (PR Breakdown)
 
 ### PR #1: Create ChatGPT API Integration Scaffolding
-- [ ] Add `openai` dependency to `requirements.txt`
+- [x] Add `openai` dependency to `requirements.txt`
 - [ ] Create `econexyz/agents/autofill_agent.py` with basic Agent class structure
 - [ ] Create `config/openai_config.yml` for API key management
 - [ ] Add environment variable support for `OPENAI_API_KEY`
