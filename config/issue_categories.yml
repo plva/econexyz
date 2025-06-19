@@ -3,5 +3,6 @@
   "agents": {"tags": ["agents"]},
   "bus": {"tags": ["bus", "devops"]},
   "cross": {"tags": ["cross", "devops"]},
-  "workflow": {"tags": ["workflow", "meta", "devops"]}
+  "workflow": {"tags": ["workflow", "meta", "devops"]},
+  "bugs": {"tags": ["bug", "fix", "critical"]}
 }

@@ -10,3 +10,4 @@
 - [ ] [workflow/agent_autofill_issue_details](/issues/open/workflow/agent_autofill_issue_details.md) - Agent expands stub issues with detail.
 - [ ] [workflow/agent_smart_issue_creator](/issues/open/workflow/agent_smart_issue_creator.md) - Agent creates issues from brief task descriptions.
 - [x] [workflow/current-sprint-should-not-have-todo-in-sprints-dir](/issues/closed/workflow/current-sprint-should-not-have-todo-in-sprints-dir.md)
+- [ ] [workflow/Implement bug fix workflow and issue reopening](../../issues/open/workflow/Implement bug fix workflow and issue reopening.md) - TBD
