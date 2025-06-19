@@ -32,3 +32,4 @@ This repository tracks work items in the `../../issues/` directory. Each task be
   - [x] Optional - AI Integration Helper (PR #4)
 - [x] [workflow/sprint-file-validation](../../issues/closed/workflow/sprint-file-validation.md) - Validate sprint files and warn on formatting errors.
 - [x] [workflow/implement-git-transactions](../../issues/closed/workflow/implement-git-transactions.md) - Implement transactional Git workflow scripts and documentation
+- [ ] [workflow/remove_completed_sprint_todos_on_archive](../../issues/open/workflow/remove_completed_sprint_todos_on_archive.md) - Remove completed sprint TODOs from top level when archiving.
