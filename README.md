@@ -35,16 +35,15 @@ EcoNexyz is an ecological system of autonomous AI agents that can be registered,
 
 ## Quick Start
 
-1. Bootstrap your environment and start the agents:
+1. Bootstrap your environment and start the agents **and dashboard**:
    ```bash
    source bootstrap.sh
    ```
-   This will create a virtual environment (if needed), install requirements, and launch the agents.
-2. Start the dashboard API and web UI:
-   ```bash
-   ./scripts/run_dashboard.sh
-   ```
-   Then open `dashboard/web/index.html` in your browser.
+   This will create a virtual environment (if needed), install requirements, and launch the agents together with the FastAPI dashboard server.
+2. Open `dashboard/web/index.html` in your browser to view agent status and messages.
+   If you start the dashboard using `scripts/run_dashboard.sh` in a separate process,
+   it won't display messages because the default in-memory bus isn't shared across
+   processes.
 
 Visit `http://localhost:8000/` for instructions, `http://localhost:8000/status` to see agent status and `http://localhost:8000/messages` for recent bus messages.
 
