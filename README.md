@@ -106,6 +106,10 @@ When a sprint concludes, archive its directory with:
 The script creates `sprints/archived/<sprint-name>/` containing the sprint
 metadata, a snapshot of `TODO.md` and any referenced issue files.
 
+Cycle stand-up instructions, including when to update `/TODO.md` and
+`sprint-meta.md`, are described in
+[`docs/guides/sprint_process.md`](docs/guides/sprint_process.md#cycle-stand-up).
+
 To view the sprint plan in JSON form for AI tools, run:
 
 ```bash

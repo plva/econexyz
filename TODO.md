@@ -30,7 +30,7 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [workflow/manage_unassigned_backlog_tasks](issues/open/workflow/manage_unassigned_backlog_tasks.md) - Manage tasks not assigned to a sprint.
 - [ ] [workflow/view_sprint_and_backlog](issues/open/workflow/view_sprint_and_backlog.md) - View the current sprint and unassigned tasks.
 - [ ] [workflow/json_tasks_projection](issues/open/workflow/json_tasks_projection.md) - Provide a JSON projection of tasks.
-- [ ] [workflow/remove_completed_sprint_todos_on_archive](issues/open/workflow/remove_completed_sprint_todos_on_archive.md) - Remove completed sprint TODOs from top level when archiving.
+- [x] [workflow/remove_completed_sprint_todos_on_archive](issues/closed/workflow/remove_completed_sprint_todos_on_archive.md) - Remove completed sprint TODOs from top level when archiving.
 - [x] [workflow/view_workflow_diagrams](issues/closed/workflow/view_workflow_diagrams.md) - Provide docs and a script for viewing diagrams.
 - [x] [workflow/workflow_diagrams](issues/closed/workflow/workflow_diagrams.md) - Document sprint, issue, and meta-sprint workflows.
 - [ ] [workflow/document_development_process](issues/open/workflow/document_development_process.md) - Document the typical development process for contributors.
@@ -39,7 +39,7 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [workflow/improve_sprint_issue_scripts](issues/open/workflow/improve_sprint_issue_scripts.md) - Write or improve scripts for sprint and issue management.
 - [ ] [workflow/add_contribution_templates](issues/open/workflow/add_contribution_templates.md) - Add templates for issues, PRs, and sprints.
 - [x] [workflow/manually-update-issue-metadata](issues/closed/workflow/manually-update-issue-metadata.md) - Ensure all issues have up-to-date metadata headers.
- - [ ] [workflow/basic_issue_creator_script](issues/open/workflow/basic_issue_creator_script.md) - Automate issue file creation and planning updates.
+ - [x] [workflow/basic_issue_creator_script](issues/closed/workflow/basic_issue_creator_script.md) - Automate issue file creation and planning updates.
  - [ ] [workflow/issue_category_tag_list](issues/open/workflow/issue_category_tag_list.md) - Provide reusable categories and tags.
  - [ ] [workflow/agent_autofill_issue_details](issues/open/workflow/agent_autofill_issue_details.md) - Agent expands stub issues with detail.
  - [ ] [workflow/agent_smart_issue_creator](issues/open/workflow/agent_smart_issue_creator.md) - Agent creates issues from brief task descriptions.
