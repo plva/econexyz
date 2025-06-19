@@ -6,7 +6,7 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 import scripts.archive_sprint as arch
 
 
-def test_archive_removes_todo(tmp_path):
+def setup_repo(tmp_path: Path, done: bool) -> tuple[Path, Path]:
     repo = tmp_path
     (repo / "issues/open/workflow").mkdir(parents=True)
     (repo / "issues/open/workflow/foo.md").write_text("issue")
@@ -19,17 +19,27 @@ def test_archive_removes_todo(tmp_path):
     )
 
     todo = repo / "TODO.md"
+    check = "x" if done else " "
     todo.write_text(
-        "- [ ] [workflow/foo](issues/open/workflow/foo.md) - desc\n"
+        f"- [{check}] [workflow/foo](issues/open/workflow/foo.md) - desc\n"
     )
 
-    # patch constants
     arch.ROOT = repo
     arch.SPRINT_OPEN = repo / "sprints" / "open"
     arch.SPRINT_ARCHIVED = repo / "sprints" / "archived"
+    return repo, todo
 
+
+def test_archive_removes_completed_todo(tmp_path):
+    repo, todo = setup_repo(tmp_path, done=True)
     arch.archive_sprint("sprint1")
-
     assert "workflow/foo" not in todo.read_text()
     assert (repo / "sprints/archived/sprint1").is_dir()
 
+
+def test_archive_keeps_open_todo(tmp_path):
+    repo, todo = setup_repo(tmp_path, done=False)
+    arch.archive_sprint("sprint1")
+    text = todo.read_text()
+    assert "workflow/foo" in text
+    assert "- [ ]" in text
