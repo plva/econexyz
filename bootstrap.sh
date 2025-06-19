@@ -8,6 +8,7 @@ VENV_DIR=".venv"
 REQUIREMENTS="requirements.txt"
 AGENT_SCRIPT="scripts/run_agents.py"
 PALETTE_SCRIPT="scripts/generate_palette_css.py"
+VITE_SAMPLE_DIR="dashboard/vite_sample"
 
 # Function to print errors and exit
 error_exit() {
@@ -50,6 +51,15 @@ echo "[INFO] Requirements installed."
 
 # Generate dashboard color palette CSS
 python "$PALETTE_SCRIPT" || error_exit "Failed to run $PALETTE_SCRIPT"
+
+# Install and build Vite sample dashboard
+if [ -d "$VITE_SAMPLE_DIR" ]; then
+  command -v npm >/dev/null 2>&1 || error_exit "npm is required to build dashboard assets."
+  echo "[INFO] Installing JS dependencies..."
+  (cd "$VITE_SAMPLE_DIR" && npm install) || error_exit "Failed to install JS dependencies."
+  echo "[INFO] Building dashboard assets..."
+  (cd "$VITE_SAMPLE_DIR" && npm run build) || error_exit "Failed to build dashboard assets."
+fi
 
 echo "[INFO] Starting agents..."
 python $AGENT_SCRIPT || error_exit "Failed to run $AGENT_SCRIPT." 

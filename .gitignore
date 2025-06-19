@@ -195,3 +195,7 @@ cython_debug/
 knowledge.db
 .DS_Store
 logs/
+
+# Node.js
+node_modules/
+**/dist/
