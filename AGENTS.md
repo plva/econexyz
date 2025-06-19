@@ -202,3 +202,5 @@ Expanded the content of all open workflow issues to provide clearer guidance for
 - `run_backlog_grooming.md`
 ...
 ```
+
+> **Important:** Do not update `/TODO.md` or sprint meta files during a normal task PR. These files should only be updated during a dedicated cycle stand-up PR to avoid merge conflicts. For more details, see [docs/guides/development.md](/docs/guides/development.md).
