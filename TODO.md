@@ -14,12 +14,14 @@ This repository tracks work items in the `issues/` directory. Each task below li
 ## Cross-cutting
 - [ ] [cross/integration_tests](issues/open/cross/integration_tests.md) - Write integration tests for the message bus and knowledge store.
 - [ ] [cross/logging_improvements](issues/open/cross/logging_improvements.md) - Enhance error handling and logging.
+- [ ] [cross/script_lint_format_cleanup](issues/open/cross/script_lint_format_cleanup.md) - Lint, format, and clean up scripts for consistency and maintainability.
 
 ## Event Bus
 - [ ] [bus/message_ttl](issues/open/bus/message_ttl.md) - Implement optional message TTL.
 - [ ] [bus/queue_polling](issues/open/bus/queue_polling.md) - Provide a queue with polling and removal semantics.
 - [ ] [bus/prod_backend](issues/open/bus/prod_backend.md) - Support a production-ready backend such as Redis or NATS.
 - [ ] [bus/inject_bus_impl](issues/open/bus/inject_bus_impl.md) - Inject the chosen bus implementation into the agent runner and dashboard.
+- [ ] [bus/message_pagination](issues/open/bus/message_pagination.md) - Add pagination to the `/messages` endpoint.
 
 ## Meta/Workflow
 - [ ] [workflow/run_sprint_planning](issues/open/workflow/run_sprint_planning.md) - Run a sprint planning workflow.
