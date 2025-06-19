@@ -194,3 +194,4 @@ cython_debug/
 .cursorindexingignore
 knowledge.db
 .DS_Store
+logs/

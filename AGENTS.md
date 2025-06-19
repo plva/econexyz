@@ -101,7 +101,7 @@ agent.run()
 
 ## 📌 Example Agent
 
-For a practical reference, review [`agents/sample_agent.py`](agents/sample_agent.py).
+For practical references, review [`agents/sample.py`](econexyz/agents/sample.py) and [`agents/weather.py`](econexyz/agents/weather.py).
 
 ---
 
@@ -115,3 +115,5 @@ For a practical reference, review [`agents/sample_agent.py`](agents/sample_agent
 ## 🚀 Ready to create your agent?
 
 Follow this guide, keep your implementations clean, and have fun building intelligent, autonomous behavior into the **EcoNexyz** ecosystem!
+
+Additional project-wide tasks are tracked in [TODO.md](TODO.md).
