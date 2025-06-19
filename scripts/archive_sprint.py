@@ -22,9 +22,12 @@ def parse_issue_paths(sprint_file: Path) -> list[Path]:
         if m and "issues/" in m.group(1):
             rel = (sprint_file.parent / m.group(1)).resolve()
             try:
-                issue_paths.append(rel.relative_to(ROOT))
+                rel_path = rel.relative_to(ROOT)
             except ValueError:
-                pass
+                continue
+            if rel_path.parts and rel_path.parts[0] == "sprints":
+                rel_path = Path(*rel_path.parts[1:])
+            issue_paths.append(rel_path)
     return issue_paths
 
 
@@ -55,6 +58,18 @@ def archive_sprint(name: str, new: str | None = None) -> None:
 
     # copy TODO snapshot
     shutil.copy2(ROOT / "TODO.md", dest_dir / "TODO.md")
+
+    # remove sprint issues from top level TODO
+    todo_path = ROOT / "TODO.md"
+    todo_lines = []
+    for line in todo_path.read_text().splitlines():
+        m = ISSUE_RE.search(line)
+        if m:
+            rel = Path(m.group(1))
+            if rel in issue_paths:
+                continue
+        todo_lines.append(line)
+    todo_path.write_text("\n".join(todo_lines) + "\n")
 
     # move issues
     mapping = {}
