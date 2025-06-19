@@ -35,6 +35,7 @@ We use the following commit types:
 - `[bugfix]` - Fixes a bug
 - `[feature]` - Adds a new feature  
 - `[workflow]` - Changes to workflow, scripts, or documentation
+- `[issue]` - Adds a new issue file to the repo
 - `[agents]` - Changes to agent system
 - `[dashboard]` - Changes to dashboard or UI
 - `[bus]` - Changes to message bus system
@@ -53,6 +54,7 @@ We provide actual commit message templates in `docs/templates/commit_messages/`:
 - `feature.md` - For new features
 - `workflow.md` - For workflow changes
 - `standup.md` - For stand-up updates
+- `issue.md` - For adding new issues
 
 ### Using Templates
 
@@ -242,3 +244,19 @@ If the commit-msg hook isn't working:
 - [AGENTS.md](../AGENTS.md) - Agent development guidelines
 - [Development Process](../development.md) - Overall development workflow
 - [Sprint Process](../sprint_process.md) - Sprint and stand-up procedures 
+
+## Adding a New Issue
+
+When you add a new issue file (e.g., in `issues/open/`), use the `[issue]` commit type and the `issue.md` template:
+
+```bash
+python scripts/commit_message.py --template issue
+# Edit /tmp/commit_template_issue.md with the issue title and details
+# Commit with:
+git add issues/open/workflow/my_new_issue.md
+# Optionally add to a sprint or TODO.md as needed
+git commit -F /tmp/commit_template_issue.md
+```
+
+- If you add the issue to a sprint, mention it in the commit body.
+- If you just add it to open issues, note that as well. 
