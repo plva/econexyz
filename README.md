@@ -93,3 +93,18 @@ To normalize sprint files and fix minor formatting issues, pass `--fix`:
 ```bash
 python scripts/ai_helper.py --fix
 ```
+
+### Transactional Git helper
+
+Run commands atomically using `git_transaction.sh`:
+
+```bash
+./scripts/git_transaction.sh start "My commit message"
+# ...make your changes...
+./scripts/git_transaction.sh finalize
+```
+
+If something goes wrong, run `./scripts/git_transaction.sh rollback` to
+restore the previous state. The helper manages temporary branches and
+squashes the transaction into a single commit. See
+`scripts/transaction_example.py` for a Python example.
