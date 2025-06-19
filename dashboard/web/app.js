@@ -1,5 +1,10 @@
 const e = React.createElement;
 
+// When index.html is opened directly from the filesystem (file://),
+// fetch requests need an explicit server origin. Default to the
+// local dashboard API if no origin is present.
+const API_BASE = window.location.protocol === 'file:' ? 'http://127.0.0.1:8000' : '';
+
 function useFetch(url) {
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
@@ -12,8 +17,8 @@ function useFetch(url) {
 }
 
 function Dashboard() {
-  const status = useFetch('/status');
-  const messages = useFetch('/messages');
+  const status = useFetch(API_BASE + '/status');
+  const messages = useFetch(API_BASE + '/messages');
   return e('div', null,
     e('h2', null, 'Agents'),
     e('pre', null, JSON.stringify(status, null, 2)),
