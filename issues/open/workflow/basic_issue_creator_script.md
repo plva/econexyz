@@ -25,3 +25,21 @@ The script should:
   implemented.
 
 This provides a minimal workflow for quickly adding structured issues.
+
+## Additional Notes
+
+- Validate category names against a list in `config/issue_categories.yml`, but
+  allow creation of new categories by prompting to append them to the file.
+- Use Jinja2 templates for the metadata header and body to ensure consistency.
+  Example:
+  ```jinja
+  ---
+  status: open
+  category: {{ category }}
+  ...
+  ```
+- Optionally prompt the user for tags and priority if not provided.
+- Avoid opaque IDs in filenames so issues remain readable when listed.
+- Write unit tests in `tests/test_create_issue.py` to cover edge cases. Also
+  create an issue to run unit tests on every build/PR and report failures without
+  blocking the merge.

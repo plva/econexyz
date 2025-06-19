@@ -25,3 +25,13 @@ script. Suggested steps:
 
 With a standard list, new issues will be more consistent and easier to
 search.
+
+## Implementation Notes
+
+- Start by scanning existing issue metadata headers to compile categories and tags.
+- Example categories: `agents`, `dashboard`, `bus`, `workflow`, `cross`.
+- Store the list in `config/issue_categories.yml` with a default set of tags for each category.
+- Update `scripts/create_issue.py` to load this configuration and allow interactive selection via `inquirer` or similar library.
+- Provide guidance in `docs/contributing/issue-categories.md` with examples.
+- Add a backburner idea to explore offline interactive sessions (e.g., with
+  ChatGPT&nbsp;4.5) for refining categories and tags.

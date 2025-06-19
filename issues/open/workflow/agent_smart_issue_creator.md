@@ -26,3 +26,17 @@ description. Features should include:
 
 This agent may require multiple iterations and could depend on a larger
 language model or external services.
+
+## Architectural Considerations
+
+- This agent may call a language model API to interpret brief descriptions and produce a structured issue draft.
+- It should integrate with `scripts/create_issue.py` to ensure metadata consistency.
+- Support plugin-based strategies for context gathering (e.g., scanning git log, README, or TODO files).
+- Keep a `issues/backburner/workflow/brainstorming.md` file to track overlap with
+  `agent_autofill_issue_details` and other related automation ideas.
+- Explore more advanced strategies (potentially with ChatGPT&nbsp;4.5) for the
+  plugin system and record findings in the brainstorming file.
+- Provide an approval workflow: generate issue -> open diff -> user accepts via CLI or web UI -> commit.
+- Add a new backburner issue to design an interactive multi-commit workflow on a
+  development branch that can later be squashed onto main.
+- Store configuration for categories and tags in `config/issue_categories.yml` to reuse across the project.
