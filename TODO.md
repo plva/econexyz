@@ -27,3 +27,4 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [x] [issues/add-close-script](issues/open/issues/add-close-script.md) - Provide script to move issues to closed.
 - [x] [issues/update-agents-instructions](issues/open/issues/update-agents-instructions.md) - Document completion workflow.
 - [x] [issues/migrate-existing-issues](issues/open/issues/migrate-existing-issues.md) - Move current issues into new structure.
+- [ ] [workflow/implement-integrated-sprint-and-issue-workflow](issues/open/workflow/implement-integrated-sprint-and-issue-workflow.md) - Implement integrated sprint and issue workflow with archival structure.
