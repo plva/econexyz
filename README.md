@@ -80,7 +80,8 @@ Active sprints are defined in `sprints/current/` as markdown files listing the i
 ./scripts/archive_sprint.sh <sprint-name>
 ```
 
-The script moves the sprint file to `sprints/archive/` for future reference.
+The script creates `sprints/archived/<sprint-name>/` containing the sprint
+metadata, a snapshot of `TODO.md` and any referenced issue files.
 
 To view the sprint plan in JSON form for AI tools, run:
 

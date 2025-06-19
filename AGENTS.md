@@ -133,7 +133,9 @@ archive its file with:
 ./scripts/archive_sprint.sh <sprint-name>
 ```
 
-The script moves the sprint file to `sprints/archive/`.
+The script creates `sprints/archived/<sprint-name>/` and moves the sprint
+metadata there along with any referenced issue files. A snapshot of
+`TODO.md` is also stored beside `sprint-meta.md`.
 
 For AI tools that need structured sprint data, run:
 
