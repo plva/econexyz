@@ -9,7 +9,7 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SPRINT_CURRENT = ROOT / "sprints" / "current"
+SPRINT_OPEN = ROOT / "sprints" / "open"
 SPRINT_ARCHIVED = ROOT / "sprints" / "archived"
 ISSUE_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 
@@ -38,8 +38,9 @@ def clean_empty_dirs(path: Path, stop: Path) -> None:
         path = path.parent
 
 
-def archive_sprint(name: str) -> None:
-    sprint_path = SPRINT_CURRENT / f"{name}.md"
+def archive_sprint(name: str, new: str | None = None) -> None:
+    sprint_dir = SPRINT_OPEN / name
+    sprint_path = sprint_dir / "sprint-meta.md"
     if not sprint_path.exists():
         raise SystemExit(f"Sprint not found: {sprint_path}")
 
@@ -95,14 +96,31 @@ def archive_sprint(name: str) -> None:
     # move sprint file last
     dest_sprint = dest_dir / "sprint-meta.md"
     dest_sprint.write_text("\n".join(lines) + "\n")
-    sprint_path.unlink()
+    # remove archived sprint directory
+    shutil.rmtree(sprint_dir)
+
+    if new:
+        new_dir = SPRINT_OPEN / new
+        new_dir.mkdir(parents=True, exist_ok=True)
+        todo_text = (ROOT / "TODO.md").read_text().replace(
+            "issues/", "../../issues/"
+        )
+        (new_dir / "TODO.md").write_text(todo_text)
+        (new_dir / "sprint-meta.md").write_text(
+            f"# {new.replace('-', ' ').title()} - TBD\n\n"
+            "This sprint currently has no planned issues.\n"
+        )
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="archive sprint")
     parser.add_argument("name", help="sprint name")
+    parser.add_argument(
+        "--new",
+        help="create a new open sprint with this name after archiving",
+    )
     args = parser.parse_args()
-    archive_sprint(args.name)
+    archive_sprint(args.name, new=args.new)
 
 
 if __name__ == "__main__":

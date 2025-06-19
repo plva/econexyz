@@ -126,8 +126,8 @@ Then update `TODO.md` to mark it complete.
 
 ## 📌 Sprint Workflow
 
-Sprint plans are stored in `sprints/current/`. When a sprint ends,
-archive its file with:
+Sprint plans are stored in `sprints/open/` as directories. When a sprint ends,
+archive its directory with:
 
 ```bash
 ./scripts/archive_sprint.sh <sprint-name>
