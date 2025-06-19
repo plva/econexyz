@@ -2,6 +2,7 @@
 """Output current sprint plans as JSON for AI tools."""
 
 import json
+import logging
 import re
 import sys
 from pathlib import Path
@@ -30,12 +31,13 @@ def parse_sprint(path: Path) -> dict:
             })
         elif line.strip().startswith("- ["):
             # TODO: Add dedicated validation of sprint files
-            print(f"Warning: unrecognized issue format: {line}", file=sys.stderr)
+            logging.warning("unrecognized issue format: %s", line.strip())
 
     return {"name": path.stem, "issues": issues}
 
 
 def main() -> None:
+    logging.basicConfig(level=logging.INFO)
     plans = []
     if SPRINT_DIR.is_dir():
         for f in sorted(SPRINT_DIR.glob("*.md")):
