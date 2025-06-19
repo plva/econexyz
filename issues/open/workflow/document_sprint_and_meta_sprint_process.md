@@ -1,3 +1,16 @@
+---
+status: open
+category: workflow
+tags:
+  - devops
+  - meta
+  - workflow
+created: 2025-06-18
+last-updated: 2025-06-19
+priority: medium
+assigned: "plva + codex"
+------------------------
+
 # workflow/document_sprint_and_meta_sprint_process
 
 Document the sprint and meta-sprint process, including:

@@ -1,3 +1,16 @@
+---
+status: open
+category: workflow
+tags:
+  - devops
+  - meta
+  - workflow
+created: 2025-06-18
+last-updated: 2025-06-19
+priority: medium
+assigned: "plva + codex"
+------------------------
+
 # workflow/onboarding_for_agents_and_collaborators
 
 Create or improve onboarding documentation for new agents and collaborators, including:
