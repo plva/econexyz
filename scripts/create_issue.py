@@ -8,6 +8,13 @@ from datetime import date
 from pathlib import Path
 import json
 import textwrap
+from typing import Optional, List
+
+try:
+    from jinja2 import Template
+    HAS_JINJA = True
+except ImportError:
+    HAS_JINJA = False
 
 ROOT = Path(__file__).resolve().parents[1]
 ISSUES_DIR = ROOT / "issues" / "open"
@@ -51,7 +58,7 @@ def insert_line(path: Path, heading: str, line: str) -> None:
     path.write_text("\n".join(lines) + "\n")
 
 
-def render_content(category: str, name: str, tags: list[str], priority: str, today: str) -> str:
+def render_content(category: str, name: str, tags: List[str], priority: str, today: str) -> str:
     template = textwrap.dedent(
         """
         ---
@@ -73,13 +80,12 @@ def render_content(category: str, name: str, tags: list[str], priority: str, tod
         """
     )
 
-    try:
-        from jinja2 import Template
+    if HAS_JINJA:
         tmpl = Template(template)
         return tmpl.render(
             category=category, name=name, tags=tags, priority=priority, today=today
         )
-    except Exception:
+    else:
         tag_lines = "\n".join(f"  - {t}" for t in tags)
         return textwrap.dedent(
             f"""
@@ -101,7 +107,7 @@ def render_content(category: str, name: str, tags: list[str], priority: str, tod
         )
 
 
-def create_issue(category: str, name: str, tags: list[str] | None = None, priority: str = "medium") -> None:
+def create_issue(category: str, name: str, tags: Optional[List[str]] = None, priority: str = "medium") -> None:
     today = date.today().isoformat()
     cats = load_categories()
     if category not in cats:
@@ -113,6 +119,10 @@ def create_issue(category: str, name: str, tags: list[str] | None = None, priori
             raise SystemExit("Unknown category")
     if tags is None:
         tags = cats.get(category, {}).get("tags", [])
+    
+    # Ensure tags is always a list
+    if not isinstance(tags, list):
+        tags = []
 
     issue_path = ISSUES_DIR / category / f"{name}.md"
     issue_path.parent.mkdir(parents=True, exist_ok=True)
@@ -120,7 +130,7 @@ def create_issue(category: str, name: str, tags: list[str] | None = None, priori
     content = render_content(category, name, tags, priority, today)
     issue_path.write_text(content)
 
-    line = f"- [ ] [{category}/{name}](issues/open/{category}/{name}.md) - TBD"
+    line = f"- [ ] [{category}/{name}](/issues/open/{category}/{name}.md) - TBD"
     heading = CATEGORY_HEADINGS.get(category, f"## {category.title()}")
     insert_line(TODO_PATH, heading, line)
 
@@ -130,7 +140,7 @@ def create_issue(category: str, name: str, tags: list[str] | None = None, priori
     insert_line(
         sprint_meta,
         "## Issues",
-        line.replace("issues/open/", "../../issues/open/"),
+        line,
     )
 
 
