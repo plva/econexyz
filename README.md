@@ -55,7 +55,7 @@ Visit `http://localhost:8000/` for instructions, `http://localhost:8000/status` 
 
 The repository includes a color palette definition at `config/color_palette.json`. These values are used by the dashboard for consistent styling.
 
-Runtime logs are written to `~/tmp/econexyz.log` and are ignored by git.
+Runtime logs are written to `~/tmp/econexyz.log` and are ignored by git. Agents log setup, shutdown, and message publishing events to help verify they are running correctly.
 
 ## Project TODOs
 

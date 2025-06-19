@@ -1,6 +1,7 @@
 """Agent base class defining lifecycle methods."""
 
 from abc import ABC, abstractmethod
+import logging
 
 from econexyz.message_bus.base import MessageBus
 from econexyz.storage.base import KnowledgeStore
@@ -18,6 +19,7 @@ class Agent(ABC):
     def setup(self) -> None:
         """Initialize resources before running."""
         self.running = True
+        logging.info("Agent %s setup", self.name)
 
     @abstractmethod
     def run(self) -> None:
@@ -27,3 +29,4 @@ class Agent(ABC):
     def shutdown(self) -> None:
         """Clean up resources when the agent stops."""
         self.running = False
+        logging.info("Agent %s shutting down", self.name)

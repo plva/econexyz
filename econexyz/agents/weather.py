@@ -32,6 +32,7 @@ class WeatherAgent(Agent):
 
     def run(self) -> None:
         """Periodically fetch and publish weather info."""
+        logging.info("%s started", self.name)
         while self.running and not self._stop_event.is_set():
             weather = self._get_weather()
             if weather:
