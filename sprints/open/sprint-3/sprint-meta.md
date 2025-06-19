@@ -15,3 +15,4 @@
 - [ ] [workflow/create-lock-file](/issues/open/workflow/create-lock-file.md) - TBD
 - [x] [bugs/update_sprint_state_in_archive](/issues/closed/bugs/update_sprint_state_in_archive.md) - Fix archive_sprint.py to update sprint state
 - [ ] [workflow/auto_update_issue_dates](/issues/open/workflow/auto_update_issue_dates.md) - Auto-update issue dates via git hooks
+- [ ] [workflow/run_all_tests_script](/issues/open/workflow/run_all_tests_script.md) - Create comprehensive test runner script
