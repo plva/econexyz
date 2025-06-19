@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SPRINT_DIR = ROOT / "sprints" / "current"
+SPRINT_DIR = ROOT / "sprints" / "open"
 
 # Matches checklist items like:
 # - [ ] [category/name](../path/to/issue.md)
@@ -99,8 +99,10 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO)
     plans = []
     if SPRINT_DIR.is_dir():
-        for f in sorted(SPRINT_DIR.glob("*.md")):
-            plans.append(parse_sprint(f, fix=args.fix))
+        for d in sorted(SPRINT_DIR.iterdir()):
+            meta = d / "sprint-meta.md"
+            if meta.exists():
+                plans.append(parse_sprint(meta, fix=args.fix))
     print(json.dumps({"sprints": plans}, indent=2))
 
 
