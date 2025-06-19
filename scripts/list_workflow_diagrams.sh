@@ -14,9 +14,18 @@ if ! command -v npx >/dev/null 2>&1; then
   exit 1
 fi
 
+# Clean up old SVGs before rendering
+rm -f "$OUT_DIR"/*.svg
+
 for md in "$DOC_DIR"/*_workflow.md; do
   base=$(basename "$md" .md)
   out="$OUT_DIR/${base}.svg"
   npx -y @mermaid-js/mermaid-cli -i "$md" -o "$out" >/dev/null
-  echo "file://$out"
 done
+
+# List all SVGs in the output directory
+for svg in "$OUT_DIR"/*.svg; do
+  echo "file://$svg"
+done
+
+echo "Rendered SVGs directory: file://$OUT_DIR"

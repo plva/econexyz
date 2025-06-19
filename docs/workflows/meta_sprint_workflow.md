@@ -8,5 +8,5 @@ flowchart TD
     plan --> run[Sprint execution]
     run --> retro[Sprint retrospective]
     retro --> update[Update future plans]
-    update --> end([Meta-sprint complete])
+    update --> metaEnd([Meta-sprint complete])
 ```

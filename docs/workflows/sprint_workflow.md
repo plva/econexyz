@@ -7,5 +7,5 @@ flowchart TD
     development --> review[Code Review & Testing]
     review --> demo[Sprint Review/Demo]
     demo --> retro[Sprint Retrospective]
-    retro --> end([Sprint complete])
+    retro --> metaEnd([Sprint complete])
 ```
