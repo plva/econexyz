@@ -1,16 +1,22 @@
 # TODO
 
-- [ ] Implement more robust dashboard frontend using React.
-- [ ] Integrate color palette from `config/color_palette.json` into dashboard styling.
-- [ ] Write integration tests for message bus and knowledge store.
-- [ ] Enhance sample agent and add new agents, such as one that retrieves local weather.
-- [ ] Improve error handling and logging; store logs under `~/tmp` or another ignored path.
-- [ ] Provide script or CLI options to launch multiple agents simultaneously.
+This repository tracks work items in the `issues/` directory. Each task below links to a markdown file that contains additional details.
 
-## Event Bus Enhancements
+## Dashboard
+- [ ] [dashboard/frontend_react](issues/dashboard/frontend_react.md) - Implement a React-based dashboard frontend.
+- [ ] [dashboard/color_palette](issues/dashboard/color_palette.md) - Apply the shared color palette to dashboard styling.
 
-- [ ] Add pagination to the `/messages` endpoint, returning the most recent events capped at 50.
-- [ ] Implement optional message TTL to prevent unbounded growth of stored events.
-- [ ] Provide an optional queue implementation for polling messages with removal semantics.
-- [ ] Support a production-ready bus/queue backend (e.g., Redis or NATS) in place of the in-memory bus.
-- [ ] Refactor agent runner and dashboard to inject the chosen bus or queue implementation.
+## Agents
+- [ ] [agents/enhance_sample_agent](issues/agents/enhance_sample_agent.md) - Improve the sample agent and create new agents (e.g., weather).
+- [ ] [agents/multi_agent_cli](issues/agents/multi_agent_cli.md) - Provide CLI options to run multiple agents.
+
+## Cross-cutting
+- [ ] [cross/integration_tests](issues/cross/integration_tests.md) - Write integration tests for the message bus and knowledge store.
+- [ ] [cross/logging_improvements](issues/cross/logging_improvements.md) - Enhance error handling and logging.
+
+## Event Bus
+- [ ] [bus/message_pagination](issues/bus/message_pagination.md) - Add pagination to the `/messages` endpoint.
+- [ ] [bus/message_ttl](issues/bus/message_ttl.md) - Implement optional message TTL.
+- [ ] [bus/queue_polling](issues/bus/queue_polling.md) - Provide a queue with polling and removal semantics.
+- [ ] [bus/prod_backend](issues/bus/prod_backend.md) - Support a production-ready backend such as Redis or NATS.
+- [ ] [bus/inject_bus_impl](issues/bus/inject_bus_impl.md) - Inject the chosen bus implementation into the agent runner and dashboard.
