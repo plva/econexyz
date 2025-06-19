@@ -4,3 +4,4 @@ requests
 httpx
 pytest
 jinja2
+openai
