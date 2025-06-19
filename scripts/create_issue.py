@@ -19,7 +19,6 @@ except ImportError:
 ROOT = Path(__file__).resolve().parents[1]
 ISSUES_DIR = ROOT / "issues" / "open"
 TODO_PATH = ROOT / "TODO.md"
-STATE_PATH = ROOT / "state" / "sprint.json"
 CONFIG_PATH = ROOT / "config" / "issue_categories.yml"
 
 CATEGORY_HEADINGS = {
@@ -60,7 +59,8 @@ def insert_line(path: Path, heading: str, line: str) -> None:
 
 def render_content(category: str, name: str, tags: List[str], priority: str, today: str) -> str:
     template = textwrap.dedent("""\
----
+```
+------------------------
 status: open
 category: {{ category }}
 tags:
@@ -72,7 +72,7 @@ last-updated: {{ today }}
 priority: {{ priority }}
 assigned: unassigned
 ------------------------
-
+```
 # {{ category }}/{{ name }}
 
 TBD
@@ -129,15 +129,6 @@ def create_issue(category: str, name: str, tags: Optional[List[str]] = None, pri
     line = f"- [ ] [{category}/{name}](/issues/open/{category}/{name}.md) - TBD"
     heading = CATEGORY_HEADINGS.get(category, f"## {category.title()}")
     insert_line(TODO_PATH, heading, line)
-
-    state = json.loads(STATE_PATH.read_text())
-    sprint_dir = ROOT / "sprints" / "open" / f"sprint-{state['current']}"
-    sprint_meta = sprint_dir / "sprint-meta.md"
-    insert_line(
-        sprint_meta,
-        "## Issues",
-        line,
-    )
 
 
 
