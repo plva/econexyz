@@ -154,6 +154,15 @@ def create_template_file(commit_type: str) -> str:
     
     return str(temp_file)
 
+def cleanup_template_file(commit_type: str) -> None:
+    """Remove the temp commit template file if it exists."""
+    temp_file = Path(f"/tmp/commit_template_{commit_type}.md")
+    if temp_file.exists():
+        try:
+            temp_file.unlink()
+        except Exception as e:
+            print(f"Warning: Could not remove temp file: {temp_file} ({e})")
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate commit messages")
     parser.add_argument("--type", help="commit type")
@@ -176,12 +185,16 @@ def main() -> None:
         template_file = create_template_file(args.template)
         print(f"Template file created: {template_file}")
         print(f"Use: git commit -F {template_file}")
+        # Cleanup after showing the path
+        cleanup_template_file(args.template)
         return
     
     if args.use_template:
         template_file = create_template_file(args.use_template)
         print(f"Template file ready: {template_file}")
         print(f"Run: git commit -F {template_file}")
+        # Cleanup after showing the path
+        cleanup_template_file(args.use_template)
         return
     
     if args.interactive:
