@@ -7,6 +7,7 @@ PYTHON_BIN="python3"
 VENV_DIR=".venv"
 REQUIREMENTS="requirements.txt"
 AGENT_SCRIPT="scripts/run_agents.py"
+PALETTE_SCRIPT="scripts/generate_palette_css.py"
 
 # Function to print errors and exit
 error_exit() {
@@ -27,6 +28,11 @@ if [ ! -f "$AGENT_SCRIPT" ]; then
   error_exit "Could not find $AGENT_SCRIPT. Are you in the project root?"
 fi
 
+# Ensure palette generation script exists
+if [ ! -f "$PALETTE_SCRIPT" ]; then
+  error_exit "Could not find $PALETTE_SCRIPT."
+fi
+
 # Create venv if needed
 if [ ! -d "$VENV_DIR" ]; then
   echo "[INFO] Creating virtual environment in $VENV_DIR..."
@@ -41,6 +47,9 @@ echo "[INFO] Virtual environment activated."
 pip install --upgrade pip || error_exit "Failed to upgrade pip."
 pip install -r $REQUIREMENTS || error_exit "Failed to install requirements."
 echo "[INFO] Requirements installed."
+
+# Generate dashboard color palette CSS
+python "$PALETTE_SCRIPT" || error_exit "Failed to run $PALETTE_SCRIPT"
 
 echo "[INFO] Starting agents..."
 python $AGENT_SCRIPT || error_exit "Failed to run $AGENT_SCRIPT." 
