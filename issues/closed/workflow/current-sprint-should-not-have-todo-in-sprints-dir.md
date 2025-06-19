@@ -1,5 +1,5 @@
 ---
-status: open
+status: closed
 category: workflow
 tags:
   - bug 
