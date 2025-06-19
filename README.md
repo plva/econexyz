@@ -35,21 +35,33 @@ EcoNexyz is an ecological system of autonomous AI agents that can be registered,
 
 ## Quick Start
 
-1. Install requirements:
+1. Bootstrap your environment and start the agents:
    ```bash
-   pip install -r requirements.txt
+   source bootstrap.sh
    ```
-2. Run the sample agent (or experiment with the weather agent by editing `scripts/run_agents.py`):
-   ```bash
-   python scripts/run_agents.py
-   ```
-3. Start the dashboard API and web UI:
+   This will create a virtual environment (if needed), install requirements, and launch the agents.
+2. Start the dashboard API and web UI:
    ```bash
    ./scripts/run_dashboard.sh
    ```
    Then open `dashboard/web/index.html` in your browser.
 
 Visit `http://localhost:8000/` for instructions, `http://localhost:8000/status` to see agent status and `http://localhost:8000/messages` for recent bus messages.
+
+## bootstrap.sh: Environment Setup & Agent Runner
+
+The `bootstrap.sh` script automates the following:
+- Checks for Python 3 and required files
+- Creates and activates a virtual environment (`.venv`)
+- Installs all Python requirements
+- Starts the agent runner script
+
+**Usage:**
+```bash
+source bootstrap.sh
+```
+
+If any step fails, you'll see a clear error message. Always use `source` so your shell stays in the activated environment.
 
 ## Configuration
 
