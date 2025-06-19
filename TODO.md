@@ -49,4 +49,4 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [workflow/create-lock-file](issues/open/workflow/create-lock-file.md) - TBD
 
 ## Bugs
-- [ ] [bugs/update_sprint_state_in_archive](/issues/open/bugs/update_sprint_state_in_archive.md) - TBD
+- [x] [bugs/update_sprint_state_in_archive](/issues/closed/bugs/update_sprint_state_in_archive.md) - TBD
