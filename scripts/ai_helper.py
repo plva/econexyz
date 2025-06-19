@@ -29,6 +29,7 @@ def parse_sprint(path: Path, *, fix: bool = False) -> dict:
     """Return sprint metadata and issue list from a markdown file."""
 
     issues = []
+    bug_summary: dict[str, int] = {}
     lines = path.read_text().splitlines()
     new_lines = []
     changed = False
@@ -84,7 +85,20 @@ def parse_sprint(path: Path, *, fix: bool = False) -> dict:
     if fix and changed:
         path.write_text("\n".join(new_lines) + "\n")
 
-    return {"name": path.stem, "issues": issues}
+    # Parse optional bug summary section
+    bug_section = False
+    for line in lines:
+        if line.strip() == "## Bug Summary":
+            bug_section = True
+            continue
+        if bug_section:
+            if line.startswith("## "):
+                break
+            m = re.match(r"(Critical|High|Medium|Low|Regressions):\s*(\d+)", line.strip())
+            if m:
+                bug_summary[m.group(1).lower()] = int(m.group(2))
+
+    return {"name": path.stem, "issues": issues, "bugs": bug_summary}
 
 
 def main() -> None:
