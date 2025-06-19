@@ -17,6 +17,7 @@ class SampleAgent(Agent):
 
     def run(self) -> None:
         """Run a simple loop publishing incrementing counters."""
+        logging.info("%s started", self.name)
         counter = 0
         while self.running and not self._stop_event.is_set():
             message = {"agent": self.name, "counter": counter}
