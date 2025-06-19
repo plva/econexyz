@@ -137,13 +137,16 @@ The commit message script validates:
 
 ## Git Hooks
 
-### Install Commit Message Hook
+### Setup (One-time)
+
+**For new developers or after cloning the repository:**
 
 ```bash
-# Copy the hook script
-cp scripts/commit-msg-hook.py .git/hooks/commit-msg
-chmod +x .git/hooks/commit-msg
+# Run the setup script to install git hooks
+./scripts/setup_hooks.sh
 ```
+
+This will install the commit-msg hook that validates all commit messages.
 
 ### Manual Validation
 
@@ -151,6 +154,16 @@ chmod +x .git/hooks/commit-msg
 # Validate a commit message file
 python scripts/commit-msg-hook.py commit_message.txt
 ```
+
+### What the Hook Validates
+
+The commit-msg hook automatically checks:
+- Header length (max 50 chars)
+- Valid commit type format
+- Body line length (max 72 chars)
+- Proper commit type from our defined list
+
+If validation fails, the commit will be rejected with helpful error messages.
 
 ## IDE Integration
 
@@ -204,6 +217,25 @@ python scripts/commit_message.py --list-types
 # Show help
 python scripts/commit_message.py --help
 ```
+
+### Hook Not Working?
+
+If the commit-msg hook isn't working:
+
+1. **Check if it's installed:**
+   ```bash
+   ls -la .git/hooks/commit-msg
+   ```
+
+2. **Reinstall the hook:**
+   ```bash
+   ./scripts/setup_hooks.sh
+   ```
+
+3. **Check permissions:**
+   ```bash
+   chmod +x .git/hooks/commit-msg
+   ```
 
 ## Related Documentation
 

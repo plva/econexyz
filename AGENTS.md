@@ -103,6 +103,12 @@ agent.run()
 
 - Wrap the commit body at 72 characters per line for readability.
 
+## Commit Message Standards
+
+All contributors must use the commit message template system and git commit-msg hook for validation. This ensures consistency and quality across all commits.
+
+- See `docs/guides/commit_messages.md` for full guidelines and usage.
+- Git hooks are installed automatically via `./bootstrap.sh` or manually with `./scripts/setup_hooks.sh`.
 
 ---
 

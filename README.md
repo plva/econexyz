@@ -170,3 +170,27 @@ Expanded the content of all open workflow issues to provide clearer guidance for
 ```
 
 > **Important:** Do not update `/TODO.md` or sprint meta files during a normal task PR. These files should only be updated during a dedicated cycle stand-up PR to avoid merge conflicts. For more details, see [docs/guides/development.md](/docs/guides/development.md).
+
+## Git Hooks Setup
+
+To ensure all commit messages follow project standards, we use a git commit-msg hook for validation.
+
+### Automatic Setup
+
+When you run:
+
+```bash
+./bootstrap.sh
+```
+
+git hooks will be installed automatically.
+
+### Manual Setup
+
+If you need to reinstall hooks manually:
+
+```bash
+./scripts/setup_hooks.sh
+```
+
+This will install the commit-msg hook that validates your commit messages for format, type, and length.

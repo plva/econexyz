@@ -61,5 +61,13 @@ if [ -d "$VITE_SAMPLE_DIR" ]; then
   (cd "$VITE_SAMPLE_DIR" && npm run build) || error_exit "Failed to build dashboard assets."
 fi
 
+# Install git hooks
+if [ -x scripts/setup_hooks.sh ]; then
+  echo "Installing git hooks..."
+  ./scripts/setup_hooks.sh
+else
+  echo "Warning: scripts/setup_hooks.sh not found or not executable."
+fi
+
 echo "[INFO] Starting agents..."
 python $AGENT_SCRIPT || error_exit "Failed to run $AGENT_SCRIPT." 
