@@ -10,7 +10,8 @@ function useFetch(url) {
   React.useEffect(() => {
     const fetchData = () => fetch(url).then(r => r.json()).then(setData).catch(() => {});
     fetchData();
-    const id = setInterval(fetchData, 2000);
+    // Poll every minute
+    const id = setInterval(fetchData, 60000);
     return () => clearInterval(id);
   }, [url]);
   return data;
