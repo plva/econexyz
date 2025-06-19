@@ -87,3 +87,9 @@ To view the sprint plan in JSON form for AI tools, run:
 ```bash
 python scripts/ai_helper.py
 ```
+
+To normalize sprint files and fix minor formatting issues, pass `--fix`:
+
+```bash
+python scripts/ai_helper.py --fix
+```

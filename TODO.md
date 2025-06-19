@@ -30,4 +30,4 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [x] [workflow/implement-integrated-sprint-and-issue-workflow](issues/closed/workflow/implement-integrated-sprint-and-issue-workflow.md) - Implement integrated sprint and issue workflow with archival structure.
   - [x] Update Documentation & Agent Instructions (PR #3)
   - [x] Optional - AI Integration Helper (PR #4)
-- [ ] [workflow/sprint-file-validation](issues/open/workflow/sprint-file-validation.md) - Validate sprint files and warn on formatting errors.
+- [x] [workflow/sprint-file-validation](issues/closed/workflow/sprint-file-validation.md) - Validate sprint files and warn on formatting errors.
