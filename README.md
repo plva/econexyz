@@ -118,4 +118,5 @@ a Python example. Untracked files are stashed automatically;
 
 Additional diagrams illustrating repository workflows live in
 `docs/workflows/`. They include mermaid charts for the sprint cycle,
-handling individual issues, and meta-sprint planning.
+handling individual issues, and meta-sprint planning. See
+`docs/workflows/README.md` for details on generating and viewing them.
