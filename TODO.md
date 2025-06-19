@@ -31,3 +31,4 @@ This repository tracks work items in the `issues/` directory. Each task below li
   - [x] Update Documentation & Agent Instructions (PR #3)
   - [x] Optional - AI Integration Helper (PR #4)
 - [x] [workflow/sprint-file-validation](issues/closed/workflow/sprint-file-validation.md) - Validate sprint files and warn on formatting errors.
+- [ ] [workflow/implement-git-transactions](issues/open/workflow/implement-git-transactions.md) - Implement transactional Git workflow scripts and documentation
