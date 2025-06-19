@@ -38,3 +38,18 @@ def test_transaction_rollback(tmp_path):
     log = subprocess.check_output(["git", "log", "--pretty=%s"], cwd=repo)
     assert b"will rollback" not in log
     assert not (repo / "temp.txt").exists()
+
+
+def test_restore_uncommitted_changes(tmp_path):
+    repo = tmp_path / "repo3"
+    repo.mkdir()
+    init_repo(repo)
+
+    (repo / "pre.txt").write_text("pre")
+
+    subprocess.run([str(SCRIPT), "start", "msg"], cwd=repo, check=True)
+    (repo / "discard.txt").write_text("discard")
+    subprocess.run([str(SCRIPT), "rollback"], cwd=repo, check=True)
+
+    assert (repo / "pre.txt").exists()
+    assert not (repo / "discard.txt").exists()

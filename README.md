@@ -104,7 +104,8 @@ Run commands atomically using `git_transaction.sh`:
 ./scripts/git_transaction.sh finalize
 ```
 
-If something goes wrong, run `./scripts/git_transaction.sh rollback` to
-restore the previous state. The helper manages temporary branches and
-squashes the transaction into a single commit. See
-`scripts/transaction_example.py` for a Python example.
+If something goes wrong, run `./scripts/git_transaction.sh rollback`
+to restore the previous state. The helper stashes any pre-existing
+changes, uses a temporary branch for your edits and squashes the
+result into a single commit. See `scripts/transaction_example.py` for
+a Python example. Untracked files are stashed automatically; 
