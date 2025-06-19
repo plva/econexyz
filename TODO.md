@@ -47,3 +47,6 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [workflow/Implement bug fix workflow and issue reopening](issues/open/workflow/Implement bug fix workflow and issue reopening.md) - TBD
 - [ ] [workflow/Add new feature](issues/open/workflow/Add new feature.md) - TBD
 - [ ] [workflow/create-lock-file](issues/open/workflow/create-lock-file.md) - TBD
+
+## Bugs
+- [ ] [bugs/update_sprint_state_in_archive](/issues/open/bugs/update_sprint_state_in_archive.md) - TBD

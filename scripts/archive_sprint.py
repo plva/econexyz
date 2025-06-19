@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import shutil
 from pathlib import Path
@@ -11,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SPRINT_OPEN = ROOT / "sprints" / "open"
 SPRINT_ARCHIVED = ROOT / "sprints" / "archived"
+STATE_PATH = ROOT / "state" / "sprint.json"
 ISSUE_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 
 
@@ -39,6 +41,28 @@ def clean_empty_dirs(path: Path, stop: Path) -> None:
         except OSError:
             break
         path = path.parent
+
+
+def update_sprint_state(new_sprint_name: str) -> None:
+    """Update the sprint state to reflect the new current sprint."""
+    if not STATE_PATH.exists():
+        STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        state_data = {"current": 1}
+    else:
+        try:
+            state_data = json.loads(STATE_PATH.read_text())
+        except json.JSONDecodeError:
+            state_data = {"current": 1}
+    
+    # Extract sprint number from name (e.g., "sprint-4" -> 4)
+    try:
+        sprint_num = int(new_sprint_name.split('-')[1])
+        state_data["current"] = sprint_num
+    except (IndexError, ValueError):
+        # If we can't parse the sprint number, don't update state
+        return
+    
+    STATE_PATH.write_text(json.dumps(state_data, indent=2) + "\n")
 
 
 def archive_sprint(name: str, new: str | None = None) -> None:
@@ -121,6 +145,8 @@ def archive_sprint(name: str, new: str | None = None) -> None:
             f"# {new.replace('-', ' ').title()} - TBD\n\n"
             "This sprint currently has no planned issues.\n"
         )
+        # Update sprint state when creating a new sprint
+        update_sprint_state(new)
 
 
 def main() -> None:
