@@ -108,7 +108,7 @@ agent.run()
 
 ## 📌 Example Agent
 
-For practical references, review [`agents/sample.py`](econexyz/agents/sample.py) and [`agents/weather.py`](econexyz/agents/weather.py).
+For practical references, review [`agents/sample.py`](/econexyz/agents/sample.py) and [`agents/weather.py`](/econexyz/agents/weather.py).
 
 ---
 
@@ -167,4 +167,4 @@ python scripts/ai_helper.py --fix
 
 Follow this guide, keep your implementations clean, and have fun building intelligent, autonomous behavior into the **EcoNexyz** ecosystem!
 
-Additional project-wide tasks are tracked in [TODO.md](TODO.md).
+Additional project-wide tasks are tracked in [/TODO.md](/TODO.md).

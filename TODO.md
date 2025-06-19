@@ -3,9 +3,9 @@
 This repository tracks work items in the `issues/` directory. Each task below links to a markdown file that contains additional details.
 
 ## Dashboard
-- [ ] [dashboard/frontend_react](issues/open/dashboard/frontend_react.md) - Implement a React-based dashboard frontend.
-- [ ] [dashboard/color_palette](issues/open/dashboard/color_palette.md) - Apply the shared color palette to dashboard styling.
-- [ ] [dashboard/view_tasks_and_sprint](issues/open/dashboard/view_tasks_and_sprint.md) - Show tasks and sprint in the dashboard.
+- [ ] [dashboard/frontend_react](/issues/open/dashboard/frontend_react.md) - Implement a React-based dashboard frontend.
+- [ ] [dashboard/color_palette](/issues/open/dashboard/color_palette.md) - Apply the shared color palette to dashboard styling.
+- [ ] [dashboard/view_tasks_and_sprint](/issues/open/dashboard/view_tasks_and_sprint.md) - Show tasks and sprint in the dashboard.
 
 ## Agents
 - [ ] [agents/enhance_sample_agent](issues/open/agents/enhance_sample_agent.md) - Improve the sample agent and create new agents (e.g., weather).

@@ -1,5 +1,5 @@
 # econexyz
-![EcoNexyz](img/robo_nexyz.png)
+![EcoNexyz](/img/robo_nexyz.png)
 🌐 EcoNexyz: Autonomous AI-agent ecosystem seamlessly bridging tasks and knowledge
 
 🧠 Conceptual Overview of EcoNexyz Repo
@@ -70,7 +70,7 @@ Runtime logs are written to `~/tmp/econexyz.log` and are ignored by git. Agents 
 
 ## Project TODOs
 
-Ongoing development tasks are tracked in [TODO.md](TODO.md). Contributions and ideas are welcome!
+Ongoing development tasks are tracked in [/TODO.md](/TODO.md). Contributions and ideas are welcome!
 
 ## Sprint Workflow
 
