@@ -44,6 +44,48 @@ We use the following commit types:
 - `[sprint-planning]` - Sprint planning activities
 - `[temp]` - Temporary commits for testing
 
+## Bugfix Decision Flow
+
+When encountering a bug, follow this decision tree:
+
+### 1. Is there already an open issue for this bug?
+- **Yes** → Fix directly and reference the issue in commit message
+- **No** → Continue to step 2
+
+### 2. Is there a closed issue for this bug?
+- **Yes** → Reopen the issue, then fix and reference it
+- **No** → Continue to step 3
+
+### 3. Should this bug be tracked with an issue?
+- **Yes** (complex bug, affects users, needs discussion) → Create new issue first, then fix
+- **No** (trivial fix, internal cleanup, obvious error) → Fix directly with `[bugfix]` commit
+
+### Examples:
+
+**Fix directly (no issue needed):**
+- Typo in comment or documentation
+- Missing cleanup step in script
+- Linter warning fix
+- Obvious syntax error
+
+**Create issue first:**
+- Bug that affects functionality
+- Security vulnerability
+- Performance issue
+- User-reported problem
+- Complex bug requiring discussion
+
+**Reference existing issue:**
+```bash
+[bugfix] fix issue path resolution in create_issue.py
+
+Fixed bug where issue paths were being created as relative instead
+of absolute paths. This caused issues when creating issues from
+different directories.
+
+Closes #45
+```
+
 ## Template System
 
 ### Available Templates
@@ -201,6 +243,7 @@ python scripts/commit_message.py --template bugfix > $1
 4. **Reference issues** with `#123`
 5. **Use imperative mood** ("add" not "added")
 6. **Test your message** with the validation script
+7. **Follow the bugfix decision flow** for consistent issue tracking
 
 ## Troubleshooting
 

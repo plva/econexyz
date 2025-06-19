@@ -210,3 +210,14 @@ Expanded the content of all open workflow issues to provide clearer guidance for
 ```
 
 > **Important:** Do not update `/TODO.md` or sprint meta files during a normal task PR. These files should only be updated during a dedicated cycle stand-up PR to avoid merge conflicts. See [docs/guides/sprint_process.md](docs/guides/sprint_process.md#cycle-stand-up) for the full procedure.
+
+## Bugfix Process
+
+When encountering bugs, follow the **Bugfix Decision Flow** in `docs/guides/development.md`:
+
+1. **Check for existing issues** - Look for open or closed issues first
+2. **Assess complexity** - Trivial fixes can be done directly, complex bugs need issues
+3. **Create issues when needed** - For user-affecting, security, or complex bugs
+4. **Reference issues in commits** - Always link commits to relevant issues
+
+See `docs/guides/development.md#bugfix-process` for the complete decision tree and examples.
