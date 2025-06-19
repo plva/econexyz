@@ -24,9 +24,17 @@ def get_status():
 
 
 @app.get("/messages")
-def get_messages():
-    """Return recently published messages."""
+def get_messages(page: int = 1, page_size: int = 50):
+    """Return recently published messages with pagination."""
     bus = state.message_bus
     if bus and hasattr(bus, "get_messages"):
-        return {"messages": bus.get_messages()}
+        messages = list(reversed(bus.get_messages()))
+        start = max(page - 1, 0) * page_size
+        end = start + page_size
+        return {
+            "page": page,
+            "page_size": page_size,
+            "total": len(messages),
+            "messages": messages[start:end],
+        }
     return {"messages": []}

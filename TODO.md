@@ -15,7 +15,7 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [cross/logging_improvements](issues/cross/logging_improvements.md) - Enhance error handling and logging.
 
 ## Event Bus
-- [ ] [bus/message_pagination](issues/bus/message_pagination.md) - Add pagination to the `/messages` endpoint.
+- [x] [bus/message_pagination](issues/bus/message_pagination.md) - Add pagination to the `/messages` endpoint.
 - [ ] [bus/message_ttl](issues/bus/message_ttl.md) - Implement optional message TTL.
 - [ ] [bus/queue_polling](issues/bus/queue_polling.md) - Provide a queue with polling and removal semantics.
 - [ ] [bus/prod_backend](issues/bus/prod_backend.md) - Support a production-ready backend such as Redis or NATS.
