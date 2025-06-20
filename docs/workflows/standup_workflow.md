@@ -217,6 +217,59 @@ Example:
 - `python scripts/run_standup.py` - Generate standup summary
 - `python scripts/test_commit_hook.py` - Test git hooks
 
+## Usage Examples
+
+### Basic Standup
+```bash
+# Run a basic standup analysis (dry run)
+python scripts/run_standup.py --dry-run
+
+# Generate commit message for manual review
+python scripts/run_standup.py --generate-commit
+```
+
+### Enhanced Standup with All Features
+```bash
+# Run all enhanced standup features
+python scripts/run_standup.py --all
+```
+
+### Individual Feature Usage
+```bash
+# Create work delta summary only
+python scripts/run_standup.py --work-delta
+
+# Check documentation for new features
+python scripts/run_standup.py --check-docs
+
+# Review blockers and dependencies
+python scripts/run_standup.py --review-blockers
+
+# Perform health checks
+python scripts/run_standup.py --health-check
+```
+
+### Combined Usage
+```bash
+# Traditional standup with enhanced features
+python scripts/run_standup.py --dry-run --all
+
+# Generate commit message with all checks
+python scripts/run_standup.py --generate-commit --all
+
+# Quick health check without full analysis
+python scripts/run_standup.py --health-check --dry-run
+```
+
+### Command Line Options
+- `--dry-run`: Show what would be done without making changes
+- `--generate-commit`: Generate standup commit message
+- `--work-delta`: Create work delta summary
+- `--check-docs`: Check documentation for new features
+- `--review-blockers`: Review blockers and dependencies
+- `--health-check`: Perform health checks
+- `--all`: Run all enhanced standup steps
+
 ## Best Practices
 
 1. **Run standups regularly**: At least once per development cycle
