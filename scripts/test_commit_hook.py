@@ -9,8 +9,8 @@ HOOK_PATH = os.path.join('.git', 'hooks', 'commit-msg')
 TEST_CASES = [
     # Valid cases
     {
-        'name': 'valid_bugfix',
-        'content': '[bugfix] fix something',
+        'name': 'valid_fix',
+        'content': '[fix] fix something',
         'should_pass': True,
     },
     {
@@ -36,12 +36,12 @@ TEST_CASES = [
     },
     {
         'name': 'header_too_long',
-        'content': '[bugfix] ' + 'a' * 60,
+        'content': '[fix] ' + 'a' * 60,
         'should_pass': False,
     },
     {
         'name': 'body_line_too_long',
-        'content': '[bugfix] short\n\n' + 'b' * 80,
+        'content': '[fix] short\n\n' + 'b' * 80,
         'should_pass': False,
     },
 ]
