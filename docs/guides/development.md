@@ -19,12 +19,26 @@ When encountering a bug, follow this decision tree:
 - **No** → Continue to step 2
 
 ### 2. Is there a closed issue for this bug?
-- **Yes** → Reopen the issue, then fix and reference it
+- **Yes** → Reopen the issue using the bug workflow, then fix and reference it
 - **No** → Continue to step 3
 
 ### 3. Should this bug be tracked with an issue?
-- **Yes** (complex bug, affects users, needs discussion) → Create new issue first, then fix
-- **No** (trivial fix, internal cleanup, obvious error) → Fix directly with `[bugfix]` commit
+- **Yes** (complex bug, affects users, needs discussion) → Create new bug issue first, then fix
+- **No** (trivial fix, internal cleanup, obvious error) → Fix directly with `[fix]` commit
+
+### Bug Workflow Commands
+
+**Create a new bug issue:**
+```bash
+python scripts/create_issue.py bugs <bug-name> --template bug --priority <level>
+```
+
+**Reopen a closed bug:**
+```bash
+python scripts/create_issue.py --reopen bugs/<bug-name> --template bug
+```
+
+For detailed bug reporting instructions, see the [Bug Reporting Guide](bug_reporting.md).
 
 ### Examples:
 
@@ -34,7 +48,7 @@ When encountering a bug, follow this decision tree:
 - Linter warning fix
 - Obvious syntax error
 
-**Create issue first:**
+**Create bug issue first:**
 - Bug that affects functionality
 - Security vulnerability
 - Performance issue
@@ -43,7 +57,7 @@ When encountering a bug, follow this decision tree:
 
 **Reference existing issue:**
 ```bash
-[bugfix] fix issue path resolution in create_issue.py
+[fix] fix issue path resolution in create_issue.py
 
 Fixed bug where issue paths were being created as relative instead
 of absolute paths. This caused issues when creating issues from
@@ -58,6 +72,7 @@ Closes #45
 - **Complex bugs**: Should be tracked as separate issues and may require dedicated PRs
 - **Security bugs**: Always create issues and follow security disclosure procedures
 - **Performance bugs**: Create issues to track impact and optimization efforts
+- **Regression bugs**: Use the reopen functionality to track when previously fixed bugs reappear
 
 # Cycle-Based Development Workflow
 

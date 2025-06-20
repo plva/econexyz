@@ -54,3 +54,5 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [x] [workflow/standup_automation_script](/issues/closed/workflow/standup_automation_script.md) - TBD
 ## Bugs
 - [x] [bugs/update_sprint_state_in_archive](/issues/closed/bugs/update_sprint_state_in_archive.md) - TBD
+- [ ] [bugs/test_bug](/issues/open/bugs/test_bug.md) - TBD
+- [ ] [bugs/test_complete_workflow](/issues/open/bugs/test_complete_workflow.md) - TBD

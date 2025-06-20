@@ -47,6 +47,25 @@ For complete documentation, see [`docs/workflows/standup_workflow.md`](docs/work
 python scripts/create_issue.py <category> <issue-name> [--tags tag1,tag2] [--priority level]
 ```
 
+### Creating Bug Issues
+```bash
+# Create a new bug issue
+python scripts/create_issue.py bugs <bug-name> --template bug --priority <level>
+
+# Examples:
+python scripts/create_issue.py bugs dashboard_not_loading --template bug --priority high
+python scripts/create_issue.py bugs test_failure --template bug --priority medium
+```
+
+### Reopening Issues
+```bash
+# Reopen a closed issue (useful for regression bugs)
+python scripts/create_issue.py --reopen <category>/<issue-name> --template <template>
+
+# Example: Reopen a bug
+python scripts/create_issue.py --reopen bugs/dashboard_not_loading --template bug
+```
+
 ### Closing Issues
 ```bash
 ./scripts/close_issue.sh <category> <issue-name>
