@@ -107,7 +107,70 @@ agent.run()
 
 All contributors must use the commit message template system and git commit-msg hook for validation. This ensures consistency and quality across all commits.
 
-- See `docs/guides/commit_messages.md` for full guidelines and usage.
+### Using the Commit Message Script
+
+**For AI agents and contributors, always use the commit message script:**
+
+```bash
+# 1. Create a template for your commit type
+python scripts/commit_message.py --template <type>
+
+# 2. Edit the generated template file (in /tmp/commit_template_<type>.md)
+# Add your description and details
+
+# 3. Stage your changes
+git add <files>
+
+# 4. Commit using the template
+git commit -F /tmp/commit_template_<type>.md
+```
+
+**Available commit types:**
+- `fix` - Fixes a bug
+- `feature` - Adds a new feature
+- `workflow` - Changes to AI-agent workflows, agent instructions, or documentation that directly affect agent behaviors
+- `issue` - Adds a new issue file to the repo
+- `refactor` - Pure code cleanup without behavior change
+- `perf` - Performance enhancements
+- `deps` - Dependency updates
+- `agents` - Changes to agent system
+- `dashboard` - Changes to dashboard or UI
+- `bus` - Changes to message bus system
+- `cross` - Cross-cutting changes (tests, CI, etc.)
+- `standup` - Cycle stand-up updates (TODO.md, sprint meta)
+- `sprint` - Sprint planning activities
+- `temp` - Temporary commits for testing
+
+**Example workflow:**
+```bash
+# For a bug fix
+python scripts/commit_message.py --template fix
+# Edit /tmp/commit_template_fix.md with your description
+git add scripts/my_script.py
+git commit -F /tmp/commit_template_fix.md
+
+# For a new feature
+python scripts/commit_message.py --template feature
+# Edit /tmp/commit_template_feature.md with your description
+git add new_feature.py
+git commit -F /tmp/commit_template_feature.md
+```
+
+**Note:** The script automatically cleans up temp template files after use.
+
+### Validation
+
+The git commit-msg hook validates:
+- Header length (max 50 chars)
+- Valid commit type format
+- Body line length (max 72 chars)
+- Proper commit type from our defined list
+
+If validation fails, the commit will be rejected with helpful error messages.
+
+### Documentation
+
+- See `docs/guides/commit_messages.md` for full guidelines and usage examples.
 - Git hooks are installed automatically via `./bootstrap.sh` or manually with `./scripts/setup_hooks.sh`.
 
 ---
