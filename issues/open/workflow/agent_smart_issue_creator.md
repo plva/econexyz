@@ -40,3 +40,19 @@ language model or external services.
 - Add a new backburner issue to design an interactive multi-commit workflow on a
   development branch that can later be squashed onto main.
 - Store configuration for categories and tags in `config/issue_categories.yml` to reuse across the project.
+
+## Implementation Plan (PR Breakdown)
+
+### PR #1: Initial Agent Prototype
+- [x] Create `SmartIssueCreatorAgent` with basic heuristics for category selection.
+- [x] Load tag suggestions from `config/issue_categories.yml`.
+- [x] Integrate with `create_issue.py` and prompt user for approval before writing files.
+
+### PR #2: Context Plugins
+- [ ] Define plugin interface for gathering repository context.
+- [ ] Implement simple plugins for scanning README and open issues.
+- [ ] Add unit tests for plugin loading and execution.
+
+### PR #3: Advanced Language Model Support
+- [ ] Add optional integration with a language model API for draft generation.
+- [ ] Provide configuration and error handling for external service calls.
