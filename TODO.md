@@ -46,7 +46,7 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [workflow/agent_smart_issue_creator](issues/open/workflow/agent_smart_issue_creator.md) - Agent creates issues from brief task descriptions. (BLOCKED: requires DAO)
 - [x] [workflow/current-sprint-should-not-have-todo-in-sprints-dir](issues/closed/workflow/current-sprint-should-not-have-todo-in-sprints-dir.md)
 - [ ] [workflow/pull_issue_workflow](/issues/open/workflow/pull_issue_workflow.md) - Create comprehensive workflow for pulling and completing sprint issues with decision process, testing, and documentation.
-- [ ] [workflow/create-lock-file](issues/open/workflow/create-lock-file.md) - TBD
+- [x] [workflow/create-lock-file](issues/open/workflow/create-lock-file.md) - Implement soft file-locking workflow
 - [x] [workflow/auto_update_issue_dates](/issues/closed/workflow/auto_update_issue_dates.md) - Auto-update issue dates via git hooks
 - [x] [workflow/run_all_tests_script](/issues/closed/workflow/run_all_tests_script.md) - Create comprehensive test runner script
 

@@ -256,7 +256,7 @@ particular resource.
 
 Create a lock with:
 ```bash
-./scripts/create_lock.sh <lock-name> <file-path> "<reason>"
+./scripts/utils/create_lock.sh <lock-name> <file-path> "<reason>"
 ```
 The resulting file contains four fields:
 
