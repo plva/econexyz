@@ -18,12 +18,13 @@ echo "Installing commit-msg hook..."
 cp "$SCRIPT_DIR/commit-msg-hook.py" "$HOOKS_DIR/commit-msg"
 chmod +x "$HOOKS_DIR/commit-msg"
 
+# Install pre-commit hook for lock checking
+echo "Installing pre-commit hook..."
+cp "$SCRIPT_DIR/pre_commit_lock.py" "$HOOKS_DIR/pre-commit"
+chmod +x "$HOOKS_DIR/pre-commit"
+
 echo "✅ Git hooks installed successfully!"
-echo ""
+
 echo "The commit-msg hook will now validate your commit messages."
-echo "It checks:"
-echo "  - Header length (max 50 chars)"
-echo "  - Valid commit types"
-echo "  - Body line length (max 72 chars)"
-echo ""
-echo "To test, try making a commit with an invalid message." 
+echo "The pre-commit hook will warn if you modify locked files."
+echo "To test, try making a commit with an invalid message or editing a locked file."

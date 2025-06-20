@@ -209,6 +209,10 @@ existing locks before making large edits and remove outdated ones when the work
 is finished. The only default lock protects `TODO.md` so that sprint planning
 changes remain orderly.
 
+A pre-commit hook installed with `scripts/setup_hooks.sh` checks your staged
+files against the active locks. If you modify a file locked by someone else,
+the hook prints a warning but allows the commit to proceed.
+
 ## Agent Logs and PR Documentation
 
 When preparing a pull request, agents should document each step of their process in a file named `agent.<datetime string>.log.md` in the `/agent-logs` directory. For each step:
