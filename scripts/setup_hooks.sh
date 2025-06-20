@@ -18,13 +18,13 @@ echo "Installing commit-msg hook..."
 cp "$SCRIPT_DIR/commit-msg-hook.py" "$HOOKS_DIR/commit-msg"
 chmod +x "$HOOKS_DIR/commit-msg"
 
-# Install pre-commit hook for lock checking
+# Install pre-commit hook for issue date updates and lock checks
 echo "Installing pre-commit hook..."
-cp "$SCRIPT_DIR/pre_commit_lock.py" "$HOOKS_DIR/pre-commit"
+cp "$SCRIPT_DIR/pre_commit.sh" "$HOOKS_DIR/pre-commit"
 chmod +x "$HOOKS_DIR/pre-commit"
 
 echo "✅ Git hooks installed successfully!"
 
 echo "The commit-msg hook will now validate your commit messages."
-echo "The pre-commit hook will warn if you modify locked files."
-echo "To test, try making a commit with an invalid message or editing a locked file."
+echo "The pre-commit hook updates issue dates and warns about locked files."
+echo "To test, try editing an issue file or a locked file before committing."
