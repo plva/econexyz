@@ -185,6 +185,30 @@ python scripts/create_issue.py <category> <issue-name>
 
 This automates issue file creation and ensures all tracking files are updated.
 
+## Soft Lock Workflow
+
+The project uses **soft locks** to avoid collisions on important files.
+Each lock is a small YAML file describing who currently intends to edit a
+particular resource.
+
+Create a lock with:
+```bash
+./scripts/create_lock.sh <lock-name> <file-path> "<reason>"
+```
+The resulting file contains four fields:
+
+```yaml
+user: <git user.name>
+timestamp: <UTC timestamp>
+reason: <why the file is locked>
+file: <path to the file>
+```
+
+Locks are stored in `locks/` and should only be committed when necessary. Check
+existing locks before making large edits and remove outdated ones when the work
+is finished. The only default lock protects `TODO.md` so that sprint planning
+changes remain orderly.
+
 ## Agent Logs and PR Documentation
 
 When preparing a pull request, agents should document each step of their process in a file named `agent.<datetime string>.log.md` in the `/agent-logs` directory. For each step:
