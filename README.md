@@ -47,6 +47,23 @@ EcoNexyz is an ecological system of autonomous AI agents that can be registered,
 
 Visit `http://localhost:8000/` for instructions, `http://localhost:8000/status` to see agent status and `http://localhost:8000/messages` for recent bus messages.
 
+## Running Tests
+
+Use the unified script to run all project tests:
+
+```bash
+./scripts/run_all_tests.sh
+```
+
+Alternatively, if `make` is available:
+
+```bash
+make test
+```
+
+The script executes the Python unit tests and the commit hook checks, exiting
+with a non‑zero status if any test fails.
+
 ## bootstrap.sh: Environment Setup & Agent Runner
 
 The `bootstrap.sh` script automates the following:
