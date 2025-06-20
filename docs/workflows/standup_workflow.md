@@ -9,6 +9,8 @@ A cycle standup synchronizes the repository's planning files with recent work. I
 - Updating TODO.md and sprint metadata
 - Ensuring all changes are properly documented
 - Maintaining project consistency
+- Reviewing blockers and dependencies
+- Performing health checks
 
 ## Workflow Diagram
 
@@ -43,14 +45,18 @@ flowchart TD
     P --> Q[Run Test Suite]
     Q --> R{Tests Pass?}
     
-    R -->|Yes| S[Create Standup Commit]
+    R -->|Yes| S[Create Work Delta Summary]
     R -->|No| T[Fix Test Issues]
     T --> Q
     
-    S --> U[End Standup]
+    S --> U[Check Documentation for New Features]
+    U --> V[Review Blockers and Dependencies]
+    V --> W[Perform Health Checks]
+    W --> X[Create Standup Commit]
+    X --> Y[End Standup]
     
     style A fill:#e1f5fe
-    style U fill:#c8e6c9
+    style Y fill:#c8e6c9
     style T fill:#ffcdd2
 ```
 
@@ -106,14 +112,56 @@ Update current sprint's `sprint-meta.md`:
 ./scripts/run_all_tests.sh
 ```
 
-### 8. Create Standup Commit
+### 8. Create Work Delta Summary
+Document the work completed since the last standup:
+- List all completed issues with brief descriptions
+- Note any new features or significant changes
+- Document any architectural decisions made
+- Include metrics (lines of code, files changed, etc.)
+
+### 9. Check Documentation for New Features
+Review and ensure documentation is updated for new features:
+- Check if new scripts have usage documentation
+- Verify new workflows are documented in `docs/workflows/`
+- Ensure new APIs or interfaces are documented
+- Update README.md if new functionality was added
+- Check that commit message templates are current
+
+### 10. Review Blockers and Dependencies
+Identify and address any blocking issues:
+- List any issues marked as `blocked` or with blocker tags
+- Review dependencies between issues
+- Identify unassigned work that might be blocking progress
+- Check for aging issues that haven't been updated recently
+- Document any new blockers discovered during development
+
+### 11. Perform Health Checks
+Run comprehensive health checks on the repository:
+```bash
+# Run all tests
+./scripts/run_all_tests.sh
+
+# Check for linting issues (if applicable)
+# python -m flake8 .  # or equivalent
+
+# Verify git hooks are working
+python scripts/test_commit_hook.py
+
+# Check for any broken links in documentation
+# (if you have a link checker)
+
+# Verify all scripts are executable
+find scripts/ -name "*.sh" -exec test -x {} \;
+```
+
+### 12. Create Standup Commit
 ```bash
 # Generate standup commit message
-python scripts/commit_message.py --type standup --description "Cycle standup summary"
+python scripts/run_standup.py --generate-commit
 
 # Review and edit the generated message, then commit
 git add .
-git commit -F /tmp/commit_template.txt
+git commit -F /tmp/standup_commit.txt
 ```
 
 ## Commit Message Template
@@ -123,7 +171,10 @@ Use the standup template to document:
 - Issues added
 - TODO.md updates
 - Sprint meta updates
-- Other planning changes
+- Work delta summary
+- Documentation updates
+- Blocker review findings
+- Health check results
 
 Example:
 ```
@@ -139,17 +190,23 @@ Example:
 #   - workflow/create_dao_for_smart_agent_integration
 #   - workflow/add_issue_to_sprint_script
 # 
-# - TODO.md updates:
-#   - Marked 3 issues as completed
-#   - Added 2 new issues
-#   - Updated blocker annotations
+# - Work delta:
+#   - Completed 3 workflow improvements
+#   - Added standup automation script
+#   - Implemented pre-commit hooks
 # 
-# - Sprint meta updates:
-#   - Updated sprint-3 progress
-#   - Added DAO issue to sprint-4
+# - Documentation updates:
+#   - Updated standup workflow documentation
+#   - Added usage examples for new scripts
 # 
-# - Other planning changes:
-#   - Updated issue references and dependencies
+# - Blocker review:
+#   - No new blockers identified
+#   - DAO integration still blocked by API access
+# 
+# - Health checks:
+#   - All tests passing
+#   - Git hooks working correctly
+#   - No linting issues found
 ```
 
 ## Scripts Used
@@ -157,7 +214,8 @@ Example:
 - `git log` - Review commits
 - `./scripts/close_issue.sh` - Close completed issues
 - `./scripts/run_all_tests.sh` - Run test suite
-- `python scripts/commit_message.py` - Generate commit message
+- `python scripts/run_standup.py` - Generate standup summary
+- `python scripts/test_commit_hook.py` - Test git hooks
 
 ## Best Practices
 
@@ -166,6 +224,9 @@ Example:
 3. **Test everything**: Always run tests before committing
 4. **Document clearly**: Use detailed commit messages
 5. **Keep it atomic**: One standup commit per cycle
+6. **Check documentation**: Ensure new features are properly documented
+7. **Review blockers**: Don't let issues get stuck
+8. **Maintain health**: Keep the codebase in good condition
 
 ## Common Patterns
 
@@ -186,6 +247,24 @@ Example:
 - Add new issues to appropriate sprints
 - Update sprint progress percentages
 - Reorder issues by priority if needed
+
+### Documentation Checks
+- New scripts should have usage examples
+- New workflows should be documented
+- API changes should update relevant docs
+- README should reflect current state
+
+### Blocker Review
+- Check for issues marked as blocked
+- Review dependencies between tasks
+- Identify unassigned work
+- Flag aging issues for attention
+
+### Health Checks
+- All tests must pass
+- Git hooks should work correctly
+- No obvious code quality issues
+- Documentation should be current
 
 ## Troubleshooting
 
@@ -208,4 +287,18 @@ If commits reference issues not in TODO.md:
 1. Create the missing issue
 2. Add it to appropriate sprint
 3. Update TODO.md
-4. Document in standup commit 
+4. Document in standup commit
+
+### Documentation Gaps
+If new features lack documentation:
+1. Create basic documentation immediately
+2. Add to TODO.md for follow-up
+3. Consider blocking the feature until documented
+4. Update relevant guides and README
+
+### Blocker Issues
+If blockers are identified:
+1. Document the blocker clearly
+2. Assign ownership if possible
+3. Create follow-up tasks to resolve
+4. Consider workarounds or alternative approaches 
