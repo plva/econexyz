@@ -1,9 +1,10 @@
 from pathlib import Path
+import subprocess
 import sys
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
-import scripts.archive_sprint as arch
+import scripts.workflow.archive_sprint as arch
 
 
 def setup_repo(tmp_path: Path, done: bool) -> tuple[Path, Path]:

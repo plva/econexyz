@@ -3,7 +3,7 @@ import sys
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
-from scripts.ai_helper import parse_sprint, _format_issue
+from scripts.runtime.ai_helper import parse_sprint, _format_issue
 
 
 def test_parse_and_fix(tmp_path):

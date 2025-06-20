@@ -189,14 +189,14 @@ def perform_health_checks():
     print("🔍 Running health checks...")
     
     # Test 1: Run all tests
-    test_result = run_command("./scripts/run_all_tests.sh")
+    test_result = run_command("./scripts/testing/run_all_tests.sh")
     if test_result and test_result.returncode == 0:
         results.append("✅ All tests passing")
     else:
         results.append("❌ Tests failing")
     
     # Test 2: Check git hooks
-    hook_result = run_command("python scripts/test_commit_hook.py")
+    hook_result = run_command("python scripts/testing/test_commit_hook.py")
     if hook_result and hook_result.returncode == 0:
         results.append("✅ Git hooks working correctly")
     else:
@@ -250,7 +250,7 @@ def generate_standup_summary(commits, suggestions):
     summary.append("  - Check TODO.md for completed issues")
     summary.append("  - Update sprint metadata")
     summary.append("  - Close completed issues with ./scripts/close_issue.sh")
-    summary.append("  - Run tests with ./scripts/run_all_tests.sh")
+    summary.append("  - Run tests with ./scripts/testing/run_all_tests.sh")
     summary.append("  - Review documentation for new features")
     summary.append("  - Check for blockers and dependencies")
     summary.append("  - Perform health checks")
@@ -390,7 +390,7 @@ def main():
         print("2. Close completed issues: ./scripts/close_issue.sh <category> <issue>")
         print("3. Update TODO.md")
         print("4. Update sprint metadata")
-        print("5. Run tests: ./scripts/run_all_tests.sh")
+        print("5. Run tests with ./scripts/testing/run_all_tests.sh")
         print("6. Review documentation for new features")
         print("7. Check for blockers and dependencies")
         print("8. Perform health checks")

@@ -6,7 +6,7 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 from econexyz.agents.issue_creator import SmartIssueCreatorAgent
 from econexyz.message_bus.in_memory import InMemoryMessageBus
 from econexyz.storage.sqlite_store import SQLiteKnowledgeStore
-import scripts.create_issue as ci
+import scripts.workflow.create_issue as ci
 
 
 def setup_repo(tmp_path: Path):

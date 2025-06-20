@@ -87,10 +87,10 @@ For each commit, determine:
 ### 4. Close Completed Issues
 ```bash
 # Close completed issues
-./scripts/close_issue.sh <category> <issue-name>
+./scripts/workflow/close_issue.sh <category> <issue-name>
 
 # Example:
-./scripts/close_issue.sh workflow commit_type_refactor_and_guidelines
+./scripts/workflow/close_issue.sh workflow commit_type_refactor_and_guidelines
 ```
 
 ### 5. Update TODO.md
@@ -109,7 +109,7 @@ Update current sprint's `sprint-meta.md`:
 ### 7. Run Test Suite
 ```bash
 # Run all tests to ensure changes don't break anything
-./scripts/run_all_tests.sh
+./scripts/testing/run_all_tests.sh
 ```
 
 ### 8. Create Work Delta Summary
@@ -139,13 +139,13 @@ Identify and address any blocking issues:
 Run comprehensive health checks on the repository:
 ```bash
 # Run all tests
-./scripts/run_all_tests.sh
+./scripts/testing/run_all_tests.sh
 
 # Check for linting issues (if applicable)
 # python -m flake8 .  # or equivalent
 
 # Verify git hooks are working
-python scripts/test_commit_hook.py
+python scripts/testing/test_commit_hook.py
 
 # Check for any broken links in documentation
 # (if you have a link checker)
@@ -157,7 +157,7 @@ find scripts/ -name "*.sh" -exec test -x {} \;
 ### 12. Create Standup Commit
 ```bash
 # Generate standup commit message
-python scripts/run_standup.py --generate-commit
+python scripts/workflow/run_standup.py --generate-commit
 
 # Review and edit the generated message, then commit
 git add .
@@ -212,26 +212,35 @@ Example:
 ## Scripts Used
 
 - `git log` - Review commits
-- `./scripts/close_issue.sh` - Close completed issues
-- `./scripts/run_all_tests.sh` - Run test suite
-- `python scripts/run_standup.py` - Generate standup summary
-- `python scripts/test_commit_hook.py` - Test git hooks
+- `./scripts/workflow/close_issue.sh` - Close completed issues
+- `./scripts/testing/run_all_tests.sh` - Run test suite
+- `python scripts/workflow/run_standup.py` - Generate standup summary
+- `python scripts/testing/test_commit_hook.py` - Test git hooks
 
 ## Usage Examples
 
 ### Basic Standup
 ```bash
 # Run a basic standup analysis (dry run)
-python scripts/run_standup.py --dry-run
+python scripts/workflow/run_standup.py --dry-run
 
 # Generate commit message for manual review
-python scripts/run_standup.py --generate-commit
+python scripts/workflow/run_standup.py --generate-commit
 ```
 
 ### Enhanced Standup with All Features
 ```bash
 # Run all enhanced standup features
-python scripts/run_standup.py --all
+python scripts/workflow/run_standup.py --all
+
+# Dry run with all features
+python scripts/workflow/run_standup.py --dry-run --all
+
+# Generate commit with all features
+python scripts/workflow/run_standup.py --generate-commit --all
+
+# Health check only (dry run)
+python scripts/workflow/run_standup.py --health-check --dry-run
 ```
 
 ### Individual Feature Usage

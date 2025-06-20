@@ -1,6 +1,6 @@
 # Scripts Guide
 
-This guide covers the helper scripts available for workflow and automation in EcoNexyz.
+This guide covers the available scripts in the EcoNexyz project.
 
 - Overview of available scripts
 - How to use each script
@@ -11,31 +11,31 @@ This guide covers the helper scripts available for workflow and automation in Ec
 
 The `run_standup.py` script automates the cycle standup process:
 
-### Basic Usage
 ```bash
-# Run all enhanced standup features
-python scripts/run_standup.py --all
+# Run all standup activities
+python scripts/workflow/run_standup.py --all
 
-# Basic analysis (dry run)
-python scripts/run_standup.py --dry-run
+# Dry run to see what would be done
+python scripts/workflow/run_standup.py --dry-run
 
 # Generate commit message
-python scripts/run_standup.py --generate-commit
+python scripts/workflow/run_standup.py --generate-commit
 ```
 
-### Individual Features
+### Standup Options
+
 ```bash
-# Work delta summary
-python scripts/run_standup.py --work-delta
+# Generate work delta summary
+python scripts/workflow/run_standup.py --work-delta
 
-# Documentation check
-python scripts/run_standup.py --check-docs
+# Check documentation for new features
+python scripts/workflow/run_standup.py --check-docs
 
-# Blocker review
-python scripts/run_standup.py --review-blockers
+# Review blockers and dependencies
+python scripts/workflow/run_standup.py --review-blockers
 
-# Health checks
-python scripts/run_standup.py --health-check
+# Perform health checks
+python scripts/workflow/run_standup.py --health-check
 ```
 
 For complete documentation, see [`docs/workflows/standup_workflow.md`](docs/workflows/standup_workflow.md).
@@ -43,42 +43,53 @@ For complete documentation, see [`docs/workflows/standup_workflow.md`](docs/work
 ## Issue Management
 
 ### Creating Issues
+
 ```bash
-python scripts/create_issue.py <category> <issue-name> [--tags tag1,tag2] [--priority level]
+python scripts/workflow/create_issue.py <category> <issue-name> [--tags tag1,tag2] [--priority level]
 ```
 
-### Creating Bug Issues
-```bash
-# Create a new bug issue
-python scripts/create_issue.py bugs <bug-name> --template bug --priority <level>
+### Creating Bug Reports
 
-# Examples:
-python scripts/create_issue.py bugs dashboard_not_loading --template bug --priority high
-python scripts/create_issue.py bugs test_failure --template bug --priority medium
+```bash
+python scripts/workflow/create_issue.py bugs <bug-name> --template bug --priority <level>
+```
+
+Examples:
+```bash
+python scripts/workflow/create_issue.py bugs dashboard_not_loading --template bug --priority high
+python scripts/workflow/create_issue.py bugs test_failure --template bug --priority medium
 ```
 
 ### Reopening Issues
-```bash
-# Reopen a closed issue (useful for regression bugs)
-python scripts/create_issue.py --reopen <category>/<issue-name> --template <template>
 
-# Example: Reopen a bug
-python scripts/create_issue.py --reopen bugs/dashboard_not_loading --template bug
+```bash
+python scripts/workflow/create_issue.py --reopen <category>/<issue-name> --template <template>
+```
+
+Example:
+```bash
+python scripts/workflow/create_issue.py --reopen bugs/dashboard_not_loading --template bug
 ```
 
 ### Closing Issues
+
 ```bash
-./scripts/close_issue.sh <category> <issue-name>
+./scripts/workflow/close_issue.sh <category> <issue-name>
 ```
 
 ## Testing
 
-### Run All Tests
+Run all tests:
+
 ```bash
-./scripts/run_all_tests.sh
+./scripts/testing/run_all_tests.sh
 ```
 
-This runs both Python unit tests and commit hook validation tests.
+Test commit hooks:
+
+```bash
+python scripts/testing/test_commit_hook.py
+```
 
 ## Sprint Management
 

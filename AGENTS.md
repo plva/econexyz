@@ -79,7 +79,7 @@ state = self.storage.load(key='agent_state')
 
 ## 📌 Registering and Running Your Agent
 
-Add your agent to the orchestration script (`scripts/run_agents.py`):
+Add your agent to the orchestration script (`scripts/runtime/run_agents.py`):
 
 ```python
 from agents.your_agent import YourAgent
@@ -186,7 +186,7 @@ For practical references, review [`agents/sample.py`](/econexyz/agents/sample.py
 When you finish a task, move its issue file from `issues/open/[category]/[issue-name].md` to `issues/closed/[category]/` using:
 
 ```bash
-./scripts/close_issue.sh [category] [issue-name]
+./scripts/workflow/close_issue.sh [category] [issue-name]
 ```
 
 Then update `TODO.md` to mark it complete.
@@ -200,7 +200,7 @@ be queued in `sprints/upcoming/`, and the current sprint number is kept in
 `state/sprint.json`. When a sprint ends, archive its directory with:
 
 ```bash
-./scripts/archive_sprint.sh <sprint-name>
+./scripts/workflow/archive_sprint.sh <sprint-name>
 ```
 
 The script creates `sprints/archived/<sprint-name>/` and moves the sprint
@@ -210,7 +210,7 @@ metadata there along with any referenced issue files. A snapshot of
 For AI tools that need structured sprint data, run:
 
 ```bash
-python scripts/ai_helper.py
+python scripts/runtime/ai_helper.py
 ```
 
 This outputs the current sprint plan as JSON.
@@ -218,7 +218,7 @@ This outputs the current sprint plan as JSON.
 You can also normalize sprint files with:
 
 ```bash
-python scripts/ai_helper.py --fix
+python scripts/runtime/ai_helper.py --fix
 ```
 
 
@@ -243,7 +243,7 @@ Additional project-wide tasks are tracked in [/TODO.md](/TODO.md).
 To create a new issue and update the TODO lists, use:
 
 ```bash
-python scripts/create_issue.py <category> <issue-name>
+python scripts/workflow/create_issue.py <category> <issue-name>
 ```
 
 This automates issue file creation and ensures all tracking files are updated.

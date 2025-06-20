@@ -9,6 +9,20 @@ This guide explains how to plan, run, and close sprints and meta-sprints in EcoN
 - Using scripts for sprint management
 - Linking to workflow diagrams
 
+## Daily Standup
+
+Run the automated standup process:
+
+```bash
+python scripts/workflow/run_standup.py --all
+```
+
+Generate standup commit:
+
+```bash
+python scripts/workflow/run_standup.py --dry-run --generate-commit
+```
+
 ## Cycle Stand-Up
 
 Use a cycle stand-up to sync the repository's planning files with
@@ -44,7 +58,7 @@ If you prefer to run the standup manually, follow these steps:
    issues.
 2. **Run the test suite** with `pytest -q` to ensure new changes
    pass.
-3. **Close finished issues** using `./scripts/close_issue.sh <category>
+3. **Close finished issues** using `./scripts/workflow/close_issue.sh <category>
    <issue-name>`.
 4. **Update planning files**:
    - Mark the issue as completed in `/TODO.md`.

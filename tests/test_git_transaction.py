@@ -2,7 +2,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "git_transaction.sh"
+SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "git" / "git_transaction.sh"
 
 
 def init_repo(path: Path):

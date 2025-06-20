@@ -15,7 +15,7 @@ from .base import Agent
 import sys
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.append(str(ROOT))
-from scripts import create_issue
+from scripts.workflow import create_issue
 
 
 class SmartIssueCreatorAgent(Agent):

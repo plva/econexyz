@@ -30,12 +30,12 @@ When encountering a bug, follow this decision tree:
 
 **Create a new bug issue:**
 ```bash
-python scripts/create_issue.py bugs <bug-name> --template bug --priority <level>
+python scripts/workflow/create_issue.py bugs <bug-name> --template bug --priority <level>
 ```
 
 **Reopen a closed bug:**
 ```bash
-python scripts/create_issue.py --reopen bugs/<bug-name> --template bug
+python scripts/workflow/create_issue.py --reopen bugs/<bug-name> --template bug
 ```
 
 For detailed bug reporting instructions, see the [Bug Reporting Guide](bug_reporting.md).

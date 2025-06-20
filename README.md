@@ -41,7 +41,7 @@ EcoNexyz is an ecological system of autonomous AI agents that can be registered,
    ```
    This will create a virtual environment (if needed), install requirements, and launch the agents together with the FastAPI dashboard server.
 2. Open `dashboard/web/index.html` in your browser to view agent status and messages.
-   If you start the dashboard using `scripts/run_dashboard.sh` in a separate process,
+   If you start the dashboard using `scripts/runtime/run_dashboard.sh` in a separate process,
    it won't display messages because the default in-memory bus isn't shared across
    processes.
 
@@ -52,7 +52,7 @@ Visit `http://localhost:8000/` for instructions, `http://localhost:8000/status` 
 Use the unified script to run all project tests:
 
 ```bash
-./scripts/run_all_tests.sh
+./scripts/testing/run_all_tests.sh
 ```
 
 Alternatively, if `make` is available:
@@ -94,7 +94,7 @@ Ongoing development tasks are tracked in [/TODO.md](/TODO.md). Contributions and
 You can create new issue files and update TODO lists automatically using:
 
 ```bash
-python scripts/create_issue.py <category> <issue-name> [--tags tag1,tag2] [--priority level]
+python scripts/workflow/create_issue.py <category> <issue-name> [--tags tag1,tag2] [--priority level]
 ```
 
 - `<category>`: The issue category (e.g., dashboard, agents, workflow, etc.)

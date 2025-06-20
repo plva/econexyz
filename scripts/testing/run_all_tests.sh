@@ -19,7 +19,7 @@ fi
 
 echo -e "${GREEN}==> Running commit hook tests${NC}"
 set +e
-PYTHONPATH="${PYTHONPATH:-}:$(pwd)" python scripts/test_commit_hook.py
+PYTHONPATH="${PYTHONPATH:-}:$(pwd)" python scripts/testing/test_commit_hook.py
 HOOK_STATUS=$?
 set -e
 if [ $HOOK_STATUS -eq 0 ]; then

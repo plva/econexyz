@@ -6,7 +6,7 @@ set -euo pipefail
 PYTHON_BIN="python3"
 VENV_DIR=".venv"
 REQUIREMENTS="requirements.txt"
-AGENT_SCRIPT="scripts/run_agents.py"
+AGENT_SCRIPT="scripts/runtime/run_agents.py"
 PALETTE_SCRIPT="scripts/generate_palette_css.py"
 VITE_SAMPLE_DIR="dashboard/vite_sample"
 

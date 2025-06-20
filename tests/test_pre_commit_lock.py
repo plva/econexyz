@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 import subprocess
 
-SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "pre_commit_lock.py"
+SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "git" / "pre_commit_lock.py"
 
 
 def test_pre_commit_warns_on_locked_file(tmp_path, monkeypatch):

@@ -2,7 +2,7 @@ from pathlib import Path
 import subprocess
 from datetime import date
 
-SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "update_issue_dates.py"
+SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "workflow" / "update_issue_dates.py"
 
 
 def init_repo(path: Path) -> None:

@@ -7,20 +7,20 @@ This guide explains how to report bugs and use the bug workflow in EcoNexyz.
 ### Report a New Bug
 ```bash
 # Create a new bug issue
-python scripts/create_issue.py bugs <bug-name> --template bug --priority <level>
+python scripts/workflow/create_issue.py bugs <bug-name> --template bug --priority <level>
 
 # Examples:
-python scripts/create_issue.py bugs dashboard_not_loading --template bug --priority high
-python scripts/create_issue.py bugs test_failure --template bug --priority medium
+python scripts/workflow/create_issue.py bugs dashboard_not_loading --template bug --priority high
+python scripts/workflow/create_issue.py bugs test_failure --template bug --priority medium
 ```
 
 ### Reopen a Closed Bug
 ```bash
 # Reopen a previously closed bug
-python scripts/create_issue.py --reopen bugs/<bug-name> --template bug
+python scripts/workflow/create_issue.py --reopen bugs/<bug-name> --template bug
 
 # Example:
-python scripts/create_issue.py --reopen bugs/dashboard_not_loading --template bug
+python scripts/workflow/create_issue.py --reopen bugs/dashboard_not_loading --template bug
 ```
 
 ## Bug Priority Levels
@@ -94,21 +94,21 @@ When a previously fixed bug reappears:
 
 ### Example 1: New Bug Report
 ```bash
-python scripts/create_issue.py bugs agent_crash_on_startup --template bug --priority high
+python scripts/workflow/create_issue.py bugs agent_crash_on_startup --template bug --priority high
 ```
 
 This creates a high-priority bug issue with the proper template.
 
 ### Example 2: Reopening a Bug
 ```bash
-python scripts/create_issue.py --reopen bugs/dashboard_not_loading --template bug
+python scripts/workflow/create_issue.py --reopen bugs/dashboard_not_loading --template bug
 ```
 
 This reopens a previously closed dashboard loading issue.
 
 ### Example 3: Bug with Custom Tags
 ```bash
-python scripts/create_issue.py bugs test_failure --template bug --priority medium --tags "test,regression"
+python scripts/workflow/create_issue.py bugs test_failure --template bug --priority medium --tags "test,regression"
 ```
 
 This creates a medium-priority bug with additional tags.
@@ -127,7 +127,7 @@ This creates a medium-priority bug with additional tags.
 **Script not found**: Ensure you're in the project root directory
 ```bash
 cd /path/to/econexyz
-python scripts/create_issue.py bugs test_bug --template bug
+python scripts/workflow/create_issue.py bugs test_bug --template bug
 ```
 
 **Template not found**: Check that the bug template exists
