@@ -8,7 +8,7 @@ from pathlib import Path
 
 # Import from our commit_message.py script
 sys.path.append(str(Path(__file__).resolve().parents[1]))
-from scripts.commit_message import validate_commit_message, COMMIT_TYPES
+from scripts.git.commit_message import validate_commit_message, COMMIT_TYPES
 
 def main() -> None:
     """Validate commit message from git hook."""

@@ -7,7 +7,7 @@ PYTHON_BIN="python3"
 VENV_DIR=".venv"
 REQUIREMENTS="requirements.txt"
 AGENT_SCRIPT="scripts/runtime/run_agents.py"
-PALETTE_SCRIPT="scripts/generate_palette_css.py"
+PALETTE_SCRIPT="scripts/utils/generate_palette_css.py"
 VITE_SAMPLE_DIR="dashboard/vite_sample"
 
 # Function to print errors and exit
@@ -62,11 +62,11 @@ if [ -d "$VITE_SAMPLE_DIR" ]; then
 fi
 
 # Install git hooks
-if [ -x scripts/setup_hooks.sh ]; then
+if [ -x scripts/git/setup_hooks.sh ]; then
   echo "Installing git hooks..."
-  ./scripts/setup_hooks.sh
+  ./scripts/git/setup_hooks.sh
 else
-  echo "Warning: scripts/setup_hooks.sh not found or not executable."
+  echo "Warning: scripts/git/setup_hooks.sh not found or not executable."
 fi
 
 echo "[INFO] Starting agents..."

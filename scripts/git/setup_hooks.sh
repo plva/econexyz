@@ -7,10 +7,13 @@ echo "Setting up EcoNexyz git hooks..."
 
 # Get the script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+
+# Get the project root using git
+PROJECT_ROOT="$(git rev-parse --show-toplevel)"
 
 # Create hooks directory if it doesn't exist
 HOOKS_DIR="$PROJECT_ROOT/.git/hooks"
+echo "DEBUG: HOOKS_DIR is $HOOKS_DIR"
 mkdir -p "$HOOKS_DIR"
 
 # Install commit-msg hook

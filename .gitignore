@@ -200,3 +200,9 @@ logs/
 node_modules/
 **/dist/
 docs/workflows/rendered/
+
+# Work session files
+state/work_session.json
+state/work_sessions/
+state/current_session.md
+.vscode/

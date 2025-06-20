@@ -2,9 +2,20 @@
 """Generate CSS variables from config/color_palette.json."""
 
 import json
+import subprocess
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+def get_git_root() -> Path:
+    try:
+        result = subprocess.run([
+            "git", "rev-parse", "--show-toplevel"
+        ], capture_output=True, text=True, check=True)
+        return Path(result.stdout.strip())
+    except Exception:
+        # Fallback to old method if git is not available
+        return Path(__file__).resolve().parents[2]
+
+ROOT = get_git_root()
 CONFIG = ROOT / "config" / "color_palette.json"
 OUTPUT = ROOT / "dashboard" / "web" / "palette.css"
 
