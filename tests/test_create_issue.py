@@ -22,7 +22,6 @@ def setup_repo(tmp_path: Path):
     ci.ROOT = repo
     ci.ISSUES_DIR = repo / "issues" / "open"
     ci.TODO_PATH = repo / "TODO.md"
-    ci.STATE_PATH = repo / "state" / "sprint.json"
     ci.CONFIG_PATH = repo / "config" / "issue_categories.yml"
     ci.TEMPLATES_DIR = repo / "docs" / "templates"
     return repo
@@ -75,3 +74,84 @@ def test_bug_template(tmp_path, monkeypatch):
     issue = tmp_path / "issues/open/bugs/login_error.md"
     assert issue.exists()
     assert "bug body" in issue.read_text()
+
+
+def test_normalize_issue_name_spaces(tmp_path, monkeypatch):
+    """Test normalization of issue names with spaces."""
+    setup_repo(tmp_path)
+    monkeypatch.setattr("builtins.input", lambda _: "y")
+    ci.create_issue("workflow", "My Issue Name", template_name="default")
+    issue = tmp_path / "issues/open/workflow/my_issue_name.md"
+    assert issue.exists()
+    assert "my_issue_name" in issue.read_text()
+
+
+def test_normalize_issue_name_special_characters(tmp_path, monkeypatch):
+    """Test normalization of issue names with special characters."""
+    setup_repo(tmp_path)
+    monkeypatch.setattr("builtins.input", lambda _: "y")
+    ci.create_issue("workflow", "Special@#$%Characters", template_name="default")
+    issue = tmp_path / "issues/open/workflow/special_characters.md"
+    assert issue.exists()
+    assert "special_characters" in issue.read_text()
+
+
+def test_normalize_issue_name_leading_numbers(tmp_path, monkeypatch):
+    """Test normalization of issue names starting with numbers."""
+    setup_repo(tmp_path)
+    monkeypatch.setattr("builtins.input", lambda _: "y")
+    ci.create_issue("workflow", "123 Bad Name", template_name="default")
+    issue = tmp_path / "issues/open/workflow/issue_123_bad_name.md"
+    assert issue.exists()
+    assert "issue_123_bad_name" in issue.read_text()
+
+
+def test_normalize_issue_name_multiple_underscores(tmp_path, monkeypatch):
+    """Test normalization of issue names with multiple consecutive underscores."""
+    setup_repo(tmp_path)
+    monkeypatch.setattr("builtins.input", lambda _: "y")
+    ci.create_issue("workflow", "my___issue___name", template_name="default")
+    issue = tmp_path / "issues/open/workflow/my_issue_name.md"
+    assert issue.exists()
+    assert "my_issue_name" in issue.read_text()
+
+
+def test_normalize_issue_name_mixed_case(tmp_path, monkeypatch):
+    """Test normalization of mixed case issue names."""
+    setup_repo(tmp_path)
+    monkeypatch.setattr("builtins.input", lambda _: "y")
+    ci.create_issue("workflow", "MiXeDcAsE", template_name="default")
+    issue = tmp_path / "issues/open/workflow/mixedcase.md"
+    assert issue.exists()
+    assert "mixedcase" in issue.read_text()
+
+
+def test_normalize_issue_name_empty_after_normalization(tmp_path, monkeypatch):
+    """Test normalization when result would be empty."""
+    setup_repo(tmp_path)
+    monkeypatch.setattr("builtins.input", lambda _: "y")
+    ci.create_issue("workflow", "!@#$%^&*()", template_name="default")
+    issue = tmp_path / "issues/open/workflow/untitled_issue.md"
+    assert issue.exists()
+    assert "untitled_issue" in issue.read_text()
+
+
+def test_normalize_issue_name_preserves_valid_names(tmp_path, monkeypatch):
+    """Test that valid names are not changed."""
+    setup_repo(tmp_path)
+    monkeypatch.setattr("builtins.input", lambda _: "y")
+    ci.create_issue("workflow", "valid_issue_name", template_name="default")
+    issue = tmp_path / "issues/open/workflow/valid_issue_name.md"
+    assert issue.exists()
+    assert "valid_issue_name" in issue.read_text()
+
+
+def test_normalize_function_directly():
+    """Test the normalize_issue_name function directly."""
+    assert ci.normalize_issue_name("My Issue") == "my_issue"
+    assert ci.normalize_issue_name("Special@#$%Name") == "special_name"
+    assert ci.normalize_issue_name("123 Bad Name") == "issue_123_bad_name"
+    assert ci.normalize_issue_name("my___issue") == "my_issue"
+    assert ci.normalize_issue_name("MiXeDcAsE") == "mixedcase"
+    assert ci.normalize_issue_name("!@#$%^&*()") == "untitled_issue"
+    assert ci.normalize_issue_name("valid_name") == "valid_name"

@@ -52,6 +52,10 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [x] [workflow/run_all_tests_script](/issues/closed/workflow/run_all_tests_script.md) - Create comprehensive test runner script
 
 - [x] [workflow/standup_automation_script](/issues/closed/workflow/standup_automation_script.md) - TBD
+- [ ] [workflow/valid_issue_name](/issues/open/workflow/valid_issue_name.md) - TBD
+- [ ] [workflow/invalid_issue_name](/issues/open/workflow/invalid_issue_name.md) - TBD
+- [ ] [workflow/issue_123_bad_name](/issues/open/workflow/issue_123_bad_name.md) - TBD
+- [ ] [workflow/special_characters](/issues/open/workflow/special_characters.md) - TBD
 ## Bugs
 - [x] [bugs/update_sprint_state_in_archive](/issues/closed/bugs/update_sprint_state_in_archive.md) - TBD
 - [ ] [bugs/test_bug](/issues/open/bugs/test_bug.md) - TBD

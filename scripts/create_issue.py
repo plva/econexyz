@@ -127,6 +127,31 @@ assigned: unassigned
 """)
 
 
+def normalize_issue_name(name: str) -> str:
+    """Convert any issue name to valid lowercase camelCase format."""
+    # Convert to lowercase
+    normalized = name.lower()
+    
+    # Replace spaces and special characters with underscores
+    normalized = re.sub(r'[^a-z0-9_]', '_', normalized)
+    
+    # Remove leading/trailing underscores
+    normalized = normalized.strip('_')
+    
+    # Replace multiple consecutive underscores with single underscore
+    normalized = re.sub(r'_+', '_', normalized)
+    
+    # Ensure it starts with a letter
+    if normalized and normalized[0].isdigit():
+        normalized = 'issue_' + normalized
+    
+    # If empty after normalization, use a default
+    if not normalized:
+        normalized = 'untitled_issue'
+    
+    return normalized
+
+
 def create_issue(
     category: str,
     name: str,
@@ -134,6 +159,14 @@ def create_issue(
     priority: str = "medium",
     template_name: str = "default",
 ) -> None:
+    # Normalize issue name to valid format
+    original_name = name
+    name = normalize_issue_name(name)
+    
+    # Warn if the name was changed
+    if original_name != name:
+        print(f"Warning: Issue name '{original_name}' was normalized to '{name}'")
+    
     today = date.today().isoformat()
     cats = load_categories()
     if category not in cats:
