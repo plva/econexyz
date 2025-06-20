@@ -4,12 +4,25 @@
 from __future__ import annotations
 
 import argparse
+import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
-ROOT = Path(__file__).resolve().parents[1]
+# Get git root (project root)
+try:
+    result = subprocess.run(
+        ["git", "rev-parse", "--show-toplevel"],
+        capture_output=True,
+        text=True,
+        check=True
+    )
+    ROOT = Path(result.stdout.strip())
+except subprocess.CalledProcessError:
+    # Fallback to relative path if not in git repo
+    ROOT = Path(__file__).resolve().parents[2]
+
 TEMPLATES_DIR = ROOT / "docs" / "templates" / "commit_messages"
 
 COMMIT_TYPES = {
@@ -184,17 +197,15 @@ def main() -> None:
     if args.template:
         template_file = create_template_file(args.template)
         print(f"Template file created: {template_file}")
-        print(f"Use: git commit -F {template_file}")
-        # Cleanup after showing the path
-        cleanup_template_file(args.template)
+        print(f"Edit the file, then use: git commit -F {template_file}")
+        print(f"Note: The template file will be automatically cleaned up after commit")
         return
     
     if args.use_template:
         template_file = create_template_file(args.use_template)
         print(f"Template file ready: {template_file}")
-        print(f"Run: git commit -F {template_file}")
-        # Cleanup after showing the path
-        cleanup_template_file(args.use_template)
+        print(f"Edit the file, then run: git commit -F {template_file}")
+        print(f"Note: The template file will be automatically cleaned up after commit")
         return
     
     if args.interactive:
