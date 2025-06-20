@@ -10,8 +10,6 @@
 - [ ] [workflow/agent_autofill_issue_details](/issues/open/workflow/agent_autofill_issue_details.md) - Agent expands stub issues with detail.
 - [ ] [workflow/agent_smart_issue_creator](/issues/open/workflow/agent_smart_issue_creator.md) - Agent creates issues from brief task descriptions.
 - [x] [workflow/current-sprint-should-not-have-todo-in-sprints-dir](/issues/closed/workflow/current-sprint-should-not-have-todo-in-sprints-dir.md)
-- [x] [workflow/Implement bug fix workflow and issue reopening](/issues/closed/workflow/Implement bug fix workflow and issue reopening.md) - TBD
-- [ ] [workflow/Add new feature](/issues/open/workflow/Add new feature.md) - TBD
 - [ ] [workflow/create-lock-file](/issues/open/workflow/create-lock-file.md) - TBD
 - [x] [bugs/update_sprint_state_in_archive](/issues/closed/bugs/update_sprint_state_in_archive.md) - Fix archive_sprint.py to update sprint state
 - [x] [workflow/auto_update_issue_dates](/issues/closed/workflow/auto_update_issue_dates.md) - Auto-update issue dates via git hooks
