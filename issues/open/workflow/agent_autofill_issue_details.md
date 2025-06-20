@@ -6,9 +6,10 @@ tags:
   - meta
   - workflow
 created: 2025-06-19
-last-updated: 2025-06-20
+last-updated: 2025-06-19
 priority: medium
 assigned: unassigned
+blocked-by: workflow/create_dao_for_smart_agent_integration
 ------------------------
 
 # workflow/agent_autofill_issue_details

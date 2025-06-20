@@ -3,6 +3,7 @@
 This sprint focuses on automating and enhancing workflow, script support, and advanced features for contributors.
 
 ## Meta/Workflow
+- [ ] [workflow/create_dao_for_smart_agent_integration](/issues/open/workflow/create_dao_for_smart_agent_integration.md) - Create DAO for smart agent integration with ChatGPT API (HIGH PRIORITY - BLOCKER)
 - [ ] [workflow/json_tasks_projection](/issues/open/workflow/json_tasks_projection.md) - Provide a JSON projection of tasks.
 - [ ] [workflow/run_sprint_planning](/issues/open/workflow/run_sprint_planning.md) - Run a sprint planning workflow.
 - [ ] [workflow/run_backlog_grooming](/issues/open/workflow/run_backlog_grooming.md) - Run a backlog grooming workflow.

@@ -24,6 +24,7 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [bus/message_pagination](issues/open/bus/message_pagination.md) - Add pagination to the `/messages` endpoint.
 
 ## Meta/Workflow
+- [ ] [workflow/create_dao_for_smart_agent_integration](/issues/open/workflow/create_dao_for_smart_agent_integration.md) - Create DAO for smart agent integration with ChatGPT API (HIGH PRIORITY - BLOCKER)
 - [ ] [workflow/run_sprint_planning](issues/open/workflow/run_sprint_planning.md) - Run a sprint planning workflow.
 - [ ] [workflow/run_backlog_grooming](issues/open/workflow/run_backlog_grooming.md) - Run a backlog grooming workflow.
 - [ ] [workflow/run_sprint_retro](issues/open/workflow/run_sprint_retro.md) - Run a sprint retrospective.
@@ -41,8 +42,8 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [x] [workflow/manually-update-issue-metadata](issues/closed/workflow/manually-update-issue-metadata.md) - Ensure all issues have up-to-date metadata headers.
 - [x] [workflow/basic_issue_creator_script](issues/closed/workflow/basic_issue_creator_script.md) - Automate issue file creation and planning updates.
 - [x] [workflow/issue_category_tag_list](issues/closed/workflow/issue_category_tag_list.md) - Provide reusable categories and tags.
-- [ ] [workflow/agent_autofill_issue_details](issues/open/workflow/agent_autofill_issue_details.md) - Agent expands stub issues with detail.
-- [ ] [workflow/agent_smart_issue_creator](issues/open/workflow/agent_smart_issue_creator.md) - Agent creates issues from brief task descriptions.
+- [ ] [workflow/agent_autofill_issue_details](issues/open/workflow/agent_autofill_issue_details.md) - Agent expands stub issues with detail. (BLOCKED: requires DAO)
+- [ ] [workflow/agent_smart_issue_creator](issues/open/workflow/agent_smart_issue_creator.md) - Agent creates issues from brief task descriptions. (BLOCKED: requires DAO)
 - [x] [workflow/current-sprint-should-not-have-todo-in-sprints-dir](issues/closed/workflow/current-sprint-should-not-have-todo-in-sprints-dir.md)
 - [ ] [workflow/Implement bug fix workflow and issue reopening](issues/open/workflow/Implement bug fix workflow and issue reopening.md) - TBD
 - [ ] [workflow/Add new feature](issues/open/workflow/Add new feature.md) - TBD
