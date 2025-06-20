@@ -51,5 +51,6 @@ This repository tracks work items in the `issues/` directory. Each task below li
 - [ ] [workflow/auto_update_issue_dates](/issues/open/workflow/auto_update_issue_dates.md) - Auto-update issue dates via git hooks
 - [ ] [workflow/run_all_tests_script](/issues/open/workflow/run_all_tests_script.md) - Create comprehensive test runner script
 
+- [ ] [workflow/standup_automation_script](/issues/open/workflow/standup_automation_script.md) - TBD
 ## Bugs
 - [x] [bugs/update_sprint_state_in_archive](/issues/closed/bugs/update_sprint_state_in_archive.md) - TBD

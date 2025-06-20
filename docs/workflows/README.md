@@ -3,6 +3,13 @@
 This directory contains mermaid diagrams describing how issues,
 sprints, and meta-sprints are managed in the repository.
 
+## Available Workflows
+
+- `issue_workflow.md` - How issues are created, managed, and closed
+- `sprint_workflow.md` - How sprints are planned and executed
+- `meta_sprint_workflow.md` - How meta-sprints coordinate multiple sprints
+- `standup_workflow.md` - How cycle standups synchronize project state
+
 ## Quick Start
 
 Install Node.js so that the `npx` command is available. Then run
