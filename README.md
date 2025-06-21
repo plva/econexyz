@@ -161,6 +161,8 @@ Additional diagrams illustrating repository workflows live in
 `docs/workflows/`. They include mermaid charts for the sprint cycle,
 handling individual issues, and meta-sprint planning. See
 `docs/workflows/README.md` for details on generating and viewing them.
+For details on parsing bank statement CSV files, see
+[`docs/guides/csv_parser.md`](docs/guides/csv_parser.md).
 
 ## Agent Logs and PR Documentation
 
