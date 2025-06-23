@@ -46,6 +46,12 @@ just --list
 The current recipes still print TODO placeholders until the next phase wires in
 real commands.
 
+## How to contribute
+
+We welcome contributions from everyone. Please read
+[CONTRIBUTING.md](CONTRIBUTING.md) for setup and workflow details and review our
+[Code of Conduct](CODE_OF_CONDUCT.md) before participating.
+
 
 ### Development container (preview)
 

@@ -1,0 +1,26 @@
+name: Bug Report
+description: Report a reproducible bug
+labels:
+  - bug
+body:
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce
+      description: Describe how to reproduce the issue.
+  - type: textarea
+    attributes:
+      label: Expected vs Actual
+      description: What you expected to happen and what actually happened.
+  - type: textarea
+    attributes:
+      label: Logs
+      description: Include any relevant logs or screenshots.
+  - type: dropdown
+    attributes:
+      label: Subsystem
+      description: Which part of the project is affected?
+      options:
+        - agent
+        - core
+        - docs
+
