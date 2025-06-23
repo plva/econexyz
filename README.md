@@ -61,3 +61,23 @@ We welcome contributions from everyone. Please read
 Clone the repo with VS Code and choose **"Reopen in Container"**.
 First boot runs `bootstrap.sh`; afterwards all `just` commands such as
 `just test`, `just lint`, and `just docs` are available.
+
+## Behaviour-Driven tests
+
+Add behaviour specs under `tests/features/` using `.feature` files:
+
+```gherkin
+Scenario: add two numbers
+  Given two integers
+  When I add them
+  Then the result equals the sum
+```
+
+Run the suite with:
+
+```bash
+nox -s tests
+```
+
+Non-developers can introduce new behaviour by copying a feature file and writing
+English steps only.

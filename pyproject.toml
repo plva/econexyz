@@ -13,6 +13,8 @@ authors = [{name = "EcoNexyz"}]
 [project.optional-dependencies]
 test = [
     "pytest",
+    "pytest-bdd",
+    "hypothesis",
     "pytest-cov",
 ]
 dev = [
