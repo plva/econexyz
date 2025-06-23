@@ -15,6 +15,5 @@ def test_typeguard_running():
 def test_typeguard_catches_type_errors():
     """Test that typeguard catches type errors at runtime."""
     # This should trigger a typeguard error if typeguard is working
-    raise TypeCheckError("oops!")
     with pytest.raises(TypeCheckError):
-        add_numbers("5", 3)  # Wrong type for first argument 
+        add_numbers("5", 3)  # type: ignore # Wrong type for first argument 

@@ -20,5 +20,5 @@ def lint(session: nox.Session) -> None:
 @nox.session(reuse_venv=True)
 def types(session: nox.Session) -> None:
     """Run strict static analysis with Ty."""
-    session.install("ty")
-    session.run("ty", "--strict")
+    session.install("-e", ".[dev]")
+    session.run("ty", "check")

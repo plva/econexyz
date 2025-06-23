@@ -65,11 +65,11 @@ echo "Activating virtual environment..."
 # This ensures the venv is active even if the user has exited it
 source .venv/bin/activate
 
-# Install dependencies if lock file exists
+# Install dependencies
 if [ -f uv.lock ]; then
   uv pip install -r uv.lock
 elif [ -f pyproject.toml ]; then
-  uv pip install -e .[dev,test]
+  uv pip install -e ".[dev]"
 fi
 
 # Optionally install pre-commit hooks
