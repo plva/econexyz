@@ -33,4 +33,10 @@ Before opening a PR ensure:
 - Documentation and CHANGELOG are updated when relevant
 - Labels are applied to help triage
 
+## Story template
+
+Use the [Story issue template](.github/ISSUE_TEMPLATE/story.yml) when proposing
+new work. Each story should stand on its own with clear P0/P1 sections and
+acceptance criteria.
+
 
