@@ -28,7 +28,13 @@ for arg in "$@"; do
     *) args+=("$arg") ;;
   esac
 done
-set -- "${args[@]}"
+
+# Only set args if the array is not empty
+if [ ${#args[@]} -gt 0 ]; then
+  set -- "${args[@]}"
+else
+  set --
+fi
 
 # Ensure we are in the repo root
 cd "$(dirname "$0")"
