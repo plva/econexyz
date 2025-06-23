@@ -4,10 +4,10 @@ nox.options.sessions = ["tests", "lint"]
 nox.options.reuse_existing_virtualenvs = True
 
 
-@nox.session
+@nox.session(reuse_venv=True)
 def tests(session: nox.Session) -> None:
-    session.install(".[test]")
-    session.run("pytest", "-q", "--cov")
+    session.install("-e", ".[dev]")
+    session.run("pytest", "-q")
 
 
 @nox.session
