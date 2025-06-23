@@ -7,13 +7,28 @@ Usage: ./bootstrap.sh [ARGS...]
 
 Bootstraps the project using a local Python virtual environment.
 Additional arguments are executed within the environment.
+
+  --yes-hooks   install git pre-commit hooks without prompting
+  --no-hooks    skip git pre-commit hook installation
 USAGE
 }
 
-if [[ ${1-} == "--help" ]]; then
-  usage
-  exit 0
-fi
+
+# Parse arguments for hook installation flags
+install_hooks=""
+args=()
+for arg in "$@"; do
+  case "$arg" in
+    --yes-hooks) install_hooks="yes" ;;
+    --no-hooks) install_hooks="no" ;;
+    --help)
+      usage
+      exit 0
+      ;;
+    *) args+=("$arg") ;;
+  esac
+done
+set -- "${args[@]}"
 
 # Ensure we are in the repo root
 cd "$(dirname "$0")"
@@ -39,11 +54,22 @@ elif [ -f pyproject.toml ]; then
   uv pip install -e .
 fi
 
-# Install pre-commit hooks if available
-if ! command -v pre-commit >/dev/null 2>&1; then
-  uv pip install pre-commit
+# Optionally install pre-commit hooks
+if [ -z "$install_hooks" ]; then
+  read -r -p "Install git pre-commit hooks? [y/N] " reply
+  if [[ $reply =~ ^[Yy] ]]; then
+    install_hooks="yes"
+  else
+    install_hooks="no"
+  fi
 fi
-pre-commit install --install-hooks >/dev/null 2>&1 || true
+
+if [ "$install_hooks" = "yes" ]; then
+  if ! command -v pre-commit >/dev/null 2>&1; then
+    uv pip install pre-commit
+  fi
+  pre-commit install --install-hooks >/dev/null 2>&1 || true
+fi
 
 # Forward arguments to the given command if provided
 if [ "$#" -gt 0 ]; then
