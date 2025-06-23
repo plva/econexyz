@@ -45,7 +45,7 @@ Use `--yes-hooks` or `--no-hooks` to skip the prompt. Run `./bootstrap.sh --help
 
 ## Command palette
 
-Run `./bootstrap.sh` to set up the environment. The script now installs the
+Run `./bootstrap.sh` to set up the environment. The script installs the
 [`just`](https://github.com/casey/just) task runner so you can execute recipes
 defined in the `Justfile`:
 
@@ -53,12 +53,18 @@ defined in the `Justfile`:
 just --list
 ```
 
-The following recipes are now implemented and working:
+### Common recipes
 
-```bash
-just test    # Run the test suite with coverage
-just lint    # Check code style with ruff
-```
+- `just ball` — Full build: bootstraps, checks dependencies, runs tests, lint, and type checks. Use this after pulling new changes, updating dependencies, or for a full CI check.
+- `just check` — Quick check: runs health check, tests, lint, and type checks (no bootstrapping or dependency updates). Use this when iterating locally and you haven't changed dependencies.
+- `just test` — Run the test suite
+- `just lint` — Check code style
+- `just types` — Static type analysis
+
+**Tip:**
+- Bootstrap (`./bootstrap.sh`) only needs to be run once (successfully) per repository clone. After that, you can use `just ball` for a full check, or `just check` for fast iteration if you haven't changed dependencies.
+
+See the Justfile for more available recipes.
 
 ### Commit workflow
 

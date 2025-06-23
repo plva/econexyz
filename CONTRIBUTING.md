@@ -4,17 +4,33 @@ Thank you for wanting to contribute! Follow these steps to get started.
 
 ## Setup
 
-Run the bootstrap script which sets up a virtual environment and installs dependencies:
+For first-time setup or after pulling changes, run the complete build pipeline:
 
 ```bash
-./bootstrap.sh
+just ball
 ```
 
-You can then run lint and tests:
+This will bootstrap the environment, run health checks, tests, linting, and type checking.
+
+## Development Workflow
+
+For regular development work, run checks without bootstrapping:
 
 ```bash
-just lint
-just test
+just check
+```
+
+This runs health checks, tests, linting, and type checking without reinstalling dependencies.
+
+## Individual Commands
+
+You can also run individual commands:
+
+```bash
+just test      # Run tests
+just lint      # Run linting
+just types     # Run type checking
+just health-check  # Check dev environment
 ```
 
 ## Commit
@@ -29,7 +45,7 @@ just commit
 
 Before opening a PR ensure:
 
-- `just lint && just test` run successfully
+- `just check` runs successfully
 - Documentation and CHANGELOG are updated when relevant
 - Labels are applied to help triage
 - See [ADR 0007](docs/adr/0007-contributor-experience-kit.md#ignored-artefacts-strategy) for repository ignore rules.

@@ -11,10 +11,13 @@ Agents and humans need a single place to discover common commands. `make` is ubi
 Adopt **`just`**. Root `Justfile` exposes verbs:
 
 ```
-just lint      # Ruff
-just test      # Nox default session
-just bench     # Performance guard
-just docs      # Build Sphinx site
+just ball          # Complete build pipeline (bootstrap + all checks)
+just check         # Run all checks (health, tests, lint, types)
+just test          # Run test suite
+just lint          # Run linting and formatting
+just types         # Static type analysis
+just health-check  # Check dev environment dependencies
+just commit        # Interactive commit with Commitizen
 ```
 
 ## Alternatives Considered
@@ -29,3 +32,5 @@ just docs      # Build Sphinx site
 
 * Clear self-documenting CLI; `just --list` acts as help.
 * Requires `just` binary on dev machines (install via `uv tool install just`).
+* `just ball` provides complete setup for new contributors.
+* `just check` enables fast iteration during development.
