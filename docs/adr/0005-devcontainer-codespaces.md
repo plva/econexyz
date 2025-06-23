@@ -1,15 +1,25 @@
-# 0005: Devcontainer Codespaces
+# 0005 – Dev-container / Codespaces
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-One-click cloud IDE; VS Code dev-container over local-only docs.
+
+On-boarding should take minutes even on an iPad. GitHub Codespaces provides cloud VMs with VS Code in the browser; a `.devcontainer` spec pre-installs tools.
 
 ## Decision
-Adopt Devcontainer Codespaces as described.
+
+Ship a checked-in `.devcontainer.json` that:
+
+* Uses Debian slim image with system `git`, `curl`, `uv`.
+* Runs `bootstrap.sh` on first start.
+* Pre-installs VS Code extensions: Python, YAML, Docker, just-tasks.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* **Remote-Containers extension only** – works, but lacks 1-click Codespaces.
+* **No dev-container** – fastest now, slower for every new contributor later.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Near-zero setup in browser; demos run anywhere.
+* Slight maintenance effort when base image needs patching.

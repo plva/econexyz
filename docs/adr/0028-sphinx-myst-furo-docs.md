@@ -1,15 +1,28 @@
-# 0028: Sphinx Myst Furo Docs
+# 0028 – Sphinx + MyST + Furo Docs
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Markdown-friendly docs pipeline, furo theme.
+
+We want a documentation site that accepts Markdown, supports API auto-docs, and
+can publish to GitHub Pages.
 
 ## Decision
-Adopt Sphinx Myst Furo Docs as described.
+
+* **Sphinx** as engine.
+* **MyST** for GitHub-flavoured Markdown.
+* **Furo** for accessible dark/light theme.
+
+`docs/Makefile html` or `just docs` builds site; a GitHub Pages workflow deploys
+on `main`.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| Option | Pros | Cons |
+\| MkDocs Material | Beautiful | Autodoc via plugins, less mature |
+\| Docusaurus | React, MDX | Node build, heavier |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Authors write Markdown in the repo they already use.
+* Adds \~20 s build step; acceptable.

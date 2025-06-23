@@ -1,15 +1,22 @@
-# 0018: Pip Audit Scan
+# 0018 – pip-audit Scan
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Supply-chain CVE scan per lockfile.
+
+Lockfile needs CVE scanning; Safety is slower and paid for GitHub integration.
 
 ## Decision
-Adopt Pip Audit Scan as described.
+
+Add **pip-audit** run inside Nox, pointed at `uv.lock`. Fail on high-severity
+unpatched CVEs.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* Safety – requires token for full DB.
+* OSV-scanner – language-agnostic, but pip support still maturing.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Early warning on vulnerable transitive deps.
+* False positives possible until fix metadata propagates.

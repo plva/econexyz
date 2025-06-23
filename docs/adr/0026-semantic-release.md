@@ -1,15 +1,27 @@
-# 0026: Semantic Release
+# 0026 – Semantic-release
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Automated versioning & changelog from commits.
+
+Manual version bumps and CHANGELOG edits are error-prone. With Conventional
+Commits we can derive both automatically.
 
 ## Decision
-Adopt Semantic Release as described.
+
+Use **python-semantic-release** in CI:
+
+* Analyse commits since last tag.
+* Decide version bump (major/minor/patch).
+* Tag, push, and write `CHANGELOG.md`.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| Option | Pros | Cons |
+\| Standard-Version (JS) | Mature | Node runtime |
+\| Manual bump | Simple | Human toil, skipped steps |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Releases reflect actual change scope.
+* Requires commit history to stay linear (no squash of multiple types).

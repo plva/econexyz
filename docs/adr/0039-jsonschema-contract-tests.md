@@ -1,15 +1,21 @@
-# 0039: Jsonschema Contract Tests
+# 0039 – JSON-Schema Contract Tests
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Message contract tests via Hypothesis + jsonschema.
+
+Internal message passing (e.g., agent → tool) needs validation too.
 
 ## Decision
-Adopt Jsonschema Contract Tests as described.
+
+Combine `jsonschema` with Hypothesis’ `from_schema` to generate arbitrary valid payloads; assert round-trip.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* Manual asserts | Simple | Coverage gaps |
+* Pydantic `validate` only | Runtime | No fuzz coverage
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Tighter message guarantees; reproduces edge cases for free.
+* Adds ≈ 3 s to test suite.

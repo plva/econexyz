@@ -1,15 +1,25 @@
-# 0020: Baseline Gh Actions
+# 0020 – Baseline GitHub Actions
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Minimal CI skeleton to host all jobs.
+
+Need a skeleton workflow before adding specialised jobs.
 
 ## Decision
-Adopt Baseline Gh Actions as described.
+
+Create `.github/workflows/ci.yml` with stages:
+
+1. Checkout, setup Python + `uv`.
+2. Call Nox `lint`, `tests`, `security`, `docs`.
+3. Upload coverage artifact.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* Separate workflow per job – slower, duplicate setup.
+* Local runner – faster but infrastructure overhead.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Single cache warm-up, faster overall.
+* Easy to extend: later jobs append new Nox sessions.

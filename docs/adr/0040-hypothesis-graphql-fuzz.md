@@ -1,15 +1,22 @@
-# 0040: Hypothesis Graphql Fuzz
+# 0040 – Hypothesis GraphQL Fuzz
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-SDL/runtime mismatch guard using auto-queries.
+
+GraphQL schema and resolvers diverge easily.
 
 ## Decision
-Adopt Hypothesis Graphql Fuzz as described.
+
+Use **hypothesis-graphql** session to generate random queries against live schema; fail on resolver errors or mismatched types.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| Option | Pros | Cons |
+\| Manual introspection tests | Quick | Sparse coverage |
+\| Apollo Fuzz | JS, good | Separate runtime stack |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Finds SDL/runtime mismatches early.
+* Requires running API in test mode; handled by Nox.

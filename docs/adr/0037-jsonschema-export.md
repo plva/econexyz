@@ -1,15 +1,27 @@
-# 0037: Jsonschema Export
+# 0037 – JSON-Schema Export
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Persist Pydantic schema for OpenAI / docs / tests.
+
+Tools declare input/output via Pydantic models; schemas needed for OpenAI function calling, docs, and tests.
 
 ## Decision
-Adopt Jsonschema Export as described.
+
+Each tool’s `schema.py` calls:
+
+```python
+model.schema_json(indent=2)
+```
+
+Outputs saved under `schemas/{slug}.json`. A Nox session verifies schemas diff.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* Runtime generation only | Fewer files | Hard to review in PR |
+* Avro / Protobuf | Faster | Adds compiler, no human JSON
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Schemas provide contract diff surface.
+* Adds small repo footprint (≈ 2 KB per tool).

@@ -1,15 +1,24 @@
-# 0024: License Compliance
+# 0024 – License Compliance
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-pip-licenses + allow-list to ensure SPDX-approved deps.
+
+Some licences (e.g., GPL-3.0) conflict with planned distribution models.
+Compliance must be automated.
 
 ## Decision
-Adopt License Compliance as described.
+
+Run `pip-licenses --format=json` in Nox; compare IDs against
+`licenses_allowlist.txt` (SPDX identifiers). Fail CI if new package is not
+approved. Manual review + ADR required to add an exception.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* FOSSA SaaS – rich UI, paid tier needed.
+* Manual spreadsheet – error-prone.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Early alert on incompatible licences.
+* Requires periodic update of allow-list as SPDX adds new IDs.

@@ -1,15 +1,24 @@
-# 0036: Langgraph Backbone
+# 0036 – LangGraph Backbone
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-StructuredTool orchestration and reasoning loop.
+
+We need a structured orchestration layer that handles tool calls, retries,
+and memory more transparently than raw prompt templates.
 
 ## Decision
-Adopt Langgraph Backbone as described.
+
+Adopt **LangGraph** (StructuredTool + graph composition). Each registered tool
+from `AGENTS.md` becomes a node; edges handle success/failure branches.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| Option | Pros | Cons |
+\| LangChain Agents | Popular | Less deterministic planning |
+\| Home-grown loop | Full control | Reinvents planner, retries |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Easier reasoning about agent plans; visible graph.
+* Dependency on a still-young library; mitigated by ADR and swap path.

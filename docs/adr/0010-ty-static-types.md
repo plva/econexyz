@@ -1,15 +1,24 @@
-# 0010: Ty Static Types
+# 0010 – Ty Static Types
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Fast strict type-checking; Ty wrapper over raw mypy.
+
+We want strict type checking but mypy’s performance can slow large codebases. `Ty` wraps mypy in Rust for speed.
 
 ## Decision
-Adopt Ty Static Types as described.
+
+Use **Ty** (`uv tool install ty`). Run as a Nox session and pre-commit hook.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+| Option   | Pros                 | Cons                                       |
+| -------- | -------------------- | ------------------------------------------ |
+| Raw mypy | Stable, feature-rich | 2-4× slower; higher CI time                |
+| Pyright  | Fast                 | Slightly different type system; needs Node |
+| None     | No overhead          | Bugs appear later                          |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* < 5 s type check in CI on current codebase.
+* Ty is pre-release; if abandoned, fallback is to mypy with same flags.

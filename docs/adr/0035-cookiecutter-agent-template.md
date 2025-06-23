@@ -1,15 +1,36 @@
-# 0035: Cookiecutter Agent Template
+# 0035 – Cookiecutter Agent Template
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Deterministic per-agent scaffold generator.
+
+Creating a new agent should be deterministic: code, schema, tests, docs.
 
 ## Decision
-Adopt Cookiecutter Agent Template as described.
+
+Cookiecutter in `templates/agent/` with prompts:
+
+```
+agent_name: Weather
+slug: weather
+description: Returns forecast
+```
+
+Generates:
+
+```
+src/agents/weather/__init__.py
+src/agents/weather/schema.py
+tests/agents/test_weather.py
+docs/agents/weather.md
+```
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| Copier | Simple | Less widespread |
+\| Manual copy | Zero deps | Drifts quickly |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* One-command scaffold via `just new-agent`.
+* Template maintenance overhead when base patterns evolve.

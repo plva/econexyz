@@ -1,15 +1,22 @@
-# 0019: Label Strategy
+# 0019 – GitHub Label Strategy
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Automated labels feed risk lanes, changelog sections, workflows.
+
+Labels power automation: changelog categorisation, risk heat-maps, auto-routing.
 
 ## Decision
-Adopt Label Strategy as described.
+
+* Use GitHub Labeler Action to sync labels from `labels.yml`.
+* Categories: `risk:high/med/low`, `type:feature/bug/docs`, `area:agent/core/docs`.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* Manual label curation – drifts over time.
+* ZenHub or Jira fields – heavier process.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Consistent labels for bots and humans.
+* Contributors add new labels via PR to `labels.yml`.

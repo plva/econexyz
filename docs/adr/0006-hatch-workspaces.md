@@ -1,15 +1,24 @@
-# 0006: Hatch Workspaces
+# 0006 – Hatch Workspaces
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Future multi-package monorepo; Hatch over Pants or Poetry workspaces.
+
+Today we have one package; tomorrow we may split core, plugins, or shared proto models. Managing multiple `pyproject`s without pain is the goal.
 
 ## Decision
-Adopt Hatch Workspaces as described.
+
+Enable **Hatch workspaces** in root `pyproject.toml`, allowing sub-packages under `packages/` to be built and tested together.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+| Option                 | Pros       | Cons                          |
+| ---------------------- | ---------- | ----------------------------- |
+| Pants                  | Powerful   | Heavy, steeper learning curve |
+| Poetry multi-project   | Familiar   | Limited workspace features    |
+| Monorepo with sub-venv | Simple now | Dependency duplication later  |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Easy path to multi-package repo.
+* Developers must learn Hatch commands (`hatch run`, `hatch build`).

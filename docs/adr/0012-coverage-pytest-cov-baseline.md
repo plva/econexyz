@@ -1,15 +1,23 @@
-# 0012: Coverage Pytest Cov Baseline
+# 0012 – Coverage Baseline
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Measure/ gate coverage in CI.
+
+We want to stop coverage from silently eroding as agents add code.
 
 ## Decision
-Adopt Coverage Pytest Cov Baseline as described.
+
+Use **`pytest-cov`** to generate coverage XML; fail the session if total
+coverage drops below the rolling average (`--cov-fail-under=$(cat .cov_target)`).
+`.cov_target` is bumped only by an explicit PR.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* Hard-code 90 % threshold – brittle when test mix changes.
+* Skip coverage – saves minutes, but lets dead code grow.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Clear, adjustable target; agents can read file to know goal.
+* Adds \~5–10 s to test run on current codebase.
