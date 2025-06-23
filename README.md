@@ -60,6 +60,15 @@ just test    # Run the test suite with coverage
 just lint    # Check code style with ruff
 ```
 
+### Commit workflow
+
+```bash
+git add .
+just commit        # interactive wizard
+```
+
+Direct `git commit -m` is allowed but must follow Conventional Commit rules.
+
 ## Quality gates
 
 | Command | Purpose |

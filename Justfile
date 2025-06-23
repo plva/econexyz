@@ -47,6 +47,14 @@ image tag="latest":
 run *ARGS:
     @echo "run {{ARGS}} \u2192 TODO (will call python -m yourpackage.cli)"
 
+# Commit helper
+commit:
+    cz commit            # interactive wizard
+
+# Version bump
+bump:
+    cz bump --yes        # version & changelog
+
 # Agent scaffolding
 # Scaffold a new agent
 new-agent name slug:
