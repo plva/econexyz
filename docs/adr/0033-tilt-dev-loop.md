@@ -1,15 +1,29 @@
-# 0033: Tilt Dev Loop
+# 0033 – Tilt Dev Loop
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Sub-2 s local K8s live-update; Tilt over Skaffold.
+
+Waiting 20 s for `kubectl apply` kills feedback loops. We want < 2 s local sync.
 
 ## Decision
-Adopt Tilt Dev Loop as described.
+
+Introduce **Tilt** with `Tiltfile`:
+
+```python
+k8s_yaml('manifests/')
+docker_build('app', '.', live_update=[sync('.', '/app'), run('bootstrap.sh')])
+```
+
+Auto-reload when Python files change.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| Option | Pros | Cons |
+\| Skaffold | Google-backed | Slower live sync (\~5 s) |
+\| Telepresence | Full remote | Network complexity |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Devs run `tilt up`; browser dashboard shows live logs.
+* Requires Docker Desktop or Colima.

@@ -1,15 +1,26 @@
-# 0034: Agents Registry
+# 0034 – `AGENTS.md` Registry
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Human/AI discoverable tool registry (`AGENTS.md`).
+
+Agents need a single discoverable list of available tools, their arguments, and owners.
 
 ## Decision
-Adopt Agents Registry as described.
+
+Plain-text Markdown table:
+
+| Tool | Input Schema | Output Schema | Owner | Description |
+| ---- | ------------ | ------------- | ----- | ----------- |
+
+Updated by PR; generator script (`just agents`) inserts new rows.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| YAML file | Easy parse | Less readable in GitHub preview |
+\| Database | Queryable | Over-engineered for now |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Humans skim; agents parse via Markdown AST.
+* Diff reviews reveal contract changes.

@@ -1,15 +1,24 @@
-# 0025: Commitizen Conventional
+# 0025 – Commitizen Conventional Commits
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Conventional Commits + commit wizard.
+
+Consistent commit messages enable automated changelogs, semantic versioning, and
+easier blame. Asking agents to memorise a regex is fragile.
 
 ## Decision
-Adopt Commitizen Conventional as described.
+
+Install **Commitizen** (`cz`). Developers run `cz commit`; agents are scripted
+similarly. Enforce message lint in pre-commit (`commitizen check --allow-empty`).
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| Option | Pros | Cons |
+\| commitlint + Husky | Popular in JS | Node dependency |
+\| Conventional-Changelog CLIs | OK | No interactive wizard |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Uniform messages, lower friction via wizard prompts.
+* Occasionally agents need prompt engineering to answer wizard questions.

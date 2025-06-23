@@ -1,15 +1,27 @@
-# 0001: Adr Process
+# 0001 – ADR Process
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Establish template & rule: every major tooling choice must record an ADR.
+
+Teams change, tools age, and “why did we do this?” is the most expensive question to answer from scratch. We need a lightweight, repeatable way to capture reasoning so future contributors—human or AI—can trace, critique, or reverse a choice without code archaeology.
 
 ## Decision
-Adopt Adr Process as described.
+
+Adopt Michael Nygard–style Architecture Decision Records (ADRs) in `docs/adr/`, one Markdown file per major choice.
+
+* Template lives at `docs/adr/_template.md`.
+* Sequential IDs, kebab-case titles.
+* Status field tracks lifecycle (Proposed → Accepted → Superseded).
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* **Wiki pages** – easy to start, hard to version, harder to review.
+* **Commit messages only** – context buried in logs; merges obscure history.
+* **Inline docs in READMEs** – discoverability issues once several topics grow.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Clear audit trail; design discussions become first-class artefacts.
+* New joiners ramp faster; models can cite decisions directly.
+* Slight paperwork overhead—acceptable given infrequent creation rate.

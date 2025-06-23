@@ -1,15 +1,26 @@
-# 0032: Docker K8s Image
+# 0032 – Docker + K8s Image
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Signed, SBOM-ed, distro-less Python image.
+
+Prod deploy will run in Kubernetes. Image size and provenance matter.
 
 ## Decision
-Adopt Docker K8s Image as described.
+
+* Base: `gcr.io/distroless/python3-debian12`
+* Build multi-stage: wheels → distroless.
+* Sign image with **cosign**; generate CycloneDX SBOM via Trivy.
+* Tag scheme: `ghcr.io/org/app:${SEMVER}`
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| Option | Pros | Cons |
+\| Alpine Python | Small | Segfault risk with glibc wheels |
+\| Full Debian | Familiar | 3× size |
+\| Kaniko build | Rootless | Needs extra infra |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* 70 MB image, verifiable signature, SBOM attached.
+* Slight complexity in Dockerfile; hidden by `just image`.

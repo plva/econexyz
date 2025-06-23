@@ -1,15 +1,29 @@
-# 0041: Single Schema Bridge
+# 0041 – Single-Schema Bridge (Pydantic ↔ Strawberry)
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Pydantic models → Strawberry GraphQL types; zero drift.
+
+We already model data in Pydantic; duplicating GraphQL types invites drift.
 
 ## Decision
-Adopt Single Schema Bridge as described.
+
+Use **`strawberry.experimental.pydantic`** to auto-derive GraphQL types:
+
+```python
+@strawberry.experimental.pydantic.type(model=UserModel)
+class User:
+    pass
+```
+
+Schema builds directly from Pydantic, ensuring parity.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| Hand-written Strawberry types | Full control | Drift risk, boilerplate |
+\| datamodel-codegen | Generates code | Adds generation step |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* One source for REST, GraphQL, and OpenAI contracts.
+* Experimental API may change; tracked via ADR.

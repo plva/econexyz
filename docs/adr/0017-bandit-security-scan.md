@@ -1,15 +1,21 @@
-# 0017: Bandit Security Scan
+# 0017 – Bandit Security Scan
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Static Python security analysis.
+
+Static analysis for Python-specific security issues (e.g., `subprocess` misuse).
 
 ## Decision
-Adopt Bandit Security Scan as described.
+
+Run **Bandit** as a Nox session on `src/**.py`, exclude tests.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* Skip – rely on CodeQL only; misses Python heuristics.
+* Snyk CLI – paid for private repos.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* One more line of defence, \~2 s runtime.
+* Occasional false positives; handled via `# nosec` with comment.

@@ -1,15 +1,29 @@
-# 0009: Bdd Property Testing
+# 0009 – BDD + Property Testing
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Behaviour + property tests; pytest-bdd + Hypothesis over plain pytest.
+
+Readable behaviour specs help non-coders (and agents) understand intent; property tests expose edge cases.
 
 ## Decision
-Adopt Bdd Property Testing as described.
+
+Combine **pytest-bdd** for `.feature` files with **Hypothesis** for property strategies. Example directory layout:
+
+```
+tests/
+  features/
+    login.feature
+  test_properties.py
+```
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* **Plain pytest only** – simpler, but loses Given/When/Then clarity.
+* **Behave** – pure BDD but no Hypothesis integration.
+* **Gherkin + external runner** – more moving parts.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Shared language between PM-style feature files and code.
+* Slight learning curve; justified by increased coverage.

@@ -1,15 +1,30 @@
-# 0015: Ruff Lint Format
+# 0015 – Ruff Lint + Format
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-One Rust tool replaces flake8 + Black + isort.
+
+Flake8 + Black + isort run in \~10 s locally; Ruff does all in \~200 ms.
 
 ## Decision
-Adopt Ruff Lint Format as described.
+
+Adopt **Ruff** with `pyproject.toml`:
+
+```toml
+[tool.ruff]
+select = ["E", "F", "UP", "I"]
+line-length = 120
+format = "ruff"
+```
+
+`UP` enables Pyupgrade rules.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* Keep existing trio – familiar but slower.
+* `pylint` – thorough, but heavy and chatty.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Faster feedback; single dependency.
+* Some niche Flake8 plugins not yet ported (acceptable).

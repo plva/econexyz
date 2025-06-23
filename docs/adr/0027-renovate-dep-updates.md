@@ -1,15 +1,26 @@
-# 0027: Renovate Dep Updates
+# 0027 – Renovate Dependency Updates
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Auto-PR dependency upgrades, grouped.
+
+Dependency drift is inevitable; batching updates reduces noise.
 
 ## Decision
-Adopt Renovate Dep Updates as described.
+
+Add Renovate GitHub app with config:
+
+* Group deps by ecosystem and stability.
+* Weekly “maintenance” PRs.
+* Autoclose PR if tests fail.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| Option | Pros | Cons |
+\| Dependabot | Built-in, simpler | Limited grouping |
+\| Update manually | Full control | Time-consuming |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Predictable upgrade cadence.
+* Occasional rebase conflicts; mitigated by weekly schedule.

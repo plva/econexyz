@@ -1,15 +1,27 @@
-# 0038: Schemathesis Contract
+# 0038 – Schemathesis Contract Fuzz
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-HTTP contract fuzzing pre-API rollout.
+
+When we add an HTTP API, we want blind spots found before staging.
 
 ## Decision
-Adopt Schemathesis Contract as described.
+
+Write an OpenAPI stub even for early endpoints; run **Schemathesis** in CI:
+
+```
+schemathesis --workers 4 run openapi.yaml
+```
+
+Uses Hypothesis strategies to fuzz parameters and headers.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| Postman/Newman | Visual | No property-based fuzz |
+\| Dredd | Lightweight | Limited payload variation |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Early API breakage caught automatically.
+* Test suite runtime +30 s; acceptable for PRs.

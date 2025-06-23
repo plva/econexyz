@@ -1,15 +1,20 @@
-# 0016: Ruff Pyupgrade Rules
+# 0016 – Ruff Pyupgrade Rules
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Modern syntax auto-enforced via Ruff “UP”.
+
+We want modern syntax without a separate tool.
 
 ## Decision
-Adopt Ruff Pyupgrade Rules as described.
+
+Enable Ruff’s `UP` ruleset and auto-fix in pre-commit (`ruff check --fix`).
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* Stand-alone `pyupgrade` hook – another install step.
+* Manual refactors – error-prone.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* New code converges on current Python best practices automatically.

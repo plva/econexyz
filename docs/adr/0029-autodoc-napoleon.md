@@ -1,15 +1,32 @@
-# 0029: Autodoc Napoleon
+# 0029 – Autodoc + Napoleon
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-API docs from Google/NumPy docstrings.
+
+API reference should generate from docstrings—once—without duplicate typing.
 
 ## Decision
-Adopt Autodoc Napoleon as described.
+
+Enable Sphinx extensions:
+
+```
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.autosummary",
+]
+napoleon_google_docstring = True
+```
+
+Napoleon parses Google/NumPy style strings; autosummary stubs are generated
+during `make html`.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* pdoc | Simple CLI | Limited cross-linking
+* MkDocs-gen-docs | Works | Same Node concern as above
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Accurate, versioned API docs; docstring drift spotted in PR diff.

@@ -1,15 +1,24 @@
-# 0014: Perf Regression Guard
+# 0014 – Performance Regression Guard
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-pytest-benchmark catches slow-downs (>10 %).
+
+Speed matters for agent inner loops. We need a tripwire for accidental slow-downs.
 
 ## Decision
-Adopt Perf Regression Guard as described.
+
+Add `pytest-benchmark`. A Nox session runs benchmarks; results are compared to
+the committed JSON baseline. Fail if any metric regresses >10 %.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+| Option         | Pros            | Cons                          |
+| -------------- | --------------- | ----------------------------- |
+| asv (airspeed) | Rich dashboards | Heavy setup, uploads required |
+| No guard       | Zero effort     | Latency creeps unnoticed      |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Small JSON file under `benchmarks/`.
+* Contributors update baseline only with intentional perf changes.

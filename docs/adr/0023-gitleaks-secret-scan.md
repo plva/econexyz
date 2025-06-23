@@ -1,15 +1,25 @@
-# 0023: Gitleaks Secret Scan
+# 0023 – Gitleaks Secret Scan
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Blocks secrets locally & in CI.
+
+Accidentally committed credentials are costly to rotate. We want detection both
+locally and in CI.
 
 ## Decision
-Adopt Gitleaks Secret Scan as described.
+
+* Local: pre-commit hook `gitleaks detect --staged`.
+* CI: `gitleaks/gitleaks-action@v2` on each PR; fail job on secret match.
+* Custom allow-list `.gitleaks.toml` for test fixtures.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+\| Option | Pros | Cons |
+\| GH Push Protection | Built-in | Only after push; no local check |
+\| TruffleHog OSS | Broad regex | Higher false-positive rate |
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Stops secrets before they hit `main`.
+* Occasional tuning of regex allow-list required.

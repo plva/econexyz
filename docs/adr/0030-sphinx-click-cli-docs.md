@@ -1,15 +1,28 @@
-# 0030: Sphinx Click Cli Docs
+# 0030 – sphinx-click CLI Docs
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Auto-generated CLI reference from Typer.
+
+Our Typer CLI should appear in docs without hand-written tables.
 
 ## Decision
-Adopt Sphinx Click Cli Docs as described.
 
-## Alternatives Considered
-- Other options were discussed but not chosen.
+Add **`sphinx-click`**. In `docs/cli.md`:
 
-## Consequences
-- Provides documented reasoning for future contributors.
+````
+```{autocli} app.cli:app
+:prog: mycli
+````
+
+```
+
+Build renders commands, options, env-vars.
+
+## Alternatives Considered  
+* Manually copy `--help` output – stale quickly.  
+* Typer’s built-in doc generator – creates extra files, harder integration.
+
+## Consequences  
+* CLI docs update automatically when code changes.  
+* Requires `sphinx-click` extension import; negligible cost.

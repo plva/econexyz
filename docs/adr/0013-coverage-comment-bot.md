@@ -1,15 +1,25 @@
-# 0013: Coverage Comment Bot
+# 0013 – Coverage Comment Bot
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Inline PR diff w/out SaaS fees; Python Coverage Comment Action.
+
+Private repos make external SaaS (Codecov) paid. We still want inline feedback.
 
 ## Decision
-Adopt Coverage Comment Bot as described.
+
+Use the **`python-coverage-comment` GitHub Action**. On PRs it:
+
+1. Parses `.coverage` file.
+2. Posts (or updates) a summary comment.
+3. Uploads SVG badge to a `coverage-badge` branch.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* Codecov (paid) – nice UI, but outside budget.
+* Bare artifacts – no inline diff; low visibility.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Maintainers see coverage delta at a glance.
+* One extra job (<30 s) in workflow.

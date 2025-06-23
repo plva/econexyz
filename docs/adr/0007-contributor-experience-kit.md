@@ -1,15 +1,24 @@
-# 0007: Contributor Experience Kit
+# 0007 – Contributor Experience Kit
 
-*Status*: Accepted
+*Status*: **Accepted**
 
 ## Context
-Issue/PR templates, CONTRIBUTING, CoC for external & AI contributors.
+
+External contributors—including AI agents—benefit from clear templates and rules of engagement.
 
 ## Decision
-Adopt Contributor Experience Kit as described.
+
+* `CONTRIBUTING.md` – setup, lint, test, commit flow.
+* Issue templates: bug, feature, question.
+* PR template with checklist.
+* Contributor Covenant 2.1 as `CODE_OF_CONDUCT.md`.
 
 ## Alternatives Considered
-- Other options were discussed but not chosen.
+
+* **No templates** – fastest now, but yields low-quality issues.
+* **Third-party bots for templates** – additional infra, latency.
 
 ## Consequences
-- Provides documented reasoning for future contributors.
+
+* Higher-quality issues/PRs.
+* Slight repo noise; acceptable trade-off.
