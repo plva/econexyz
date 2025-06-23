@@ -86,6 +86,8 @@ Headers must stay ≤ 52 characters; CI will block longer ones.
 
 Additional recipes are available for development, documentation, and deployment tasks.
 
+Coverage threshold: **≥ 80 %** (`nox -s tests` generates htmlcov/)
+
 ## How to contribute
 
 We welcome contributions from everyone. Please read

@@ -7,7 +7,13 @@ nox.options.reuse_existing_virtualenvs = True
 @nox.session(reuse_venv=True)
 def tests(session: nox.Session) -> None:
     session.install("-e", ".[dev]")
-    session.run("pytest", "-q")
+    session.run(
+        "pytest",
+        "--cov=econexyz",
+        "--cov-report=xml",
+        "--cov-report=html",
+        "--cov-fail-under=80",
+    )
 
 
 @nox.session
