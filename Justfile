@@ -6,12 +6,12 @@ install-dev:
 # Test suite
 # Run the test suite
 test:
-    @echo "test \u2192 TODO (will call nox -s tests)"
+    nox -s tests
 
 # Lint / format
 # Check code style
 lint:
-    @echo "lint \u2192 TODO (will call ruff check . && ruff format --check .)"
+    nox -s lint
 
 # Type-check
 # Static type analysis
