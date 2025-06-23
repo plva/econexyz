@@ -64,3 +64,9 @@ new-agent name slug:
 # Generate GraphQL schema
 export-sdl:
     @echo "export-sdl \u2192 TODO (will export SDL)"
+
+# Dev environment health check
+# Check if all dev dependencies are available
+health-check:
+    @echo "Checking dev environment..."
+    @python scripts/dev_health_check.py

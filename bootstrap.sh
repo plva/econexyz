@@ -68,8 +68,12 @@ source .venv/bin/activate
 # Install dependencies
 if [ -f uv.lock ]; then
   uv pip install -r uv.lock
-elif [ -f pyproject.toml ]; then
+fi
+
+# Always install dev dependencies for development
+if [ -f pyproject.toml ]; then
   uv pip install -e ".[dev]"
+  uv pip install pytest-bdd pytest-cov
 fi
 
 # Install Commitizen for commit management

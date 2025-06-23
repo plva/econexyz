@@ -7,7 +7,7 @@ name = "econexyz"
 version = "0.0.0"
 description = "EcoNexyz example project"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 authors = [{name = "EcoNexyz"}]
 
 [project.optional-dependencies]
@@ -26,6 +26,7 @@ dev = [
     "pytest-cov",
     "typeguard",
     "ty",
+    "commitizen",
 ]
 
 [tool.ruff]
