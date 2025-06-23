@@ -48,7 +48,7 @@ fi
 # Install just if missing
 if ! command -v just >/dev/null 2>&1; then
   echo "Installing just..."
-  uv tool install just
+  uv tool install rust-just
 fi
 
 # Create or reuse virtual environment
@@ -56,7 +56,8 @@ if [ ! -d .venv ]; then
   python3 -m venv .venv
 fi
 
-# Activate environment
+# Always activate environment (even if already activated, this is safe)
+# This ensures the venv is active even if the user has exited it
 source .venv/bin/activate
 
 # Install dependencies if lock file exists
