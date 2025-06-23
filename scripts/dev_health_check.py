@@ -23,10 +23,11 @@ def check_dev_dependencies():
 
         # Get dev dependencies
         dev_deps = data["project"]["optional-dependencies"]["dev"]
-        
+
         # Map package names to import names for special cases
         # Some packages (like pytest-bdd and pytest-cov) have different import names than their PyPI names.
-        # If you add a new dev dependency and the health check fails, check if the import name differs from the package name and add it here.
+        # If you add a new dev dependency and the health check fails,
+        # check if the import name differs from the package name and add it here.
         import_name_map = {
             "pytest-bdd": "pytest_bdd",
             "pytest-cov": "pytest_cov",
@@ -38,7 +39,7 @@ def check_dev_dependencies():
             # Handle package names with extras like "pytest-bdd"
             package_name = dep.split("[")[0] if "[" in dep else dep
             import_name = import_name_map.get(package_name, package_name)
-            
+
             try:
                 __import__(import_name)
             except ImportError:
@@ -48,7 +49,7 @@ def check_dev_dependencies():
             print(f"❌ Missing dev dependencies: {', '.join(missing_deps)}")
             print("💡 Run ./bootstrap.sh to install missing dependencies")
             return False
-        
+
         print("✅ All dev dependencies available")
         return True
 
@@ -59,4 +60,4 @@ def check_dev_dependencies():
 
 if __name__ == "__main__":
     success = check_dev_dependencies()
-    sys.exit(0 if success else 1) 
+    sys.exit(0 if success else 1)

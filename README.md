@@ -68,6 +68,7 @@ just commit        # interactive wizard
 ```
 
 Direct `git commit -m` is allowed but must follow Conventional Commit rules.
+Headers must stay ≤ 52 characters; CI will block longer ones.
 
 ## Quality gates
 

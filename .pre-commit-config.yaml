@@ -8,4 +8,9 @@ repos:
         entry: cz check
         language: system
         stages: [commit-msg]
+      - id: commitlint
+        name: Commitlint 52-char header
+        entry: npx --yes commitlint --edit $1
+        language: system
+        stages: [commit-msg]
 
