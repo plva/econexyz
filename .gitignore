@@ -1,0 +1,41 @@
+# Python build & cache (ADR0007 L31)
+__pycache__/
+.venv/
+.nox/
+.pytest_cache/
+.coverage
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+
+# Packaging artifacts (ADR0007 L32)
+dist/
+build/
+*.egg-info/
+wheelhouse/
+*.whl
+*.egg
+
+# Editor/IDE noise (ADR0007 L33)
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+*.bak
+
+# Container & SBOM outputs (ADR0007 L34)
+*.sbom.json
+*.sbom.spdx
+sbom/
+trivy-report*.txt
+docker-cache/
+*.tar.zst
+
+# Docs & coverage artefacts (ADR0007 L35)
+docs/_build/
+site/
+htmlcov/
+*.png.auto-gen
+*.svg.auto-gen
