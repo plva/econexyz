@@ -16,6 +16,7 @@ test = [
     "pytest-bdd",
     "hypothesis",
     "pytest-cov",
+    "coverage",
 ]
 dev = [
     "ruff",
@@ -24,9 +25,19 @@ dev = [
     "pytest-bdd",
     "hypothesis",
     "pytest-cov",
+    "coverage",
     "typeguard",
     "ty",
     "commitizen",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["econexyz"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
 ]
 
 [tool.ruff]
