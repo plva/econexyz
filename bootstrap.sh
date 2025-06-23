@@ -57,7 +57,7 @@ source .venv/bin/activate
 if [ -f uv.lock ]; then
   uv pip install -r uv.lock
 elif [ -f pyproject.toml ]; then
-  uv pip install -e .
+  uv pip install -e .[dev,test]
 fi
 
 # Optionally install pre-commit hooks
