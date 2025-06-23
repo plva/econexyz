@@ -70,3 +70,39 @@ export-sdl:
 health-check:
     @echo "Checking dev environment..."
     @python scripts/dev_health_check.py
+
+# Build all
+# Run complete build pipeline: bootstrap, health check, tests, lint, types
+ball:
+    @echo "🚀 Starting complete build pipeline..."
+    @echo ""
+    @echo "0️⃣  Bootstrapping environment..."
+    @./bootstrap.sh --yes-hooks || (echo "❌ Bootstrap failed" && exit 1)
+    @echo "✅ Bootstrap complete"
+    @echo ""
+    @echo "1️⃣  Checking dev environment..."
+    @just health-check || (echo "❌ Health check failed" && exit 1)
+    @echo "✅ Health check passed"
+    @echo ""
+    @echo "2️⃣  Running tests..."
+    @just test || (echo "❌ Tests failed" && exit 1)
+    @echo "✅ Tests passed"
+    @echo ""
+    @echo "3️⃣  Running linting..."
+    @just lint || (echo "❌ Linting failed" && exit 1)
+    @echo "✅ Linting passed"
+    @echo ""
+    @echo "4️⃣  Running type checking..."
+    @just types || (echo "❌ Type checking failed" && exit 1)
+    @echo "✅ Type checking passed"
+    @echo ""
+    @echo "🎉 All checks passed! Build successful!"
+
+# Run all checks: health, tests, lint, types (no bootstrap)
+check:
+    @echo "🔎 Running all checks (no bootstrap)..."
+    @just health-check || (echo "❌ Health check failed" && exit 1)
+    @just test || (echo "❌ Tests failed" && exit 1)
+    @just lint || (echo "❌ Linting failed" && exit 1)
+    @just types || (echo "❌ Type checking failed" && exit 1)
+    @echo "✅ All checks passed!"
