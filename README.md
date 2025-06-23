@@ -37,3 +37,9 @@ Use `--yes-hooks` or `--no-hooks` to skip the prompt. Run `./bootstrap.sh --help
 
 A `Justfile` in the repo root defines commands like `just test` and `just lint`. These recipes currently print TODO messages and will be wired up in a future phase.
 
+
+### Development container (preview)
+
+Clone the repo with VS Code and choose **"Reopen in Container"**.
+First boot runs `bootstrap.sh`; afterwards all `just` commands such as
+`just test`, `just lint`, and `just docs` are available.
