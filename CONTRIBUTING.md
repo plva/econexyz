@@ -34,4 +34,10 @@ Before opening a PR ensure:
 - Labels are applied to help triage
 - See [ADR 0007](docs/adr/0007-contributor-experience-kit.md#ignored-artefacts-strategy) for repository ignore rules.
 
+## Story template
+
+Use the [Story issue template](.github/ISSUE_TEMPLATE/story.yml) when proposing
+new work. Each story should stand on its own with clear P0/P1 sections and
+acceptance criteria.
+
 

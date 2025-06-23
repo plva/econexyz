@@ -1,0 +1,39 @@
+name: "\ud83d\udcdd Story"
+description: Carve work into P0 / P1 units with acceptance checks
+labels:
+  - story
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## STORY — <Action>
+
+        ### Goal
+        <why we need it>
+
+        | Phase | Purpose |
+        |-------|---------|
+        | P0 | ... |
+        | P1 | ... |
+
+        #### P0 Work items
+        - …
+
+        #### P0 Acceptance
+        - …
+
+        #### P1 Work items
+        - …
+
+        #### P1 Acceptance
+        - …
+
+        **Dependencies**: …
+
+        <!-- Optional: uncomment if this story introduces a new strategic choice -->
+        <!--
+        ### Requires ADR
+        *Title idea*: <short phrase>
+        *Rationale*: <1-2 sentences>
+        -->
