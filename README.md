@@ -32,3 +32,8 @@ Install git pre-commit hooks? [y/N]
 ```
 
 Use `--yes-hooks` or `--no-hooks` to skip the prompt. Run `./bootstrap.sh --help` for all options.
+
+## Command palette
+
+A `Justfile` in the repo root defines commands like `just test` and `just lint`. These recipes currently print TODO messages and will be wired up in a future phase.
+
