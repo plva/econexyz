@@ -10,6 +10,10 @@ Additional arguments are executed within the environment.
 
   --yes-hooks   install git pre-commit hooks without prompting
   --no-hooks    skip git pre-commit hook installation
+
+Examples:
+  ./bootstrap.sh              # Setup and show usage
+  ./bootstrap.sh test         # Setup and run 'test' command
 USAGE
 }
 
@@ -56,6 +60,7 @@ if [ ! -d .venv ]; then
   python3 -m venv .venv
 fi
 
+echo "Activating virtual environment..."
 # Always activate environment (even if already activated, this is safe)
 # This ensures the venv is active even if the user has exited it
 source .venv/bin/activate
@@ -82,11 +87,20 @@ if [ "$install_hooks" = "yes" ]; then
     uv pip install pre-commit
   fi
   pre-commit install --install-hooks >/dev/null 2>&1 || true
+  echo "Installed git pre-commit hooks"
 fi
 
 # Forward arguments to the given command if provided
 if [ "$#" -gt 0 ]; then
   "$@"
 else
-  usage
+  echo ""
+  echo "✅ Bootstrap complete! Virtual environment is ready."
+  echo ""
+  echo "To enter the virtual environment, run:"
+  echo -e "  \033[1;32msource .venv/bin/activate\033[0m"
+  echo ""
+  echo "Then you can use commands like:"
+  echo -e "  \033[1;36mjust test\033[0m    # Run tests"
+  echo -e "  \033[1;36mjust lint\033[0m    # Check code style"
 fi

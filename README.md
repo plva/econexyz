@@ -18,10 +18,17 @@ cd econexyz
 ./bootstrap.sh
 ```
 
-Run a task inside the environment:
+**After running the script, follow the colored instructions to enter the virtual environment:**
 
 ```bash
-./bootstrap.sh test
+source .venv/bin/activate
+```
+
+You will see this command highlighted in green in the output. Once inside the venv, you can use commands like:
+
+```bash
+just test    # Run tests
+just lint    # Check code style
 ```
 
 The script creates `.venv` with [uv](https://github.com/astral-sh/uv). It can optionally install git pre-commit hooks.
@@ -33,7 +40,7 @@ Install git pre-commit hooks? [y/N]
 
 Use `--yes-hooks` or `--no-hooks` to skip the prompt. Run `./bootstrap.sh --help` for all options.
 
-> Run `nox -s tests` or `nox -s lint` locally.
+> Run `just test` or `just lint` for quick local testing.
 > Multi-Python support will be enabled once CI is wired.
 
 ## Command palette
@@ -46,8 +53,14 @@ defined in the `Justfile`:
 just --list
 ```
 
-The current recipes still print TODO placeholders until the next phase wires in
-real commands.
+The following recipes are now implemented and working:
+
+```bash
+just test    # Run the test suite with coverage
+just lint    # Check code style with ruff
+```
+
+Additional recipes are available for development, documentation, and deployment tasks.
 
 ## How to contribute
 
@@ -76,7 +89,7 @@ Scenario: add two numbers
 Run the suite with:
 
 ```bash
-nox -s tests
+just test
 ```
 
 Non-developers can introduce new behaviour by copying a feature file and writing
