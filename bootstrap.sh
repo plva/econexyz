@@ -72,6 +72,10 @@ elif [ -f pyproject.toml ]; then
   uv pip install -e .[dev,test]
 fi
 
+# Install Commitizen for commit management
+  uv tool install commitizen
+  uv tool upgrade commitizen || true
+
 # Optionally install pre-commit hooks
 if [ -z "$install_hooks" ]; then
   read -r -p "Install git pre-commit hooks? [y/N] " reply

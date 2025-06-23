@@ -1,5 +1,11 @@
 # Pre-commit configuration file
-# This file is intentionally empty to prevent pre-commit errors
-# Add hooks here as needed for your project
 
-repos: [] 
+repos:
+  - repo: local
+    hooks:
+      - id: cz-check
+        name: Commitizen check
+        entry: cz check
+        language: system
+        stages: [commit-msg]
+
