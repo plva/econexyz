@@ -20,6 +20,12 @@ test = [
 dev = [
     "ruff",
     "nox",
+    "pytest",
+    "pytest-bdd",
+    "hypothesis",
+    "pytest-cov",
+    "typeguard",
+    "pytest-typeguard",
     "ty",
 ]
 
