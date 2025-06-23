@@ -1,0 +1,10 @@
+name: Question
+description: Ask a question about the project
+labels:
+  - question
+body:
+  - type: textarea
+    attributes:
+      label: Question
+      description: Feel free to ask anything. We also encourage you to use GitHub Discussions.
+
