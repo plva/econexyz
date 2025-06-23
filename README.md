@@ -33,6 +33,9 @@ Install git pre-commit hooks? [y/N]
 
 Use `--yes-hooks` or `--no-hooks` to skip the prompt. Run `./bootstrap.sh --help` for all options.
 
+> Run `nox -s tests` or `nox -s lint` locally.
+> Multi-Python support will be enabled once CI is wired.
+
 ## Command palette
 
 Run `./bootstrap.sh` to set up the environment. The script now installs the

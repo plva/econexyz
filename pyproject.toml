@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "econexyz"
+version = "0.0.0"
+description = "EcoNexyz example project"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "EcoNexyz"}]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+]
+dev = [
+    "ruff",
+    "nox",
+]
+
+[tool.ruff]
+select = ["E", "F", "UP", "I"]
+line-length = 120
+
