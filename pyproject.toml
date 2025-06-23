@@ -25,7 +25,6 @@ dev = [
     "hypothesis",
     "pytest-cov",
     "typeguard",
-    "pytest-typeguard",
     "ty",
 ]
 
