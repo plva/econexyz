@@ -26,9 +26,15 @@ dev = [
     "pytest-cov",
     "typeguard",
     "pytest-typeguard",
+    "ty",
 ]
 
 [tool.ruff]
 select = ["E", "F", "UP", "I"]
 line-length = 120
+
+[tool.ty]
+strict = true
+python_version = "3.12"
+packages = ["econexyz"]
 

@@ -16,7 +16,7 @@ lint:
 # Type-check
 # Static type analysis
 types:
-    @echo "types \u2192 TODO (will call ty --strict src/)"
+    nox -s types
 
 # Security
 # Run security scans

@@ -60,6 +60,14 @@ just test    # Run the test suite with coverage
 just lint    # Check code style with ruff
 ```
 
+## Quality gates
+
+| Command | Purpose |
+| ------- | ------- |
+| `just lint` | Check code style with ruff |
+| `just test` | Run the test suite with coverage |
+| `just types` | strict static type-check (Ty) |
+
 Additional recipes are available for development, documentation, and deployment tasks.
 
 ## How to contribute
