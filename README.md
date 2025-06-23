@@ -24,4 +24,11 @@ Run a task inside the environment:
 ./bootstrap.sh test
 ```
 
-The script creates `.venv` with [uv](https://github.com/astral-sh/uv) and installs pre-commit hooks. Run `./bootstrap.sh --help` for usage details.
+The script creates `.venv` with [uv](https://github.com/astral-sh/uv). It can optionally install git pre-commit hooks.
+When run without flags you'll be asked:
+
+```text
+Install git pre-commit hooks? [y/N]
+```
+
+Use `--yes-hooks` or `--no-hooks` to skip the prompt. Run `./bootstrap.sh --help` for all options.
