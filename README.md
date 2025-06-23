@@ -35,7 +35,16 @@ Use `--yes-hooks` or `--no-hooks` to skip the prompt. Run `./bootstrap.sh --help
 
 ## Command palette
 
-A `Justfile` in the repo root defines commands like `just test` and `just lint`. These recipes currently print TODO messages and will be wired up in a future phase.
+Run `./bootstrap.sh` to set up the environment. The script now installs the
+[`just`](https://github.com/casey/just) task runner so you can execute recipes
+defined in the `Justfile`:
+
+```bash
+just --list
+```
+
+The current recipes still print TODO placeholders until the next phase wires in
+real commands.
 
 
 ### Development container (preview)

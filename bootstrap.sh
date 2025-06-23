@@ -39,6 +39,12 @@ if ! command -v uv >/dev/null 2>&1; then
   curl -LsSf https://astral.sh/uv/install.sh | sh
 fi
 
+# Install just if missing
+if ! command -v just >/dev/null 2>&1; then
+  echo "Installing just..."
+  uv tool install just
+fi
+
 # Create or reuse virtual environment
 if [ ! -d .venv ]; then
   python3 -m venv .venv
