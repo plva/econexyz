@@ -32,5 +32,6 @@ Before opening a PR ensure:
 - `just lint && just test` run successfully
 - Documentation and CHANGELOG are updated when relevant
 - Labels are applied to help triage
+- See [ADR 0007](docs/adr/0007-contributor-experience-kit.md#ignored-artefacts-strategy) for repository ignore rules.
 
 
