@@ -20,8 +20,8 @@ types:
 
 # Security
 # Run security scans
-audit:
-    @echo "audit \u2192 TODO (will call nox -s security)"
+security:
+    nox -s security
 
 # Docs
 # Build documentation
@@ -51,6 +51,13 @@ run *ARGS:
 commit:
     cz commit            # interactive wizard
 
+# Check commit style
+# Validate commit message format
+commit-style:
+    @echo "🔍 Checking commit style..."
+    @cz check --rev-range HEAD~1..HEAD || (echo "❌ Commit style check failed" && exit 1)
+    @echo "✅ Commit style check passed"
+
 # Version bump
 bump:
     cz bump --yes        # version & changelog
@@ -72,7 +79,7 @@ health-check:
     @python scripts/dev_health_check.py
 
 # Build all
-# Run complete build pipeline: bootstrap, health check, tests, lint, types
+# Run complete build pipeline: bootstrap, health check, tests, lint, types, security
 ball:
     @echo "🚀 Starting complete build pipeline..."
     @echo ""
@@ -96,13 +103,18 @@ ball:
     @just types || (echo "❌ Type checking failed" && exit 1)
     @echo "✅ Type checking passed"
     @echo ""
+    @echo "5️⃣  Running security scans..."
+    @just security || (echo "❌ Security scans failed" && exit 1)
+    @echo "✅ Security scans passed"
+    @echo ""
     @echo "🎉 All checks passed! Build successful!"
 
-# Run all checks: health, tests, lint, types (no bootstrap)
+# Run all checks: health, tests, lint, types, security (no bootstrap)
 check:
     @echo "🔎 Running all checks (no bootstrap)..."
     @just health-check || (echo "❌ Health check failed" && exit 1)
     @just test || (echo "❌ Tests failed" && exit 1)
     @just lint || (echo "❌ Linting failed" && exit 1)
     @just types || (echo "❌ Type checking failed" && exit 1)
+    @just security || (echo "❌ Security scans failed" && exit 1)
     @echo "✅ All checks passed!"

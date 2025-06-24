@@ -1,11 +1,12 @@
-name: Commit style
+name: commit-style
 
 on:
   pull_request:
     branches: [main]
 
 jobs:
-  check:
+  commit-style:
+    name: commit-style
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

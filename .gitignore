@@ -39,3 +39,4 @@ site/
 htmlcov/
 *.png.auto-gen
 *.svg.auto-gen
+coverage.xml
