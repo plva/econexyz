@@ -184,3 +184,17 @@ fix-check:
     @echo ""
     @echo "🔍 Running checks to verify fixes..."
     @just check
+
+# Validate commit message
+# Check if a commit message follows conventional commits format
+validate-commit message:
+    @echo "🔍 Validating commit message..."
+    @echo "{{message}}" | cz check || (echo "❌ Commit message validation failed" && exit 1)
+    @echo "✅ Commit message is valid"
+
+# Validate commit message (GitHub Actions style)
+# Check if a commit message follows the same rules as GitHub Actions
+validate-commit-gh message:
+    @echo "🔍 Validating commit message (GitHub Actions style)..."
+    @echo "{{message}}" | npx commitlint || (echo "❌ Commitlint validation failed" && exit 1)
+    @echo "✅ All GitHub Actions validation rules passed!"
