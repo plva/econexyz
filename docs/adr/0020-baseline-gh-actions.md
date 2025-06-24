@@ -23,3 +23,8 @@ Create `.github/workflows/ci.yml` with stages:
 
 * Single cache warm-up, faster overall.
 * Easy to extend: later jobs append new Nox sessions.
+
+## Governance
+
+Protect the default branch under **Settings → Branches → Protect main**.
+Enable **Require status checks to pass** so merges only happen when CI succeeds.
