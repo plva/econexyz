@@ -42,6 +42,7 @@ Use `--yes-hooks` or `--no-hooks` to skip the prompt. Run `./bootstrap.sh --help
 
 > Run `just test` or `just lint` for quick local testing.
 > Multi-Python support will be enabled once CI is wired.
+> Edit `api/openapi.yaml`; run `nox -s api-contract` to fuzz the API with Schemathesis.
 
 ## Command palette
 
