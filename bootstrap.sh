@@ -85,6 +85,25 @@ if [ -f package.json ]; then
   echo "Installing commitlint dependencies..."
   npm install --silent
   echo "✅ Commitlint dependencies installed"
+  
+  # Setup commit-msg hook for commit message validation
+  echo "Setting up commit-msg hook..."
+  cat > .git/hooks/commit-msg << 'EOF'
+#!/usr/bin/env bash
+# Commit message validation hook
+
+# Get the commit message from the file
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+# Run commitlint validation
+echo "$COMMIT_MSG" | npx commitlint
+
+# Exit with commitlint's exit code
+exit $?
+EOF
+  chmod +x .git/hooks/commit-msg
+  echo "✅ Commit-msg hook installed"
 fi
 
 # Optionally install pre-commit hooks
