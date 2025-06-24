@@ -107,6 +107,14 @@ We welcome contributions from everyone. Please read
 [CONTRIBUTING.md](CONTRIBUTING.md) for setup and workflow details and review our
 [Code of Conduct](CODE_OF_CONDUCT.md) before participating.
 
+## Branch protection
+
+To keep `main` healthy, maintainers should enable a branch protection rule that
+*requires status checks to pass before merging*. Navigate to
+**Settings → Branches → Protect main** and tick "Require status checks to pass".
+For a detailed walkthrough see
+[docs/github-branch-protection.md](docs/github-branch-protection.md).
+
 
 ### Development container (preview)
 
