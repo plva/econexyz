@@ -9,6 +9,9 @@ curl -sL https://api.github.com/repos/plva/econexyz/issues/<NUMBER>
 
 For background on our tooling choices see [docs/adr/index.md](docs/adr/index.md). Any design decision affecting repository tooling must include a new ADR.
 
+Repo admins should protect `main` with **Require status checks to pass** under
+`Settings → Branches` so merges only occur when CI is green.
+
 ## Quickstart
 
 Clone the repository and run the bootstrap script:
