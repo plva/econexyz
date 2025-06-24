@@ -78,13 +78,14 @@ just commit        # interactive wizard
 Direct `git commit -m` is allowed but must follow Conventional Commit rules.
 Headers must stay ≤ 52 characters; CI will block longer ones.
 
-## Quality gates
+## Quality & Security
 
 | Command | Purpose |
 | ------- | ------- |
 | `just lint` | Check code style with ruff |
 | `just test` | Run the test suite with coverage |
 | `just types` | strict static type-check (Ty) |
+| `nox -s security` | runs pip-audit against the lock file |
 
 Additional recipes are available for development, documentation, and deployment tasks.
 
