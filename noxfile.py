@@ -1,6 +1,6 @@
 import nox
 
-nox.options.sessions = ["tests", "lint", "types"]
+nox.options.sessions = ["tests", "lint", "types", "api-contract"]
 nox.options.reuse_existing_virtualenvs = True
 
 
@@ -28,3 +28,9 @@ def types(session: nox.Session) -> None:
     """Run strict static analysis with Ty."""
     session.install("-e", ".[dev]")
     session.run("ty", "check")
+
+
+@nox.session
+def api_contract(session: nox.Session) -> None:
+    session.install(".[test]")
+    session.run("pytest", "-q", "tests/api")
