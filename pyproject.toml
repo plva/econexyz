@@ -28,6 +28,7 @@ dev = [
     "pytest-cov",
     "schemathesis",
     "coverage",
+    "codecov",
     "typeguard",
     "ty",
     "commitizen"

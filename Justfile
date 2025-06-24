@@ -8,6 +8,23 @@ install-dev:
 test:
     nox -s tests
 
+# Coverage
+# Run tests with coverage and show results
+coverage:
+    @echo "🧪 Running tests with coverage..."
+    @uv run pytest tests/ -v --cov=src/econexyz --cov-report=term-missing --cov-report=html
+    @echo ""
+    @echo "📊 Coverage report generated in htmlcov/index.html"
+    @echo "🔗 Open coverage report: file://$(pwd)/htmlcov/index.html"
+
+# Coverage upload
+# Run tests with coverage and upload to codecov
+coverage-upload:
+    @echo "🧪 Running tests with coverage and uploading to codecov..."
+    @uv run pytest tests/ -v --cov=src/econexyz --cov-report=xml
+    @uv run codecov
+    @echo "✅ Coverage uploaded to codecov.io"
+
 # Lint / format
 # Check code style
 lint:
