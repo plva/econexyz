@@ -1,5 +1,5 @@
 Below are **ADR 0001 → ADR 0010** rewritten with fuller context, decisions, alternatives, and consequences.
-Feel free to copy each into its own file (e.g., `docs/adr/0001-adr-process.md`, …).
+Feel free to copy each into its own file (e.g., `docs/adr/0001-record-architecture-decisions.md`, …).
 
 ---
 

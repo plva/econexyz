@@ -1,6 +1,7 @@
 # Architecture Decision Records
 
-- [0001: ADR Process](0001-adr-process.md)
+- [0001: Record Architecture Decisions](0001-record-architecture-decisions.md)
+- [0002: Docs Hosting Strategy](0002-docs-hosting.md)
 - [0002: Bootstrap `sh` + `uv`](0002-bootstrap-sh-uv.md)
 - [0003: Optional Pre-commit Install](0003-optional-precommit-install.md)
 - [0004: Justfile Core Recipes](0004-justfile-core-recipes.md)
@@ -41,3 +42,4 @@
 - [0039: JSON-Schema Contract Tests](0039-jsonschema-contract-tests.md)
 - [0040: Hypothesis GraphQL Fuzz](0040-hypothesis-graphql-fuzz.md)
 - [0041: Single-Schema Bridge (Pydantic ↔ Strawberry)](0041-single-schema-bridge.md)
+- [0042: Docs Hosting Strategy](0042-docs-hosting.md)
