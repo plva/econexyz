@@ -33,6 +33,7 @@ def check_dev_dependencies():
             "pytest-cov": "pytest_cov",
             "nox-uv": "nox_uv",
             "pip-audit": "pip_audit",
+            "pre-commit": "pre_commit",
         }
 
         # Check each dependency
