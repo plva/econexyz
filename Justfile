@@ -46,6 +46,10 @@ run *ARGS:
 commit:
     cz commit            # interactive wizard
 
+# Commit alias
+c:
+    just commit
+
 # Check commit style
 # Validate commit message format
 commit-style:

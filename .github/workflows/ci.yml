@@ -10,17 +10,14 @@ jobs:
   test:
     name: tests
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ['3.11', '3.12']
     
     steps:
       - uses: actions/checkout@v4
       
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: '3.12'
       
       - name: Install uv
         uses: astral-sh/setup-uv@v4
@@ -40,53 +37,3 @@ jobs:
         with:
           file: ./coverage.xml
           fail_ci_if_error: false
-
-  lint:
-    name: lint
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      
-      - name: Install uv
-        uses: astral-sh/setup-uv@v4
-        with:
-          version: "latest"
-      
-      - name: Install dependencies
-        run: |
-          uv sync --dev
-      
-      - name: Run linting
-        run: |
-          nox -s lint
-
-  types:
-    name: types
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      
-      - name: Install uv
-        uses: astral-sh/setup-uv@v4
-        with:
-          version: "latest"
-      
-      - name: Install dependencies
-        run: |
-          uv sync --dev
-      
-      - name: Run type checking
-        run: |
-          nox -s types

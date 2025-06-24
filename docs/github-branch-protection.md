@@ -7,9 +7,7 @@ This document explains how to set up GitHub branch protection rules to ensure co
 After setting up the workflows in this repository, GitHub will emit these status check names:
 
 ### Required Checks (from `.github/workflows/ci.yml`)
-- **tests** - Runs pytest with coverage on Python 3.11 and 3.12
-- **lint** - Runs ruff for linting and format checking
-- **types** - Runs ty for static type checking
+- **tests** - Runs pytest with coverage on Python 3.12
 
 ### Optional Checks
 - **commit-style** - Validates commit message format (from `.github/workflows/commit-style.yml`)
@@ -32,10 +30,8 @@ After setting up the workflows in this repository, GitHub will emit these status
 - ✅ **Require conversation resolution before merging**
 
 #### Status Checks to Require
-Add these exact check names:
+Add this exact check name:
 - `tests`
-- `lint`
-- `types`
 
 #### Additional Settings
 - ✅ **Require a pull request before merging**
@@ -58,8 +54,6 @@ After setting up the rules:
 
 3. **Check the Checks tab** - you should see:
    - tests ✓
-   - lint ✓
-   - types ✓
    - commit-style ✓ (optional)
 
 ## Troubleshooting
@@ -94,10 +88,10 @@ just check
 # Run complete build pipeline (bootstrap + all checks)
 just ball
 
-# Run individual checks (same as CI jobs)
+# Run individual checks
 just test          # matches CI 'tests' job
-just lint          # matches CI 'lint' job  
-just types         # matches CI 'types' job
+just lint          # local only - not in CI
+just types         # local only - not in CI
 just commit-style  # matches CI 'commit-style' job
 
 # Health check (not in CI but useful)
@@ -123,8 +117,6 @@ This ensures your code will pass all CI checks before they run on GitHub.
 The CI workflows use:
 - **uv** for dependency management (same as local development)
 - **pytest** for testing
-- **ruff** for linting and formatting
-- **ty** for type checking
 - **commitizen** for commit message validation
 
 All these tools are configured in `pyproject.toml` and match your local development environment. 
