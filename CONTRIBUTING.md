@@ -48,6 +48,7 @@ Before opening a PR ensure:
 - `just check` runs successfully
 - Documentation and CHANGELOG are updated when relevant
 - Labels are applied to help triage
+- Follow the [Code → Surface → Govern cadence](docs/adr/0043-code-surface-govern-cadence.md)
 - See [ADR 0007](docs/adr/0007-contributor-experience-kit.md#ignored-artefacts-strategy) for repository ignore rules.
 
 ## Story template
