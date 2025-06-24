@@ -80,6 +80,13 @@ fi
   uv tool install commitizen
   uv tool upgrade commitizen || true
 
+# Install commitlint for commit message validation
+if [ -f package.json ]; then
+  echo "Installing commitlint dependencies..."
+  npm install --silent
+  echo "✅ Commitlint dependencies installed"
+fi
+
 # Optionally install pre-commit hooks
 if [ -z "$install_hooks" ]; then
   read -r -p "Install git pre-commit hooks? [y/N] " reply
