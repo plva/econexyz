@@ -31,6 +31,7 @@ def check_dev_dependencies():
         import_name_map = {
             "pytest-bdd": "pytest_bdd",
             "pytest-cov": "pytest_cov",
+            "nox-uv": "nox_uv",
         }
 
         # Check each dependency
@@ -41,7 +42,7 @@ def check_dev_dependencies():
             import_name = import_name_map.get(package_name, package_name)
 
             try:
-                __import__(import_name)
+                __import__(str(import_name))
             except ImportError:
                 missing_deps.append(package_name)
 

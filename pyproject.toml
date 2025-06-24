@@ -11,17 +11,10 @@ requires-python = ">=3.11"
 authors = [{name = "EcoNexyz"}]
 
 [project.optional-dependencies]
-test = [
-    "pytest",
-    "pytest-bdd",
-    "hypothesis",
-    "pytest-cov",
-    "schemathesis",
-    "coverage",
-]
 dev = [
     "ruff",
     "nox",
+    "nox-uv",
     "pytest",
     "pytest-bdd",
     "hypothesis",
@@ -32,6 +25,25 @@ dev = [
     "typeguard",
     "ty",
     "commitizen"
+]
+
+[dependency-groups]
+dev = [
+    "nox-uv>=0.6.0",
+    "ruff",
+    "nox",
+    "codecov",
+    "typeguard",
+    "ty",
+    "commitizen"
+]
+test = [
+    "pytest",
+    "pytest-bdd",
+    "hypothesis",
+    "pytest-cov",
+    "schemathesis",
+    "coverage"
 ]
 
 [tool.coverage.run]

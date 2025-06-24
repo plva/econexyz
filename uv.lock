@@ -282,11 +282,23 @@ dev = [
     { name = "coverage" },
     { name = "hypothesis" },
     { name = "nox" },
+    { name = "nox-uv" },
     { name = "pytest" },
     { name = "pytest-bdd" },
     { name = "pytest-cov" },
     { name = "ruff" },
     { name = "schemathesis" },
+    { name = "ty" },
+    { name = "typeguard" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "codecov" },
+    { name = "commitizen" },
+    { name = "nox" },
+    { name = "nox-uv" },
+    { name = "ruff" },
     { name = "ty" },
     { name = "typeguard" },
 ]
@@ -304,23 +316,37 @@ requires-dist = [
     { name = "codecov", marker = "extra == 'dev'" },
     { name = "commitizen", marker = "extra == 'dev'" },
     { name = "coverage", marker = "extra == 'dev'" },
-    { name = "coverage", marker = "extra == 'test'" },
     { name = "hypothesis", marker = "extra == 'dev'" },
-    { name = "hypothesis", marker = "extra == 'test'" },
     { name = "nox", marker = "extra == 'dev'" },
+    { name = "nox-uv", marker = "extra == 'dev'" },
     { name = "pytest", marker = "extra == 'dev'" },
-    { name = "pytest", marker = "extra == 'test'" },
     { name = "pytest-bdd", marker = "extra == 'dev'" },
-    { name = "pytest-bdd", marker = "extra == 'test'" },
     { name = "pytest-cov", marker = "extra == 'dev'" },
-    { name = "pytest-cov", marker = "extra == 'test'" },
     { name = "ruff", marker = "extra == 'dev'" },
     { name = "schemathesis", marker = "extra == 'dev'" },
-    { name = "schemathesis", marker = "extra == 'test'" },
     { name = "ty", marker = "extra == 'dev'" },
     { name = "typeguard", marker = "extra == 'dev'" },
 ]
-provides-extras = ["test", "dev"]
+provides-extras = ["dev"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "codecov" },
+    { name = "commitizen" },
+    { name = "nox" },
+    { name = "nox-uv", specifier = ">=0.6.0" },
+    { name = "ruff" },
+    { name = "ty" },
+    { name = "typeguard" },
+]
+test = [
+    { name = "coverage" },
+    { name = "hypothesis" },
+    { name = "pytest" },
+    { name = "pytest-bdd" },
+    { name = "pytest-cov" },
+    { name = "schemathesis" },
+]
 
 [[package]]
 name = "filelock"
@@ -653,6 +679,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/b4/80/47712208c410defec169992e57c179f0f4d92f5dd17ba8daca50a8077e23/nox-2025.5.1.tar.gz", hash = "sha256:2a571dfa7a58acc726521ac3cd8184455ebcdcbf26401c7b737b5bc6701427b2", size = 4023334, upload-time = "2025-05-01T16:35:48.056Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a6/be/7b423b02b09eb856beffe76fe8c4121c99852db74dd12a422dcb72d1134e/nox-2025.5.1-py3-none-any.whl", hash = "sha256:56abd55cf37ff523c254fcec4d152ed51e5fe80e2ab8317221d8b828ac970a31", size = 71753, upload-time = "2025-05-01T16:35:46.037Z" },
+]
+
+[[package]]
+name = "nox-uv"
+version = "0.6.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "nox" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/66/e7/4af4799a4605ad88c0c2a6c2a4b2824e9ec3f7e9844b6e1b273720cc7d72/nox_uv-0.6.0.tar.gz", hash = "sha256:90252c081814c9dee3aa6368d6a3f507a2aa1b35860b83236817061ffd735013", size = 50047, upload-time = "2025-06-10T12:29:44.344Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ef/02/249f9c2ee2e66ee356035152473abfb3e5d8902bb6fa27c099f170284872/nox_uv-0.6.0-py3-none-any.whl", hash = "sha256:30fe71b19ba87b7041b412c22e742bf0e7cd242d03db01bf22ef443ace193bd4", size = 4907, upload-time = "2025-06-10T12:29:42.93Z" },
 ]
 
 [[package]]

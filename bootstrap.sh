@@ -67,7 +67,7 @@ source .venv/bin/activate
 
 # Install dependencies
 if [ -f uv.lock ]; then
-  uv pip install -r uv.lock
+  uv sync --dev
 fi
 
 # Always install dev dependencies for development

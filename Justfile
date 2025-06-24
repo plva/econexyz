@@ -6,7 +6,7 @@ install-dev:
 # Test suite
 # Run the test suite
 test:
-    nox -s tests
+    uv run nox -s tests
 
 # Coverage
 # Run tests with coverage and show results
@@ -28,12 +28,12 @@ coverage-upload:
 # Lint / format
 # Check code style
 lint:
-    nox -s lint
+    uv run nox -s lint
 
 # Type-check
 # Static type analysis
 types:
-    nox -s types
+    uv run nox -s types
 
 # Docs
 # Build documentation
@@ -92,7 +92,7 @@ export-sdl:
 # Check if all dev dependencies are available
 health-check:
     @echo "Checking dev environment..."
-    @python scripts/dev_health_check.py
+    @.venv/bin/python scripts/dev_health_check.py
 
 # Build all
 # Run complete build pipeline: bootstrap, health check, tests, lint, types

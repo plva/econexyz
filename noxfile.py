@@ -1,36 +1,37 @@
 import nox
+import nox_uv
 
 nox.options.sessions = ["tests", "lint", "types", "api-contract"]
-nox.options.reuse_existing_virtualenvs = True
+nox.options.default_venv_backend = "uv"
 
 
-@nox.session(reuse_venv=True)
+@nox_uv.session(uv_groups=["dev", "test"])
 def tests(session: nox.Session) -> None:
-    session.install("-e", ".[dev]")
+    """Run the test suite with coverage."""
     session.run(
         "pytest",
         "--cov=econexyz",
         "--cov-report=xml",
         "--cov-report=html",
         "--cov-fail-under=80",
+        external=True,
     )
 
 
-@nox.session
+@nox_uv.session(uv_only_groups=["dev"])
 def lint(session: nox.Session) -> None:
-    session.install("ruff")
-    session.run("ruff", "check", ".")
-    session.run("ruff", "format", "--check", ".")
+    """Run linting checks."""
+    session.run("ruff", "check", ".", external=True)
+    session.run("ruff", "format", "--check", ".", external=True)
 
 
-@nox.session(reuse_venv=True)
+@nox_uv.session(uv_groups=["dev", "test"])
 def types(session: nox.Session) -> None:
     """Run strict static analysis with Ty."""
-    session.install("-e", ".[dev]")
-    session.run("ty", "check")
+    session.run("ty", "check", external=True)
 
 
-@nox.session
+@nox_uv.session(uv_groups=["test"])
 def api_contract(session: nox.Session) -> None:
-    session.install(".[test]")
-    session.run("pytest", "-q", "tests/api")
+    """Run API contract tests."""
+    session.run("pytest", "-q", "tests/api", external=True)
