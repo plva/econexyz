@@ -43,3 +43,4 @@
 - [0040: Hypothesis GraphQL Fuzz](0040-hypothesis-graphql-fuzz.md)
 - [0041: Single-Schema Bridge (Pydantic ↔ Strawberry)](0041-single-schema-bridge.md)
 - [0042: Docs Hosting Strategy](0042-docs-hosting.md)
+- [0043: Code → Surface → Govern Cadence](0043-code-surface-govern-cadence.md)

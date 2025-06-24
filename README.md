@@ -94,6 +94,7 @@ Coverage threshold: **≥ 80 %** (`nox -s tests` generates htmlcov/)
 
 Architecture Decision Records live under [`docs/adr/`](docs/adr/index.md).
 They capture the context and consequences of major engineering choices.
+See [ADR 0043](docs/adr/0043-code-surface-govern-cadence.md) for our Code → Surface → Govern cadence.
 Create a new entry with:
 
 ```bash
