@@ -25,18 +25,25 @@ dev = [
     "typeguard",
     "ty",
     "commitizen",
+    "pre-commit",
     "pip-audit"
 ]
 
 [dependency-groups]
 dev = [
     "nox-uv>=0.6.0",
-    "ruff",
-    "nox",
-    "codecov",
-    "typeguard",
-    "ty",
-    "commitizen",
+    "ruff>=0.12.0",
+    "pytest>=8.0.0",
+    "pytest-bdd>=8.0.0",
+    "hypothesis>=6.0.0",
+    "pytest-cov>=6.0.0",
+    "schemathesis>=4.0.0",
+    "coverage>=7.0.0",
+    "codecov>=2.0.0",
+    "typeguard>=4.0.0",
+    "ty>=0.0.1a11",
+    "commitizen>=4.0.0",
+    "pre-commit>=4.0.0",
     "pip-audit"
 ]
 test = [
