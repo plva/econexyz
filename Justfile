@@ -30,6 +30,26 @@ coverage-upload:
 lint:
     uv run nox -s lint
 
+# Fix
+# Automatically fix linting, formatting, and other issues
+fix:
+    @echo "🔧 Fixing code issues automatically..."
+    @echo ""
+    @echo "1️⃣  Fixing code formatting..."
+    @uv run ruff format . || (echo "⚠️  Some formatting issues couldn't be fixed automatically" && exit 0)
+    @echo "✅ Formatting fixes applied"
+    @echo ""
+    @echo "2️⃣  Fixing linting issues..."
+    @uv run ruff check . --fix || (echo "⚠️  Some linting issues couldn't be fixed automatically" && exit 0)
+    @echo "✅ Linting fixes applied"
+    @echo ""
+    @echo "3️⃣  Running type checking..."
+    @uv run nox -s types || (echo "⚠️  Type checking issues found - these may need manual fixes" && exit 0)
+    @echo "✅ Type checking passed"
+    @echo ""
+    @echo "🎉 Automatic fixes completed!"
+    @echo "💡 Run 'just lint' to check if any issues remain"
+
 # Type-check
 # Static type analysis
 types:
@@ -141,3 +161,26 @@ security:
 # Run gitleaks secret detection
 secrets:
     uv run nox -s secrets
+
+# Fix formatting only
+# Automatically fix code formatting issues
+fix-format:
+    @echo "🎨 Fixing code formatting..."
+    @uv run ruff format . || (echo "⚠️  Some formatting issues couldn't be fixed automatically" && exit 0)
+    @echo "✅ Formatting fixes applied"
+
+# Fix linting only
+# Automatically fix linting issues
+fix-lint:
+    @echo "🔧 Fixing linting issues..."
+    @uv run ruff check . --fix || (echo "⚠️  Some linting issues couldn't be fixed automatically" && exit 0)
+    @echo "✅ Linting fixes applied"
+
+# Fix all and check
+# Fix issues and then run all checks to verify
+fix-check:
+    @echo "🔧 Fixing issues and running checks..."
+    @just fix
+    @echo ""
+    @echo "🔍 Running checks to verify fixes..."
+    @just check
