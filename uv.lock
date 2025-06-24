@@ -291,6 +291,14 @@ dev = [
     { name = "ty" },
     { name = "typeguard" },
 ]
+test = [
+    { name = "coverage" },
+    { name = "hypothesis" },
+    { name = "pytest" },
+    { name = "pytest-bdd" },
+    { name = "pytest-cov" },
+    { name = "schemathesis" },
+]
 
 [package.dev-dependencies]
 dev = [
@@ -316,18 +324,24 @@ requires-dist = [
     { name = "codecov", marker = "extra == 'dev'" },
     { name = "commitizen", marker = "extra == 'dev'" },
     { name = "coverage", marker = "extra == 'dev'" },
+    { name = "coverage", marker = "extra == 'test'" },
     { name = "hypothesis", marker = "extra == 'dev'" },
+    { name = "hypothesis", marker = "extra == 'test'" },
     { name = "nox", marker = "extra == 'dev'" },
     { name = "nox-uv", marker = "extra == 'dev'" },
     { name = "pytest", marker = "extra == 'dev'" },
+    { name = "pytest", marker = "extra == 'test'" },
     { name = "pytest-bdd", marker = "extra == 'dev'" },
+    { name = "pytest-bdd", marker = "extra == 'test'" },
     { name = "pytest-cov", marker = "extra == 'dev'" },
+    { name = "pytest-cov", marker = "extra == 'test'" },
     { name = "ruff", marker = "extra == 'dev'" },
     { name = "schemathesis", marker = "extra == 'dev'" },
+    { name = "schemathesis", marker = "extra == 'test'" },
     { name = "ty", marker = "extra == 'dev'" },
     { name = "typeguard", marker = "extra == 'dev'" },
 ]
-provides-extras = ["dev"]
+provides-extras = ["dev", "test"]
 
 [package.metadata.requires-dev]
 dev = [

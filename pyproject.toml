@@ -26,6 +26,14 @@ dev = [
     "ty",
     "commitizen"
 ]
+test = [
+    "pytest",
+    "pytest-bdd",
+    "hypothesis",
+    "pytest-cov",
+    "schemathesis",
+    "coverage"
+]
 
 [dependency-groups]
 dev = [

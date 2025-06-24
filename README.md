@@ -78,7 +78,9 @@ just commit        # interactive wizard
 Direct `git commit -m` is allowed but must follow Conventional Commit rules.
 Headers must stay ≤ 52 characters; CI will block longer ones.
 
-## Quality gates
+## Quality & Security
+
+![coverage](https://raw.githubusercontent.com/<org>/<repo>/gh-pages-coverage/coverage.svg)
 
 | Command | Purpose |
 | ------- | ------- |
