@@ -80,6 +80,10 @@ fi
   uv tool install commitizen
   uv tool upgrade commitizen || true
 
+# Install Gitleaks for secret scanning
+  uv tool install gitleaks
+  uv tool upgrade gitleaks || true
+
 # Optionally install pre-commit hooks
 if [ -z "$install_hooks" ]; then
   read -r -p "Install git pre-commit hooks? [y/N] " reply

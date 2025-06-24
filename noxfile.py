@@ -1,7 +1,9 @@
+from pathlib import Path
+
 import nox
 import nox_uv
 
-nox.options.sessions = ["tests", "lint", "types", "api-contract"]
+nox.options.sessions = ["tests", "lint", "types", "api-contract", "security"]
 nox.options.default_venv_backend = "uv"
 
 
@@ -36,3 +38,40 @@ def types(session: nox.Session) -> None:
 def api_contract(session: nox.Session) -> None:
     """Run API contract tests."""
     session.run("pytest", "-q", "tests/api", external=True)
+
+
+@nox.session
+def security(session: nox.Session) -> None:
+    """Run security audit against dependencies."""
+    session.install("pip-audit")
+
+    # For uv.lock, we need to generate a requirements file or use uv's audit
+    if Path("uv.lock").exists():
+        # Use uv to generate requirements from lockfile for pip-audit
+        session.run("uv", "export", "--format", "requirements.txt", "--output-file", "requirements.txt", external=True)
+
+        # Filter out the editable install line that pip-audit can't handle
+        requirements_content = Path("requirements.txt").read_text()
+        filtered_lines = [line for line in requirements_content.splitlines() if not line.startswith("-e .")]
+        Path("requirements.txt").write_text("\n".join(filtered_lines))
+
+        session.run(
+            "pip-audit",
+            "--progress-spinner=off",
+            "-r",
+            "requirements.txt",
+            *session.posargs,
+            external=True,
+        )
+        # Clean up the temporary requirements file
+        Path("requirements.txt").unlink(missing_ok=True)
+    else:
+        # Fallback to pyproject.toml if no lockfile
+        session.run(
+            "pip-audit",
+            "--progress-spinner=off",
+            "-r",
+            "pyproject.toml",
+            *session.posargs,
+            external=True,
+        )

@@ -24,7 +24,8 @@ dev = [
     "codecov",
     "typeguard",
     "ty",
-    "commitizen"
+    "commitizen",
+    "pip-audit"
 ]
 test = [
     "pytest",
@@ -43,7 +44,8 @@ dev = [
     "codecov",
     "typeguard",
     "ty",
-    "commitizen"
+    "commitizen",
+    "pip-audit"
 ]
 test = [
     "pytest",

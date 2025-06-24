@@ -121,11 +121,17 @@ ball:
     @echo ""
     @echo "🎉 All checks passed! Build successful!"
 
-# Run all checks: health, tests, lint, types (no bootstrap)
+# Run all checks: health, tests, lint, types, security (no bootstrap)
 check:
-    @echo "🔎 Running all checks (no bootstrap)..."
+    @echo "🔍 Running all checks..."
     @just health-check || (echo "❌ Health check failed" && exit 1)
     @just test || (echo "❌ Tests failed" && exit 1)
     @just lint || (echo "❌ Linting failed" && exit 1)
     @just types || (echo "❌ Type checking failed" && exit 1)
+    @just security || (echo "❌ Security audit failed" && exit 1)
     @echo "✅ All checks passed!"
+
+# Security audit
+# Run security vulnerability scan
+security:
+    uv run nox -s security

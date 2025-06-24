@@ -75,11 +75,19 @@ git add .
 just commit        # interactive wizard
 ```
 
+Secrets are blocked by Gitleaks. False positives? Add an allow-rule to
+`.gitleaks.toml` with a justification.
+
+Local scan command:
+
+```bash
+uv tool run gitleaks detect --source . --redact
+```
+
 Direct `git commit -m` is allowed but must follow Conventional Commit rules.
 Headers must stay ≤ 52 characters; CI will block longer ones.
 
 ## Quality & Security
-
 ![coverage](https://raw.githubusercontent.com/<org>/<repo>/gh-pages-coverage/coverage.svg)
 
 | Command | Purpose |
@@ -87,6 +95,7 @@ Headers must stay ≤ 52 characters; CI will block longer ones.
 | `just lint` | Check code style with ruff |
 | `just test` | Run the test suite with coverage |
 | `just types` | strict static type-check (Ty) |
+| `nox -s security` | runs pip-audit against the lock file |
 
 Additional recipes are available for development, documentation, and deployment tasks.
 

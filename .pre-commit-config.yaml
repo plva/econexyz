@@ -14,3 +14,11 @@ repos:
         language: system
         stages: [commit-msg]
 
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.2
+    hooks:
+      - id: gitleaks
+        name: Gitleaks secret scan
+        stages: [commit, push]
+        args: ["--verbose", "--redact"]
+
