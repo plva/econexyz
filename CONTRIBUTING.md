@@ -49,6 +49,7 @@ Before opening a PR ensure:
 - Documentation and CHANGELOG are updated when relevant
 - Labels are applied to help triage
 - See [ADR 0007](docs/adr/0007-contributor-experience-kit.md#ignored-artefacts-strategy) for repository ignore rules.
+- Follow the [Code → Surface → Govern cadence](docs/adr/0043-code-surface-govern-cadence.md).
 
 ## Story template
 
