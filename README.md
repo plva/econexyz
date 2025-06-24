@@ -1,4 +1,5 @@
 # 🦾 EcoNexyz: Agent Development Guide (`AGENTS.md`)
+[![build / Hello World](https://github.com/plva/econexyz/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/plva/econexyz/actions/workflows/ci.yml)
 
 Use GitHub issues for instructions. If you have an issue number, fetch its body with:
 
