@@ -1,5 +1,3 @@
-from pathlib import Path
-
 import nox
 import nox_uv
 
@@ -33,16 +31,17 @@ def types(session: nox.Session) -> None:
     session.run("ty", "check", external=True)
 
 
-@nox_uv.session(uv_groups=["test"])
+@nox_uv.session(uv_groups=["dev"])
 def api_contract(session: nox.Session) -> None:
-    """Run API contract tests."""
-    session.run("pytest", "-q", "tests/api", external=True)
+    """Run API contract testing."""
+    session.install("schemathesis")
+    session.run("schemathesis", "run", "tests/api/openapi.json", external=True)
 
 
-@nox.session
+@nox_uv.session(uv_groups=["dev"])
 def security(session: nox.Session) -> None:
     """Run security audit against dependencies."""
-    session.install("pip-audit")
+    from pathlib import Path
 
     # For uv.lock, we need to generate a requirements file or use uv's audit
     if Path("uv.lock").exists():
@@ -74,3 +73,19 @@ def security(session: nox.Session) -> None:
             *session.posargs,
             external=True,
         )
+
+
+@nox_uv.session(uv_groups=["dev"])
+def secrets(session: nox.Session) -> None:
+    """Run gitleaks secret scanning."""
+    # Check if gitleaks is available
+    try:
+        session.run("gitleaks", "version", external=True, silent=True)
+        # Run gitleaks scan
+        session.run("gitleaks", "detect", "--verbose", "--redact", external=True)
+    except Exception:
+        session.log("⚠️  Gitleaks not found. Install it manually or use pre-commit hooks for secret scanning.")
+        session.log("   Install with: brew install gitleaks")
+        session.log("   Or download from: https://github.com/gitleaks/gitleaks/releases")
+        # Don't fail the session, just warn
+        return

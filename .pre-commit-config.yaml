@@ -19,6 +19,6 @@ repos:
     hooks:
       - id: gitleaks
         name: Gitleaks secret scan
-        stages: [commit, push]
+        stages: [pre-commit, pre-push]
         args: ["--verbose", "--redact"]
 
