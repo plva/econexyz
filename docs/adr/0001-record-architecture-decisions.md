@@ -1,4 +1,4 @@
-# 0001 – ADR Process
+# 0001 – Record Architecture Decisions
 
 *Status*: **Accepted**
 

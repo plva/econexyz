@@ -89,6 +89,16 @@ Additional recipes are available for development, documentation, and deployment 
 
 Coverage threshold: **≥ 80 %** (`nox -s tests` generates htmlcov/)
 
+## Project conventions
+
+Architecture Decision Records live under [`docs/adr/`](docs/adr/index.md).
+They capture the context and consequences of major engineering choices.
+Create a new entry with:
+
+```bash
+adr-new "Use Read the Docs for hosting"
+```
+
 ## How to contribute
 
 We welcome contributions from everyone. Please read
