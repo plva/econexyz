@@ -37,5 +37,6 @@ docker-cache/
 docs/_build/
 site/
 htmlcov/
+coverage.xml
 *.png.auto-gen
 *.svg.auto-gen
