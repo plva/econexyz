@@ -75,6 +75,15 @@ git add .
 just commit        # interactive wizard
 ```
 
+Secrets are blocked by Gitleaks. False positives? Add an allow-rule to
+`.gitleaks.toml` with a justification.
+
+Local scan command:
+
+```bash
+uv tool run gitleaks detect --source . --redact
+```
+
 Direct `git commit -m` is allowed but must follow Conventional Commit rules.
 Headers must stay ≤ 52 characters; CI will block longer ones.
 
