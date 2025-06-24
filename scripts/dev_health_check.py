@@ -32,6 +32,7 @@ def check_dev_dependencies():
             "pytest-bdd": "pytest_bdd",
             "pytest-cov": "pytest_cov",
             "nox-uv": "nox_uv",
+            "pip-audit": "pip_audit",
         }
 
         # Check each dependency

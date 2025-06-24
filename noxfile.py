@@ -1,7 +1,9 @@
+from pathlib import Path
+
 import nox
 import nox_uv
 
-nox.options.sessions = ["tests", "lint", "types", "api-contract"]
+nox.options.sessions = ["tests", "lint", "types", "api-contract", "security"]
 nox.options.default_venv_backend = "uv"
 
 
@@ -35,3 +37,18 @@ def types(session: nox.Session) -> None:
 def api_contract(session: nox.Session) -> None:
     """Run API contract tests."""
     session.run("pytest", "-q", "tests/api", external=True)
+
+
+@nox.session
+def security(session: nox.Session) -> None:
+    """Run pip-audit against the dependency lock file."""
+    session.install("pip-audit")
+    manifest = "uv.lock" if Path("uv.lock").exists() else "pyproject.toml"
+    session.run(
+        "pip-audit",
+        "--progress-spinner=off",
+        "-r",
+        manifest,
+        *session.posargs,
+        external=True,
+    )
