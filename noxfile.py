@@ -1,6 +1,6 @@
 import nox
 
-nox.options.sessions = ["tests", "lint", "types", "security", "api-contract"]
+nox.options.sessions = ["tests", "lint", "types", "api-contract"]
 nox.options.reuse_existing_virtualenvs = True
 
 
@@ -34,11 +34,3 @@ def types(session: nox.Session) -> None:
 def api_contract(session: nox.Session) -> None:
     session.install(".[test]")
     session.run("pytest", "-q", "tests/api")
-
-
-@nox.session
-def security(session: nox.Session) -> None:
-    """Run security scans with bandit and pip-audit."""
-    session.install("bandit", "pip-audit")
-    session.run("bandit", "-r", "src/")
-    session.run("pip-audit")

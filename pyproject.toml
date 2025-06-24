@@ -30,7 +30,7 @@ dev = [
     "coverage",
     "typeguard",
     "ty",
-    "commitizen",
+    "commitizen"
 ]
 
 [tool.coverage.run]

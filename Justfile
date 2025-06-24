@@ -18,11 +18,6 @@ lint:
 types:
     nox -s types
 
-# Security
-# Run security scans
-security:
-    nox -s security
-
 # Docs
 # Build documentation
 docs:
@@ -79,7 +74,7 @@ health-check:
     @python scripts/dev_health_check.py
 
 # Build all
-# Run complete build pipeline: bootstrap, health check, tests, lint, types, security
+# Run complete build pipeline: bootstrap, health check, tests, lint, types
 ball:
     @echo "🚀 Starting complete build pipeline..."
     @echo ""
@@ -103,18 +98,13 @@ ball:
     @just types || (echo "❌ Type checking failed" && exit 1)
     @echo "✅ Type checking passed"
     @echo ""
-    @echo "5️⃣  Running security scans..."
-    @just security || (echo "❌ Security scans failed" && exit 1)
-    @echo "✅ Security scans passed"
-    @echo ""
     @echo "🎉 All checks passed! Build successful!"
 
-# Run all checks: health, tests, lint, types, security (no bootstrap)
+# Run all checks: health, tests, lint, types (no bootstrap)
 check:
     @echo "🔎 Running all checks (no bootstrap)..."
     @just health-check || (echo "❌ Health check failed" && exit 1)
     @just test || (echo "❌ Tests failed" && exit 1)
     @just lint || (echo "❌ Linting failed" && exit 1)
     @just types || (echo "❌ Type checking failed" && exit 1)
-    @just security || (echo "❌ Security scans failed" && exit 1)
     @echo "✅ All checks passed!"

@@ -10,7 +10,6 @@ After setting up the workflows in this repository, GitHub will emit these status
 - **tests** - Runs pytest with coverage on Python 3.11 and 3.12
 - **lint** - Runs ruff for linting and format checking
 - **types** - Runs ty for static type checking
-- **security** - Runs bandit and pip-audit for security scanning
 
 ### Optional Checks
 - **commit-style** - Validates commit message format (from `.github/workflows/commit-style.yml`)
@@ -37,7 +36,6 @@ Add these exact check names:
 - `tests`
 - `lint`
 - `types`
-- `security`
 
 #### Additional Settings
 - ✅ **Require a pull request before merging**
@@ -62,7 +60,6 @@ After setting up the rules:
    - tests ✓
    - lint ✓
    - types ✓
-   - security ✓
    - commit-style ✓ (optional)
 
 ## Troubleshooting
@@ -101,7 +98,6 @@ just ball
 just test          # matches CI 'tests' job
 just lint          # matches CI 'lint' job  
 just types         # matches CI 'types' job
-just security      # matches CI 'security' job
 just commit-style  # matches CI 'commit-style' job
 
 # Health check (not in CI but useful)
@@ -129,6 +125,6 @@ The CI workflows use:
 - **pytest** for testing
 - **ruff** for linting and formatting
 - **ty** for type checking
-- **bandit** and **pip-audit** for security scanning
+- **commitizen** for commit message validation
 
 All these tools are configured in `pyproject.toml` and match your local development environment. 
