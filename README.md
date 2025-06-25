@@ -41,6 +41,13 @@ Use `--no-hooks` to skip hook installation. Run `./bootstrap.sh --help` for all 
 > Multi-Python support will be enabled once CI is wired.
 > Edit `api/openapi.yaml`; run `nox -s api-contract` to fuzz the API with Schemathesis.
 
+## Repository variables
+
+Repository owner and name live in `.github/repo_vars.yml`. Workflows load these
+values via the composite workflow `./.github/workflows/_setup-repo-vars.yml`.
+When forking or templating this project, adjust `owner` and `repo` in
+`repo_vars.yml` to point to the new repository.
+
 ## Command palette
 
 Run `./bootstrap.sh` to set up the environment. The script installs the

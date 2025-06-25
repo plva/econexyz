@@ -1,0 +1,17 @@
+name: repo-vars
+on: [workflow_call]
+outputs:
+  owner:
+    value: ${{ inputs.owner }}
+  repo:
+    value: ${{ inputs.repo }}
+inputs:
+  owner:
+    required: true
+  repo:
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: echo "owner=${{ inputs.owner }}" >> $GITHUB_OUTPUT
+    - run: echo "repo=${{ inputs.repo }}" >> $GITHUB_OUTPUT
