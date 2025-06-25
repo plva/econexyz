@@ -28,6 +28,14 @@ dev = [
     "pre-commit",
     "pip-audit"
 ]
+test = [
+    "pytest",
+    "pytest-bdd",
+    "hypothesis",
+    "pytest-cov",
+    "schemathesis",
+    "coverage"
+]
 
 [dependency-groups]
 dev = [

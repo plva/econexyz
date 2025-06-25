@@ -13,6 +13,7 @@ def tests(session: nox.Session) -> None:
         "--cov=econexyz",
         "--cov-report=xml",
         "--cov-report=html",
+        "--cov-report=term",
         "--cov-fail-under=80",
         external=True,
     )
