@@ -10,6 +10,7 @@ After setting up the workflows in this repository, GitHub will emit these status
 - **tests** - Runs pytest with coverage on Python 3.12
 
 ### Optional Checks
+- **coverage** - Publishes coverage badge (.github/workflows/coverage.yml); mark required once stable
 - **commit-style** - Validates commit message format (from `.github/workflows/commit-style.yml`)
 
 ## Setting Up Branch Protection Rules
