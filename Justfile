@@ -58,7 +58,7 @@ types:
 # Docs
 # Build documentation
 docs:
-    @echo "docs \u2192 TODO (will call nox -s docs)"
+    uv run nox -s docs
 
 # Dev stack
 # Start local dev environment
