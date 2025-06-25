@@ -1,0 +1,23 @@
+name: coverage
+
+on:
+  pull_request: {}
+  push:
+    branches: [ main ]
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: ./bootstrap.sh nox -s tests
+      - name: Python Coverage Comment
+        uses: py-cov-action/python-coverage-comment-action@v3
+        with:
+          badge-title: coverage
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          COVERAGE_DATA_BRANCH: gh-pages-coverage
+

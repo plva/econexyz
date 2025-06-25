@@ -96,7 +96,7 @@ Direct `git commit -m` is allowed but must follow Conventional Commit rules.
 Headers must stay ≤ 52 characters; CI will block longer ones.
 
 ## Quality & Security
-![coverage](https://raw.githubusercontent.com/<org>/<repo>/gh-pages-coverage/coverage.svg)
+![coverage](https://raw.githubusercontent.com/plva/econexyz/gh-pages-coverage/coverage.svg)
 
 | Command | Purpose |
 | ------- | ------- |
