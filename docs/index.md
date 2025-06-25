@@ -1,0 +1,3 @@
+# EcoNexyz Documentation
+
+Hello, Docs!

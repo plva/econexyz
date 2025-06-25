@@ -36,6 +36,11 @@ test = [
     "schemathesis",
     "coverage"
 ]
+docs = [
+    "sphinx",
+    "myst-parser",
+    "furo",
+]
 
 [dependency-groups]
 dev = [
@@ -61,6 +66,11 @@ test = [
     "pytest-cov",
     "schemathesis",
     "coverage"
+]
+docs = [
+    "sphinx>=8.0.0",
+    "myst-parser>=4.0.0",
+    "furo>=2024.0.0",
 ]
 
 [tool.coverage.run]

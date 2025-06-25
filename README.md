@@ -30,6 +30,7 @@ You will see this command highlighted in green in the output. Once inside the ve
 ```bash
 just test    # Run tests
 just lint    # Check code style
+nox -s docs  # Build docs
 ```
 
 The script creates `.venv` with [uv](https://github.com/astral-sh/uv). It can optionally install git pre-commit hooks.

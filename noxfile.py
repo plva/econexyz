@@ -76,6 +76,19 @@ def security(session: nox.Session) -> None:
         )
 
 
+@nox_uv.session(uv_groups=["dev", "docs"])
+def docs(session: nox.Session) -> None:
+    """Build the documentation."""
+    session.run(
+        "sphinx-build",
+        "-M",
+        "html",
+        "docs",
+        "docs/_build",
+        external=True,
+    )
+
+
 @nox_uv.session(uv_groups=["dev"])
 def secrets(session: nox.Session) -> None:
     """Run gitleaks secret scanning."""
