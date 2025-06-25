@@ -79,7 +79,8 @@ Secrets are blocked by Gitleaks. False positives? Add an allow-rule to
 `.gitleaks.toml` with a justification.
 
 Every push and pull request runs a `secret-scan` job in CI to ensure no leaks
-land in the repository. The test job will only run after this check passes.
+land in the repository. This step uses the automatically created `GITHUB_TOKEN`
+to comment on pull requests and must pass before the test job runs.
 
 Local scan command:
 
