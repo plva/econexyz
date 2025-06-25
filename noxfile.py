@@ -1,7 +1,14 @@
 import nox
 import nox_uv
 
-nox.options.sessions = ["tests", "lint", "types", "api-contract", "security"]
+nox.options.sessions = [
+    "tests",
+    "lint",
+    "types",
+    "api-contract",
+    "security",
+    "adr_lint",
+]
 nox.options.default_venv_backend = "uv"
 
 
@@ -87,6 +94,12 @@ def docs(session: nox.Session) -> None:
         "docs/_build",
         external=True,
     )
+
+
+@nox_uv.session(uv_groups=["dev"])
+def adr_lint(session: nox.Session) -> None:
+    """Validate ADR numbering and index references."""
+    session.run("python", "scripts/adr_lint.py", external=True)
 
 
 @nox_uv.session(uv_groups=["dev"])

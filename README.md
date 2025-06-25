@@ -117,7 +117,12 @@ See [ADR 0043](docs/adr/0043-code-surface-govern-cadence.md) for our Code → Su
 Create a new entry with:
 
 ```bash
-adr-new "Use Read the Docs for hosting"
+just adr-new "Use Read the Docs for hosting"
+```
+Validate all ADRs with:
+
+```bash
+nox -s adr_lint
 ```
 
 ## How to contribute
