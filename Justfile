@@ -120,7 +120,7 @@ ball:
     @echo "🚀 Starting complete build pipeline..."
     @echo ""
     @echo "0️⃣  Bootstrapping environment..."
-    @./bootstrap.sh --yes-hooks || (echo "❌ Bootstrap failed" && exit 1)
+    @./bootstrap.sh || (echo "❌ Bootstrap failed" && exit 1)
     @echo "✅ Bootstrap complete"
     @echo ""
     @echo "1️⃣  Checking dev environment..."

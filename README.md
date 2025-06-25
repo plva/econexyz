@@ -32,14 +32,8 @@ just test    # Run tests
 just lint    # Check code style
 ```
 
-The script creates `.venv` with [uv](https://github.com/astral-sh/uv). It can optionally install git pre-commit hooks.
-When run without flags you'll be asked:
-
-```text
-Install git pre-commit hooks? [y/N]
-```
-
-Use `--yes-hooks` or `--no-hooks` to skip the prompt. Run `./bootstrap.sh --help` for all options.
+The script creates `.venv` with [uv](https://github.com/astral-sh/uv) and automatically installs git pre-commit hooks.
+Use `--no-hooks` to skip hook installation. Run `./bootstrap.sh --help` for all options.
 
 > Run `just test` or `just lint` for quick local testing.
 > Multi-Python support will be enabled once CI is wired.

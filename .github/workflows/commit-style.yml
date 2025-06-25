@@ -16,11 +16,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install commitizen
-        run: pip install commitizen
-      - name: Commitizen check
+      - name: Run bootstrap for commit checks
         run: |
-          cz check --rev-range ${{ github.event.pull_request.base.sha }}..${{ github.sha }}
+          ./bootstrap.sh --no-hooks cz check --rev-range ${{ github.event.pull_request.base.sha }}..${{ github.sha }}
       - name: Commitlint (header ≤52 chars etc.)
         uses: wagoid/commitlint-github-action@v5
         with:

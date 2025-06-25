@@ -8,7 +8,6 @@ Usage: ./bootstrap.sh [ARGS...]
 Bootstraps the project using a local Python virtual environment.
 Additional arguments are executed within the environment.
 
-  --yes-hooks   install git pre-commit hooks without prompting
   --no-hooks    skip git pre-commit hook installation
 
 Examples:
@@ -19,11 +18,10 @@ USAGE
 
 
 # Parse arguments for hook installation flags
-install_hooks=""
+install_hooks="yes"
 args=()
 for arg in "$@"; do
   case "$arg" in
-    --yes-hooks) install_hooks="yes" ;;
     --no-hooks) install_hooks="no" ;;
     --help)
       usage
@@ -106,16 +104,7 @@ EOF
   echo "✅ Commit-msg hook installed"
 fi
 
-# Optionally install pre-commit hooks
-if [ -z "$install_hooks" ]; then
-  read -r -p "Install git pre-commit hooks? [y/N] " reply
-  if [[ $reply =~ ^[Yy] ]]; then
-    install_hooks="yes"
-  else
-    install_hooks="no"
-  fi
-fi
-
+# Install pre-commit hooks unless skipped
 if [ "$install_hooks" = "yes" ]; then
   if ! command -v pre-commit >/dev/null 2>&1; then
     uv pip install pre-commit
