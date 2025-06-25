@@ -38,7 +38,8 @@ The script creates `.venv` with [uv](https://github.com/astral-sh/uv) and automa
 Use `--no-hooks` to skip hook installation. Run `./bootstrap.sh --help` for all options.
 
 > Run `just test` or `just lint` for quick local testing.
-> Multi-Python support will be enabled once CI is wired.
+> Use `nox -s tests` to run tests on your current Python version.
+> Use `nox -s tests -p 3.11` to run against a specific version.
 > Edit `api/openapi.yaml`; run `nox -s api-contract` to fuzz the API with Schemathesis.
 
 ## Repository variables
