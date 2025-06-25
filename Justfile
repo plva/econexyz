@@ -103,6 +103,10 @@ bump:
 new-agent name slug:
     @echo "new-agent name={{name}} slug={{slug}} \u2192 TODO (will scaffold agent template)"
 
+# Architecture Decision Records
+adr-new title:
+    @scripts/adr-new "{{title}}"
+
 # Export SDL
 # Generate GraphQL schema
 export-sdl:

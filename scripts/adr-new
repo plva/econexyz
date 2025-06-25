@@ -5,9 +5,14 @@ set -euo pipefail
 adr_dir="docs/adr"
 last_num=$(ls "$adr_dir" | grep -E '^[0-9]{4}-.+\.md$' | sort | tail -n 1 | cut -d'-' -f1)
 next_num=$(printf "%04d" $((10#$last_num + 1)))
-slug="$(echo "$*" | tr 'A-Z ' 'a-z-' | tr -cd 'a-z0-9-')"
+
+title="$*"
+slug="$(echo "$title" | tr 'A-Z ' 'a-z-' | tr -cd 'a-z0-9-')"
 file="$adr_dir/${next_num}-${slug}.md"
 
-sed "s/{ADR-ID}/${next_num}/" "$adr_dir/_template.md" > "$file"
+sed -e "s/{ADR-ID}/${next_num}/" \
+    -e "s/{Title}/${title}/" \
+    -e "s/Proposed | Accepted | Superseded by …/**Proposed**/" \
+    "$adr_dir/_template.md" > "$file"
 
 echo "Created $file"
