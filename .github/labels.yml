@@ -1,0 +1,19 @@
+labels:
+  - name: bug
+    color: d73a4a
+    description: Bug report
+  - name: feature
+    color: a2eeef
+    description: New feature or enhancement
+  - name: question
+    color: d876e3
+    description: Further clarification needed
+  - name: risk:high
+    color: b60205
+    description: High risk changes
+  - name: risk:medium
+    color: fbca04
+    description: Medium risk changes
+  - name: risk:low
+    color: 0e8a16
+    description: Low risk changes
